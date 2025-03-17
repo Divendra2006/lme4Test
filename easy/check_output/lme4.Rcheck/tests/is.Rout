@@ -1,0 +1,52 @@
+
+R version 4.4.3 (2025-02-28) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> if (.Platform$OS.type != "windows") {
++     library(lme4)
++     fm1 <- lmer(Reaction ~ Days + (Days|Subject), sleepstudy)
++     stopifnot(isREML(fm1),
++               isLMM(fm1),
++               !isGLMM(fm1),
++               !isNLMM(fm1))
++ 
++     fm1ML <- refitML(fm1)
++     stopifnot(!isREML(fm1ML),
++               isLMM(fm1ML),
++               !isGLMM(fm1ML),
++               !isNLMM(fm1ML))
++ 
++     gm1 <- glmer(cbind(incidence, size - incidence) ~ period + (1 | herd),
++                  data = cbpp, family = binomial)
++     stopifnot(!isREML(gm1),
++               !isLMM(gm1),
++               isGLMM(gm1),
++               !isNLMM(gm1))
++ 
++     nm1 <- nlmer(circumference ~ SSlogis(age, Asym, xmid, scal) ~ Asym|Tree,
++                  Orange, start = c(Asym = 200, xmid = 725, scal = 350))
++     stopifnot(!isREML(nm1),
++               !isLMM(nm1),
++               !isGLMM(nm1),
++               isNLMM(nm1))
++ 
++ 
++ } ## skip on windows (for speed)
+Loading required package: Matrix
+> 
+> proc.time()
+   user  system elapsed 
+  0.996   0.061   1.051 

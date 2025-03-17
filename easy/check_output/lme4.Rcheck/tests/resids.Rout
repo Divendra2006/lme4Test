@@ -1,0 +1,44 @@
+
+R version 4.4.3 (2025-02-28) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library(lme4)
+Loading required package: Matrix
+> 
+> ## raw residuals for LMMs
+> fm1 <- lmer(Reaction ~ Days + (Days|Subject), sleepstudy)
+> stopifnot(all.equal(residuals(fm1),sleepstudy$Reaction-fitted(fm1)))
+> 
+> r1 <- residuals(fm1,type="pearson")
+> 
+> ## deviance/Pearson residuals for GLMMs
+> gm1 <- glmer(cbind(incidence, size - incidence) ~ period + (1 | herd),
++              family = binomial, data = cbpp)
+> p <- fitted(gm1)
+> n <- cbpp$size
+> v <- n*p*(1-p)
+> obs_p <- cbpp$incidence/cbpp$size
+> rp <- residuals(gm1,"pearson")
+> rp1 <- (obs_p-p)/sqrt(p*(1-p))
+> rp2 <- rp1*n
+> ## FIXME:: restore this test
+> ## stopifnot(all.equal(rp,rp2))
+> 
+> r2 <- residuals(gm1,type="deviance")
+> 
+> proc.time()
+   user  system elapsed 
+  0.897   0.060   0.952 

@@ -1,0 +1,84 @@
+
+R version 4.4.3 (2025-02-28) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> if (.Platform$OS.type != "windows") withAutoprint({
++ 
++     library(lme4)
++     source(system.file("testdata", "lme-tst-funs.R", package="lme4", mustWork=TRUE))# -> unn()
++ 
++     m <- lmer(Reaction ~ Days + (Days | Subject), sleepstudy)
++     bruteForceHat <- function(object) {
++         with(getME(object, c("Lambdat", "Lambda", "Zt", "Z", "q", "X")), {
++             ## cp:= the cross product block matrix in (17) and (18):
++             W <- Diagonal(x = weights(object))
++             I <- Diagonal(q)
++             A.21 <- t(X) %*% W %*% Z %*% Lambda
++             cp <- rbind(cbind(Lambdat %*% Zt %*% W %*% Z %*% Lambda + I, t(A.21)),
++                         cbind(A.21, t(X) %*% W %*% X))
++             mm <- cbind(Z %*% Lambda, X)
++             ## a bit efficient: both cp and mm are typically quite sparse
++             ## mm %*% solve(as.matrix(cp)) %*% t(mm)
++             mm %*% solve(cp, t(mm), sparse=FALSE)
++         })
++     }
++ 
++ 
++     str(H <- bruteForceHat(m))
++ 
++     set.seed(7)
++     ii <- sample(nrow(sleepstudy), 500, replace=TRUE)
++     m2 <- lmer(Reaction ~ Days + (Days | Subject), sleepstudy[ii, ])
++ 
++     
++     stopifnot(all.equal(diag(H),
++                         unn(hatvalues(m)),  tol= 1e-14),
++               all.equal(diag(bruteForceHat(m2)),
++                         unn(hatvalues(m2)), tol= 1e-14)
++               )
++ }) ## skip on windows (for speed)
+> library(lme4)
+Loading required package: Matrix
+> source(system.file("testdata", "lme-tst-funs.R", package = "lme4", mustWork = TRUE))
+> m <- lmer(Reaction ~ Days + (Days | Subject), sleepstudy)
+> bruteForceHat <- function(object) {
++     with(getME(object, c("Lambdat", "Lambda", "Zt", "Z", "q", "X")), {
++         W <- Diagonal(x = weights(object))
++         I <- Diagonal(q)
++         A.21 <- t(X) %*% W %*% Z %*% Lambda
++         cp <- rbind(cbind(Lambdat %*% Zt %*% W %*% Z %*% Lambda + I, t(A.21)), cbind(A.21, 
++             t(X) %*% W %*% X))
++         mm <- cbind(Z %*% Lambda, X)
++         mm %*% solve(cp, t(mm), sparse = FALSE)
++     })
++ }
+> str(H <- bruteForceHat(m))
+Formal class 'dgeMatrix' [package "Matrix"] with 4 slots
+  ..@ Dim     : int [1:2] 180 180
+  ..@ Dimnames:List of 2
+  .. ..$ : chr [1:180] "1" "2" "3" "4" ...
+  .. ..$ : chr [1:180] "1" "2" "3" "4" ...
+  ..@ x       : num [1:32400] 0.2293 0.1954 0.1614 0.1274 0.0935 ...
+  ..@ factors : list()
+> set.seed(7)
+> ii <- sample(nrow(sleepstudy), 500, replace = TRUE)
+> m2 <- lmer(Reaction ~ Days + (Days | Subject), sleepstudy[ii, ])
+> stopifnot(all.equal(diag(H), unn(hatvalues(m)), tol = 1e-14), all.equal(diag(bruteForceHat(m2)), 
++     unn(hatvalues(m2)), tol = 1e-14))
+> 
+> proc.time()
+   user  system elapsed 
+  0.912   0.070   0.981 

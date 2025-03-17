@@ -1,0 +1,30 @@
+
+R version 4.4.3 (2025-02-28) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> if (.Platform$OS.type != "windows") {
++     ## see if we can still run lme4 functions when lme4 is not attached
++     if ("package:lme4" %in% search()) detach("package:lme4")
++     data(sleepstudy,package="lme4")
++     data(cbpp,package="lme4")
++     fm1 <- lme4::lmer(Reaction ~ Days + (Days|Subject), sleepstudy)
++     gm1 <- lme4::glmer(cbind(incidence, size - incidence) ~ period + (1 | herd),
++                        data = cbpp, family = binomial)
++ } ## skip on windows (for speed)
+> 
+> proc.time()
+   user  system elapsed 
+  0.893   0.065   0.953 

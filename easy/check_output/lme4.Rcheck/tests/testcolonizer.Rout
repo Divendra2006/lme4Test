@@ -1,0 +1,47 @@
+
+R version 4.4.3 (2025-02-28) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ## library(lme4.0)
+> ## Emacs M-<Enter> --> setwd() correctly
+> 
+> ## m0.0 <- glm(colonizers~Treatment*homespecies*respspecies, data=randdat, family=poisson)
+> ## with(randdat,tapply(colonizers,list(Treatment,homespecies,respspecies),sum))
+> ## summary(m1.0 <- glmer(form1, data=randdat, family=poisson))
+> ## summary(m2.0 <- glmer(form2, data=randdat, family=poisson))
+> 
+> 
+> ## detach("package:lme4.0", unload=TRUE)
+> 
+> load(system.file("testdata","colonizer_rand.rda",package="lme4"))
+> library("lme4")
+Loading required package: Matrix
+> packageVersion("lme4")
+[1] '1.1.37'
+> 
+> if (.Platform$OS.type != "windows") {
++ m1 <- glmer(form1,data=randdat, family=poisson)  ## PIRLS step failed
++ m2 <- glmer(form1,data=randdat, family=poisson, nAGQ=0)  ## OK
++ m3 <- glmer(form2,data=randdat, family=poisson)  ## ditto
++ 
++ } ## skip on windows (for speed)
+boundary (singular) fit: see help('isSingular')
+boundary (singular) fit: see help('isSingular')
+boundary (singular) fit: see help('isSingular')
+> 
+> proc.time()
+   user  system elapsed 
+  0.999   0.060   1.054 

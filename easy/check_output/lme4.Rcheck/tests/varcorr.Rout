@@ -1,0 +1,47 @@
+
+R version 4.4.3 (2025-02-28) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library(lme4)
+Loading required package: Matrix
+> 
+> if (.Platform$OS.type != "windows") {
++ data(Orthodont, package="nlme")
++ fm1 <- lmer(distance ~ age + (age|Subject), data = Orthodont)
++ VarCorr(fm1)
++ 
++ fm2ML <- lmer(diameter ~ 1 + (1|plate) + (1|sample), Penicillin, REML=0)
++ VarCorr(fm2ML)
++ 
++ gm1 <- glmer(cbind(incidence,size-incidence) ~ period + (1|herd),data=cbpp,
++              family=binomial)
++ VarCorr(gm1)
++ 
++ cbpp$obs <- factor(seq(nrow(cbpp)))
++ gm2 <- update(gm1,.~.+(1|obs))
++ VarCorr(gm2)
++ 
++ if (FALSE) {
++   ## testing lme4/lme4 incompatibility
++ ##  library(lme4)
++   VarCorr(fm1)
++   lme4:::VarCorr.merMod(fm1) ## OK
++ }
++ } ## skip on windows (for speed)
+> 
+> proc.time()
+   user  system elapsed 
+  1.046   0.073   1.114 

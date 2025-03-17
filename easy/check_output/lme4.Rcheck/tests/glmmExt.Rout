@@ -1,0 +1,314 @@
+
+R version 4.4.3 (2025-02-28) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ## Tests of a variety of GLMM families and links
+> ## coding: family {g=Gamma, P=Poisson, G=Gaussian, B=binomial}
+> ##         link   {l=log, i=inverse, c=cloglog, i=identity}
+> ##         model  {1 = intercept-only, 2 = with continuous predictor}
+> 
+> library("lme4")
+Loading required package: Matrix
+> 
+> source(system.file("testdata/lme-tst-funs.R", package="lme4", mustWork=TRUE))
+> ##-> gSim(), a general simulation function ...
+> 
+> str(gSim)
+function (nblk = 26, nperblk = 100, sigma_B = 1, beta = c(4, 3), x = runif(n), 
+    shape = 2, nbinom = 10, sd = 1, dInitial = NULL, family = Gamma())  
+> ## function (nblk = 26, nperblk = 100, sigma = 1, beta = c(4, 3),
+> ##           x = runif(n), shape = 2, nbinom = 10, family = Gamma())
+> 
+> if (.Platform$OS.type != "windows") withAutoprint({
++ set.seed(101)
++ ## Gamma, inverse link (= default) :
++ d <- gSim()
++ ## Gamma, log link   eta = log(mu) :
++ dgl <- gSim(dInitial = d, family = Gamma(link = log))
++ ## Poisson, log link
++ dP <- gSim(dInitial = d, family = poisson())
++ ##  Gaussian, log link --- need to use a non-identity link, otherwise glmer calls lmer
++ dG <- gSim(dInitial = d, family = gaussian(link = log), sd = 2)
++ ## Gaussian with inverse link :     (sd small enough to avoid negative values) :
++ dGi <- gSim(dInitial = d, family = gaussian(link = inverse), sd = 0.01)
++ ## binomial with cloglog link
++ dBc <- d
++ dBc$eta <- d$eta - 5 # <==> beta intercept 5 less: otherwise  y will be constant
++ dBc <- gSim(dInitial = dBc, ## beta = c(-1, 3),
++             nbinom = 1, family = binomial(link="cloglog"))
++ 
++ ## binomial with identity link
++ dBi <- d
++ dBc$eta <- d$eta / 10 # <==> beta slope / 10 : scale so range goes from 0.2-0.8
++ dBi <- gSim(dInitial = dBc, ## beta = c(4, 3/10),
++             nbinom = 1, family = binomial(link="identity"))
++ 
++ 
++ ############
++ ## Gamma/inverse
++ 
++ ## GLMs
++ gm0 <- glm(y ~ 1,       data=d, family=Gamma)
++ gm1 <- glm(y ~ block-1, data=d, family=Gamma)
++ stopifnot(all.equal(sd(coef(gm1)),1.00753942148611))
++ 
++ gm2  <- glmer(y ~ 1 + (1|block), d, Gamma, nAGQ=0)
++ gm3  <- glmer(y ~ x + (1|block), d, Gamma, nAGQ=0)
++ gm2B <- glmer(y ~ 1 + (1|block), d, Gamma)
++ gm3B <- glmer(y ~ x + (1|block), d, Gamma)
++ 
++ ##   y ~ x + (1|block),  Gamma   is TRUE model
++ summary(gm3)
++ summary(gm3B)# should be better
++ ## Both have "correct" beta ~= (4, 3)  -- but *too* small  (sigma_B, sigma) !!
++ stopifnot(exprs = {
++     all.equal(fixef(gm3 ), c(`(Intercept)` = 4.07253, x = 3.080585), tol = 1e-5) # 1.21e-7
++     all.equal(fixef(gm3B), c(`(Intercept)` = 4.159398, x = 3.058521),tol = 1e-5) # 1.13e-7
++ })
++ VarCorr(gm3)  # both variances / std.dev. should be ~ 1  but are too small
++ 
++ 
++ 
++ ##
++ ## library(hglm)
++ ## h1 <- hglm2(y~x+(1|block), data=d, family=Gamma())
++ ## lme4.0 fails on all of these ...
++ 
++ ## Gamma/log
++ ggl1 <- glmer(y ~ 1 + (1|block), data=dgl, family=Gamma(link="log"))
++ ggl2 <- glmer(y ~ x + (1|block), data=dgl, family=Gamma(link="log"))# true model
++ (h.1.2 <- anova(ggl1, ggl2))
++ stopifnot(
++     all.equal(unlist(h.1.2[2,]),
++               c(npar = 4, AIC = 34216.014, BIC = 34239.467, logLik = -17104.007,
++                 deviance = 34208.014, Chisq = 2458.5792, Df = 1, `Pr(>Chisq)` = 0))
++ )
++ ## "true" model :
++ summary(ggl2)
++ VarCorr(ggl2)
++ 
++ ##
++ ## library(lme4.0)
++ ## ggl1 <- glmer(y ~ 1 + (1|block), data=dgl, family=Gamma(link="log"), verbose= 2)
++ ## fails
++ 
++ ## Poisson/log
++ gP1 <- glmer(y ~ 1 + (1|block), data=dP, family=poisson)
++ gP2 <- glmer(y ~ x + (1|block), data=dP, family=poisson)
++ 
++ ## Gaussian/log
++ gG1 <- glmer(y ~ 1 + (1|block), data=dG, family=gaussian(link="log"))
++ gG2 <- glmer(y ~ x + (1|block), data=dG, family=gaussian(link="log"))
++ 
++ ## works with lme4.0 but AIC/BIC/logLik are crazy, and scale
++ ## parameter is not reported
++ ## glmmML etc. doesn't allow models with scale parameters
++ ## gG1B <- glmmadmb(y ~ 1 + (1|block), data=dG,
++ ##                  family="gaussian",link="log",verbose=TRUE)
++ ## what is the best guess at the estimate of the scale parameter?
++ ## is it the same as sigma?
++ ## gG1B$alpha
++ 
++ ## if(Sys.info()["user"] != "maechler") { # <- seg.faults (MM)
++ 
++ ## Gaussian/inverse
++ gGi1 <- glmer(y ~ 1 + (1|block), data=dGi, family=gaussian(link="inverse"))
++ gGi2 <- glmer(y ~ x + (1|block), data=dGi, family=gaussian(link="inverse"))
++ 
++ 
++ ## Binomial/cloglog
++ gBc1 <- glmer(y ~ 1 + (1|block), data=dBc, family=binomial(link="cloglog"))
++ gBc2 <- glmer(y ~ x + (1|block), data=dBc, family=binomial(link="cloglog"))
++ ## library("glmmADMB")
++ ## glmmadmbfit <- glmmadmb(y ~ x + (1|block), data=dBc,
++ ## family="binomial",link="cloglog")
++ glmmadmbfit <- list(fixef = c("(Intercept)" = -0.717146132730349, x =2.83642900561633),
++                     VarCorr = structure(list(
++                         block = structure(0.79992, .Dim = c(1L, 1L),
++                                           .Dimnames = list("(Intercept)", "(Intercept)"))),
++                         class = "VarCorr"))
++ stopifnot(all.equal(fixef(gBc2), glmmadmbfit$fixef, tolerance=5e-3))
++ ## pretty loose tolerance ...
++ stopifnot(all.equal(unname(unlist(VarCorr(gBc2))),
++                     c(glmmadmbfit$VarCorr$block), tolerance=2e-2))
++ 
++ gBi1 <- glmer(y ~ 1 + (1|block), data=dBi, family=binomial(link="identity"))
++ gBi2 <- glmer(y ~ x + (1|block), data=dBi, family=binomial(link="identity"))
++ 
++ ## FIXME: should test more of the *results* of these efforts, not
++ ##  just that they run without crashing ...
++ }) ## skip on windows (for speed)
+> set.seed(101)
+> d <- gSim()
+> dgl <- gSim(dInitial = d, family = Gamma(link = log))
+> dP <- gSim(dInitial = d, family = poisson())
+> dG <- gSim(dInitial = d, family = gaussian(link = log), sd = 2)
+> dGi <- gSim(dInitial = d, family = gaussian(link = inverse), sd = 0.01)
+> dBc <- d
+> dBc$eta <- d$eta - 5
+> dBc <- gSim(dInitial = dBc, nbinom = 1, family = binomial(link = "cloglog"))
+> dBi <- d
+> dBc$eta <- d$eta/10
+> dBi <- gSim(dInitial = dBc, nbinom = 1, family = binomial(link = "identity"))
+> gm0 <- glm(y ~ 1, data = d, family = Gamma)
+> gm1 <- glm(y ~ block - 1, data = d, family = Gamma)
+> stopifnot(all.equal(sd(coef(gm1)), 1.00753942148611))
+> gm2 <- glmer(y ~ 1 + (1 | block), d, Gamma, nAGQ = 0)
+> gm3 <- glmer(y ~ x + (1 | block), d, Gamma, nAGQ = 0)
+> gm2B <- glmer(y ~ 1 + (1 | block), d, Gamma)
+> gm3B <- glmer(y ~ x + (1 | block), d, Gamma)
+> summary(gm3)
+Generalized linear mixed model fit by maximum likelihood (Adaptive
+  Gauss-Hermite Quadrature, nAGQ = 0) [glmerMod]
+ Family: Gamma  ( inverse )
+Formula: y ~ x + (1 | block)
+   Data: d
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+  -4243.7   -4220.3    2125.9   -4251.7      2596 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-1.4253 -0.7327 -0.2273  0.4677  5.8018 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ block    (Intercept) 0.5301   0.7281  
+ Residual             0.4804   0.6931  
+Number of obs: 2600, groups:  block, 26
+
+Fixed effects:
+            Estimate Std. Error t value Pr(>|z|)    
+(Intercept)   4.0725     0.1895   21.49   <2e-16 ***
+x             3.0806     0.2491   12.37   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+  (Intr)
+x -0.531
+> summary(gm3B)
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: Gamma  ( inverse )
+Formula: y ~ x + (1 | block)
+   Data: d
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+  -4243.9   -4220.4    2125.9   -4251.9      2596 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-1.4213 -0.7290 -0.2248  0.4725  5.7931 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ block    (Intercept) 0.530    0.728   
+ Residual             0.483    0.695   
+Number of obs: 2600, groups:  block, 26
+
+Fixed effects:
+            Estimate Std. Error t value Pr(>|z|)    
+(Intercept)   4.1594     0.2325   17.89   <2e-16 ***
+x             3.0585     0.2481   12.33   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+  (Intr)
+x -0.432
+> stopifnot(exprs = {
++     all.equal(fixef(gm3), c(`(Intercept)` = 4.07253, x = 3.080585), tol = 1e-05)
++     all.equal(fixef(gm3B), c(`(Intercept)` = 4.159398, x = 3.058521), tol = 1e-05)
++ })
+> VarCorr(gm3)
+ Groups   Name        Std.Dev.
+ block    (Intercept) 0.72811 
+ Residual             0.69311 
+> ggl1 <- glmer(y ~ 1 + (1 | block), data = dgl, family = Gamma(link = "log"))
+> ggl2 <- glmer(y ~ x + (1 | block), data = dgl, family = Gamma(link = "log"))
+> (h.1.2 <- anova(ggl1, ggl2))
+Data: dgl
+Models:
+ggl1: y ~ 1 + (1 | block)
+ggl2: y ~ x + (1 | block)
+     npar   AIC   BIC logLik deviance  Chisq Df Pr(>Chisq)    
+ggl1    3 36673 36690 -18333    36667                         
+ggl2    4 34216 34239 -17104    34208 2458.6  1  < 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> stopifnot(all.equal(unlist(h.1.2[2, ]), c(npar = 4, AIC = 34216.014, BIC = 34239.467, 
++     logLik = -17104.007, deviance = 34208.014, Chisq = 2458.5792, Df = 1, `Pr(>Chisq)` = 0)))
+> summary(ggl2)
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: Gamma  ( log )
+Formula: y ~ x + (1 | block)
+   Data: dgl
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+  34216.0   34239.5  -17104.0   34208.0      2596 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-1.4203 -0.7299 -0.2377  0.5233  5.0699 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ block    (Intercept) 0.3990   0.6316  
+ Residual             0.4888   0.6991  
+Number of obs: 2600, groups:  block, 26
+
+Fixed effects:
+            Estimate Std. Error t value Pr(>|z|)    
+(Intercept)   4.1752     0.1787   23.36   <2e-16 ***
+x             2.9959     0.0475   63.07   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+  (Intr)
+x -0.133
+> VarCorr(ggl2)
+ Groups   Name        Std.Dev.
+ block    (Intercept) 0.63164 
+ Residual             0.69912 
+> gP1 <- glmer(y ~ 1 + (1 | block), data = dP, family = poisson)
+> gP2 <- glmer(y ~ x + (1 | block), data = dP, family = poisson)
+> gG1 <- glmer(y ~ 1 + (1 | block), data = dG, family = gaussian(link = "log"))
+> gG2 <- glmer(y ~ x + (1 | block), data = dG, family = gaussian(link = "log"))
+> gGi1 <- glmer(y ~ 1 + (1 | block), data = dGi, family = gaussian(link = "inverse"))
+> gGi2 <- glmer(y ~ x + (1 | block), data = dGi, family = gaussian(link = "inverse"))
+> gBc1 <- glmer(y ~ 1 + (1 | block), data = dBc, family = binomial(link = "cloglog"))
+> gBc2 <- glmer(y ~ x + (1 | block), data = dBc, family = binomial(link = "cloglog"))
+> glmmadmbfit <- list(fixef = c(`(Intercept)` = -0.717146132730349, x = 2.83642900561633), 
++     VarCorr = structure(list(block = structure(0.79992, .Dim = c(1L, 1L), .Dimnames = list("(Intercept)", 
++         "(Intercept)"))), class = "VarCorr"))
+> stopifnot(all.equal(fixef(gBc2), glmmadmbfit$fixef, tolerance = 0.005))
+> stopifnot(all.equal(unname(unlist(VarCorr(gBc2))), c(glmmadmbfit$VarCorr$block), 
++     tolerance = 0.02))
+> gBi1 <- glmer(y ~ 1 + (1 | block), data = dBi, family = binomial(link = "identity"))
+> gBi2 <- glmer(y ~ x + (1 | block), data = dBi, family = binomial(link = "identity"))
+Warning messages:
+1: In checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv,  :
+  Model is nearly unidentifiable: very large eigenvalue
+ - Rescale variables?
+2: In checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv,  :
+  Model failed to converge with max|grad| = 0.0164645 (tol = 0.002, component 1)
+> 
+> proc.time()
+   user  system elapsed 
+  2.856   0.080   2.931 

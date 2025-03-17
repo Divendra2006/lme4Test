@@ -1,0 +1,135 @@
+
+R version 4.4.3 (2025-02-28) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> stopifnot(suppressPackageStartupMessages(require(lme4)))
+> 
+> ## Using simple generated data -- fully balanced here, unbalanced later
+> set.seed(1)
+> dat <- within(data.frame(lagoon = factor(rep(1:4, each = 25)),
++                          habitat = factor(rep(1:20, each = 5))),
++           {   ## a simple  lagoon effect but no random effect
++               y <- round(10*rnorm(100, m = 10*as.numeric(lagoon)))
++               ## Here, *with* an RE, sigma_a = 100
++               RE <- rep(round(rnorm(nlevels(habitat), sd = 100)), each = 5)
++               y2 <- y + RE
++           })
+> 
+> ## FIXME:   want  lmer(* , sparseX = TRUE )  {as in lme4a}
+> if (FALSE) {                            # need to adapt to new structure
++ 
++ ##' <description>
++ ##'
++ ##' <details>
++ ##' @title Comparing the different versions of lmer() for same data & model
++ ##' @param form
++ ##' @param data
++ ##' @param verbose
++ ##' @return
++ chkLmers <- function(form, data, verbose = FALSE,
++                      tol = 200e-7) # had tol = 7e-7 working ..
++ {
++ #    m   <- lmer1(form, data = data)  # ok, and more clear
++ #    m.  <- lmer1(form, data = data, sparseX = TRUE, verbose = verbose)
++     m2  <- lmer (form, data = data, verbose = verbose) # lmem-dense
++     m2. <- lmer (form, data = data, sparseX = TRUE, verbose = verbose)
++     ##
++     Eq <- function(x,y) all.equal(x,y, tolerance = tol)
++     stopifnot(## Compare  sparse & dense of the new class results
++               identical(slotNames(m2), slotNames(m2.))
++               ,
++               identical(slotNames(m2@fe), slotNames(m2.@fe))
++               ,
++               Eq(m2@resp, m2.@resp)
++               ,
++               Eq(m2@re, m2.@re)
++               ,
++               Eq(m2@fe@coef, m2.@fe@coef)
++               ,
++               ## and now compare with the "old" (class 'mer')
++ #              Eq(unname(fixef(m)), m2@fe@beta)
++ #              ,
++ #              Eq(unname(fixef(m.)), m2.@fe@beta)
++ #              ,
++               ## to do
++               ## all.equal(ranef(m)), m2@re)
++               ## all.equal(ranef(m.)), m2.@re)
++               TRUE)
++     invisible(list(#m=m, m.=m.,
++                    m2 = m2, m2. = m2.))
++ }
++ 
++ chk1 <- chkLmers(y  ~ 0+lagoon + (1|habitat), data = dat, verbose = TRUE)
++ chk2 <- chkLmers(y2 ~ 0+lagoon + (1|habitat), data = dat, verbose = TRUE)
++ chk1$m2  ## show( lmer() ) -- sigma_a == 0
++ chk2$m2. ## show( lmer( <sparseX>) ) --
++ 
++ n <- nrow(dat)
++ for(i in 1:20) {
++     iOut <- sort(sample(n, 1+rpois(1, 3), replace=FALSE))
++     cat(i,":  w/o ", paste(iOut, collapse=", ")," ")
++     chkLmers(y  ~ 0+lagoon + (1|habitat), data = dat[- iOut,])
++     chkLmers(y2 ~   lagoon + (1|habitat), data = dat[- iOut,])
++     cat("\n")
++ }
++ 
++ ## One (rare) example where the default tolerance is not sufficient:
++ dat. <- dat[- c(14, 34, 66, 67, 71, 88),]
++ try( chkLmers(y ~ 0+lagoon + (1|habitat), data = dat.) )
++ ## Error: Eq(unname(fixef(m)), m2@fe@beta) is not TRUE
++ ##
++ ## but higher tolerance works:
++ chkLmers(y ~ 0+lagoon + (1|habitat), data = dat., tol = 2e-4, verbose=TRUE)
++ 
++ }
+> proc.time()
+   user  system elapsed 
+  0.752   0.066   0.813 
+> sessionInfo()
+R version 4.4.3 (2025-02-28)
+Platform: x86_64-pc-linux-gnu
+Running under: Ubuntu 24.04.2 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=C              
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Asia/Kolkata
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] lme4_1.1-37  Matrix_1.7-3
+
+loaded via a namespace (and not attached):
+ [1] minqa_1.2.8      MASS_7.3-65      compiler_4.4.3   reformulas_0.4.0
+ [5] tools_4.4.3      Rcpp_1.0.14      splines_4.4.3    nlme_3.1-167    
+ [9] grid_4.4.3       rbibutils_2.3    nloptr_2.2.1     boot_1.3-31     
+[13] Rdpack_2.6.3     lattice_0.22-6  
+> 
+> proc.time()
+   user  system elapsed 
+  0.756   0.070   0.866 

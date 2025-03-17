@@ -1,0 +1,157 @@
+
+R version 4.4.3 (2025-02-28) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> if (.Platform$OS.type != "windows") withAutoprint({
++     library(lme4)
++ 
++     fm1 <- lmer(Reaction ~ Days + (Days|Subject), sleepstudy)
++ 
++     ## slightly weird model but plausible --- not that
++     ##   one would want to try drop1() on this model ...
++     fm2 <- lmer(Reaction ~ 1+ (Days|Subject), sleepstudy)
++     drop1(fm2)  ## empty
++     update(fm1, . ~ . - Days)
++     anova(fm2) ## empty
++ 
++     terms(fm1)
++     terms(fm1,fixed.only=FALSE)
++ 
++     extractAIC(fm1)
++ 
++     drop1(fm1)
++     drop1(fm1, test="Chisq")
++ 
++     gm1 <- glmer(cbind(incidence, size - incidence) ~ period + (1 | herd),
++                  family = binomial, data = cbpp, nAGQ=25L)
++ 
++     drop1(gm1, test="Chisq")
++ 
++ }) ## skip on windows (for speed)
+> library(lme4)
+Loading required package: Matrix
+> fm1 <- lmer(Reaction ~ Days + (Days | Subject), sleepstudy)
+> fm2 <- lmer(Reaction ~ 1 + (Days | Subject), sleepstudy)
+> drop1(fm2)
+Single term deletions
+
+Model:
+Reaction ~ 1 + (Days | Subject)
+  npar    AIC
+1      1785.5
+> update(fm1, . ~ . - Days)
+Linear mixed model fit by REML ['lmerMod']
+Formula: Reaction ~ (Days | Subject)
+   Data: sleepstudy
+REML criterion at convergence: 1769.845
+Random effects:
+ Groups   Name        Std.Dev. Corr 
+ Subject  (Intercept) 25.53         
+          Days        11.93    -0.18
+ Residual             25.59         
+Number of obs: 180, groups:  Subject, 18
+Fixed Effects:
+(Intercept)  
+      257.8  
+> anova(fm2)
+Analysis of Variance Table
+     npar Sum Sq Mean Sq F value
+> terms(fm1)
+Reaction ~ Days
+attr(,"variables")
+list(Reaction, Days)
+attr(,"factors")
+         Days
+Reaction    0
+Days        1
+attr(,"term.labels")
+[1] "Days"
+attr(,"order")
+[1] 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(Reaction, Days)
+> terms(fm1, fixed.only = FALSE)
+Reaction ~ Days + (Days + Subject)
+attr(,"variables")
+list(Reaction, Days, Subject)
+attr(,"factors")
+         Days Subject
+Reaction    0       0
+Days        1       0
+Subject     0       1
+attr(,"term.labels")
+[1] "Days"    "Subject"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(Reaction, Days, Subject)
+attr(,"dataClasses")
+ Reaction      Days   Subject 
+"numeric" "numeric"  "factor" 
+attr(,"predvars.fixed")
+list(Reaction, Days)
+attr(,"varnames.fixed")
+[1] "Reaction" "Days"    
+attr(,"predvars.random")
+list(Reaction, Days, Subject)
+> extractAIC(fm1)
+[1]    6.000 1763.939
+> drop1(fm1)
+Single term deletions
+
+Model:
+Reaction ~ Days + (Days | Subject)
+       npar    AIC
+<none>      1763.9
+Days      1 1785.5
+> drop1(fm1, test = "Chisq")
+Single term deletions
+
+Model:
+Reaction ~ Days + (Days | Subject)
+       npar    AIC    LRT   Pr(Chi)    
+<none>      1763.9                     
+Days      1 1785.5 23.537 1.226e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> gm1 <- glmer(cbind(incidence, size - incidence) ~ period + (1 | herd), 
++     family = binomial, data = cbpp, nAGQ = 25L)
+> drop1(gm1, test = "Chisq")
+Single term deletions
+
+Model:
+cbind(incidence, size - incidence) ~ period + (1 | herd)
+       npar    AIC    LRT   Pr(Chi)    
+<none>      110.01                     
+period    3 129.56 25.551 1.184e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> 
+> proc.time()
+   user  system elapsed 
+  1.101   0.064   1.158 

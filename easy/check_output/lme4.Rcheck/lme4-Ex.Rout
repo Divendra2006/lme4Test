@@ -1,0 +1,4494 @@
+
+R version 4.4.3 (2025-02-28) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "lme4"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> library('lme4')
+Loading required package: Matrix
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("Arabidopsis")
+> ### * Arabidopsis
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: Arabidopsis
+> ### Title: Arabidopsis clipping/fertilization data
+> ### Aliases: Arabidopsis
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> data(Arabidopsis)
+> summary(Arabidopsis[,"total.fruits"])
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.00    2.00   11.00   29.96   42.00  238.00 
+> table(gsub("[0-9].","",levels(Arabidopsis[,"popu"])))
+
+NL SP SW 
+ 2  4  3 
+> library(lattice)
+> stripplot(log(total.fruits+1) ~ amd|nutrient, data = Arabidopsis,
++           groups = gen,
++           strip=strip.custom(strip.names=c(TRUE,TRUE)),
++           type=c('p','a'), ## points and panel-average value --
++           ## see ?panel.xyplot
++           scales=list(x=list(rot=90)),
++           main="Panel: nutrient, Color: genotype")
+> 
+> 
+> 
+> cleanEx()
+
+detaching ‘package:lattice’
+
+> nameEx("Dyestuff")
+> ### * Dyestuff
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: Dyestuff
+> ### Title: Yield of dyestuff by batch
+> ### Aliases: Dyestuff Dyestuff2
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> ## Don't show: 
+>  # useful for the lme4-authors --- development, debugging, etc:
+>  commandArgs()[-1]
+[1] "--vanilla"
+>  if(FALSE) ## R environment variables:
++  local({ ne <- names(e <- Sys.getenv())
++          list(R    = e[grep("^R", ne)],
++               "_R" = e[grep("^_R",ne)]) })
+>  Sys.getenv("R_ENVIRON")
+[1] ""
+>  Sys.getenv("R_PROFILE")
+[1] ""
+>  cat("R_LIBS:\n"); (RL <- strsplit(Sys.getenv("R_LIBS"), ":")[[1]])
+R_LIBS:
+[1] "/home/yadav/lme4/lme4.Rcheck"                 
+[2] "/home/yadav/R/x86_64-pc-linux-gnu-library/4.4"
+[3] "/usr/local/lib/R/site-library"                
+[4] "/usr/lib/R/site-library"                      
+>  nRL <- normalizePath(RL)
+>  cat("and extra(:= not in R_LIBS) .libPaths():\n")
+and extra(:= not in R_LIBS) .libPaths():
+>  .libPaths()[is.na(match(.libPaths(), nRL))]
+[1] "/usr/lib/R/library"
+> 
+>  structure(Sys.info()[c(4,5,1:3)], class="simple.list") #-> 'nodename' ..
+         _                                                               
+nodename divendra-yadav                                                  
+machine  x86_64                                                          
+sysname  Linux                                                           
+release  6.11.0-19-generic                                               
+version  #19~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Feb 17 11:51:52 UTC 2
+>  sessionInfo()
+R version 4.4.3 (2025-02-28)
+Platform: x86_64-pc-linux-gnu
+Running under: Ubuntu 24.04.2 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=C              
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Asia/Kolkata
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] lme4_1.1-37  Matrix_1.7-3
+
+loaded via a namespace (and not attached):
+ [1] minqa_1.2.8      MASS_7.3-65      compiler_4.4.3   reformulas_0.4.0
+ [5] tools_4.4.3      Rcpp_1.0.14      splines_4.4.3    nlme_3.1-167    
+ [9] grid_4.4.3       rbibutils_2.3    nloptr_2.2.1     boot_1.3-31     
+[13] Rdpack_2.6.3     lattice_0.22-6  
+>  searchpaths()
+ [1] ".GlobalEnv"                                          
+ [2] "/home/yadav/lme4/lme4.Rcheck/lme4"                   
+ [3] "/home/yadav/R/x86_64-pc-linux-gnu-library/4.4/Matrix"
+ [4] "CheckExEnv"                                          
+ [5] "/usr/lib/R/library/stats"                            
+ [6] "/usr/lib/R/library/graphics"                         
+ [7] "/usr/lib/R/library/grDevices"                        
+ [8] "/usr/lib/R/library/utils"                            
+ [9] "/usr/lib/R/library/datasets"                         
+[10] "/usr/lib/R/library/methods"                          
+[11] "Autoloads"                                           
+[12] "/usr/lib/R/library/base"                             
+>  pkgI <- function(pkgname) {
++    pd <- tryCatch(packageDescription(pkgname),
++                   error=function(e)e, warning=function(w)w)
++    if(inherits(pd, "error") || inherits(pd, "warning"))
++      cat(sprintf("packageDescription(\"%s\") %s: %s\n",
++                  pkgname, class(pd)[2], pd$message))
++    else
++      cat(sprintf("%s -- built: %s\n%*s -- dir  : %s\n",
++                  pkgname, pd$Built, nchar(pkgname), "",
++                  dirname(dirname(attr(pd, "file")))))
++  }
+>  pkgI("Matrix")
+Matrix -- built: R 4.4.3; x86_64-pc-linux-gnu; 2025-03-17 20:15:10 UTC; unix
+       -- dir  : /home/yadav/R/x86_64-pc-linux-gnu-library/4.4/Matrix
+>  pkgI("Rcpp")
+Rcpp -- built: R 4.4.3; x86_64-pc-linux-gnu; 2025-03-17 20:14:47 UTC; unix
+     -- dir  : /home/yadav/R/x86_64-pc-linux-gnu-library/4.4/Rcpp
+>  ## 2012-03-12{MM}: fails with --as-cran
+>  pkgI("RcppEigen")
+RcppEigen -- built: R 4.4.3; x86_64-pc-linux-gnu; 2025-03-17 20:18:42 UTC; unix
+          -- dir  : /home/yadav/R/x86_64-pc-linux-gnu-library/4.4/RcppEigen
+>  pkgI("minqa")
+minqa -- built: R 4.4.3; x86_64-pc-linux-gnu; 2025-03-17 20:18:33 UTC; unix
+      -- dir  : /home/yadav/R/x86_64-pc-linux-gnu-library/4.4/minqa
+>  pkgI("lme4")
+lme4 -- built: R 4.4.3; x86_64-pc-linux-gnu; 2025-03-17 20:23:27 UTC; unix
+     -- dir  : /home/yadav/lme4/lme4.Rcheck/lme4
+> ## End(Don't show)
+> require(lattice)
+Loading required package: lattice
+> str(Dyestuff)
+'data.frame':	30 obs. of  2 variables:
+ $ Batch: Factor w/ 6 levels "A","B","C","D",..: 1 1 1 1 1 2 2 2 2 2 ...
+ $ Yield: num  1545 1440 1440 1520 1580 ...
+> dotplot(reorder(Batch, Yield) ~ Yield, Dyestuff,
++         ylab = "Batch", jitter.y = TRUE, aspect = 0.3,
++         type = c("p", "a"))
+> dotplot(reorder(Batch, Yield) ~ Yield, Dyestuff2,
++         ylab = "Batch", jitter.y = TRUE, aspect = 0.3,
++         type = c("p", "a"))
+> (fm1 <- lmer(Yield ~ 1|Batch, Dyestuff))
+Linear mixed model fit by REML ['lmerMod']
+Formula: Yield ~ 1 | Batch
+   Data: Dyestuff
+REML criterion at convergence: 319.6543
+Random effects:
+ Groups   Name        Std.Dev.
+ Batch    (Intercept) 42.00   
+ Residual             49.51   
+Number of obs: 30, groups:  Batch, 6
+Fixed Effects:
+(Intercept)  
+       1528  
+> (fm2 <- lmer(Yield ~ 1|Batch, Dyestuff2))
+boundary (singular) fit: see help('isSingular')
+Linear mixed model fit by REML ['lmerMod']
+Formula: Yield ~ 1 | Batch
+   Data: Dyestuff2
+REML criterion at convergence: 161.8283
+Random effects:
+ Groups   Name        Std.Dev.
+ Batch    (Intercept) 0.000   
+ Residual             3.716   
+Number of obs: 30, groups:  Batch, 6
+Fixed Effects:
+(Intercept)  
+      5.666  
+optimizer (nloptwrap) convergence code: 0 (OK) ; 0 optimizer warnings; 1 lme4 warnings 
+> 
+> 
+> 
+> cleanEx()
+
+detaching ‘package:lattice’
+
+> nameEx("GHrule")
+> ### * GHrule
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: GHrule
+> ### Title: Univariate Gauss-Hermite quadrature rule
+> ### Aliases: GHrule
+> 
+> ### ** Examples
+> 
+> (r5  <- GHrule( 5, asMatrix=FALSE))
+              z          w     ldnorm
+1 -2.856970e+00 0.01125741 -5.0000774
+2 -1.355626e+00 0.22207592 -1.8377997
+3  3.865099e-17 0.53333333 -0.9189385
+4  1.355626e+00 0.22207592 -1.8377997
+5  2.856970e+00 0.01125741 -5.0000774
+> (r12 <- GHrule(12, asMatrix=FALSE))
+           z            w     ldnorm
+1  -5.500902 1.499927e-07 -16.048898
+2  -4.271826 4.837185e-05 -10.043187
+3  -3.223710 2.203381e-03  -6.115091
+4  -2.259464 2.911669e-02  -3.471528
+5  -1.340375 1.469670e-01  -1.817241
+6  -0.444403 3.216644e-01  -1.017686
+7   0.444403 3.216644e-01  -1.017686
+8   1.340375 1.469670e-01  -1.817241
+9   2.259464 2.911669e-02  -3.471528
+10  3.223710 2.203381e-03  -6.115091
+11  4.271826 4.837185e-05 -10.043187
+12  5.500902 1.499927e-07 -16.048898
+> 
+> ## second, fourth, sixth, eighth and tenth central moments of the
+> ## standard Gaussian N(0,1) density:
+> ps <- seq(2, 10, by = 2)
+> cbind(p = ps, "E[X^p]" = with(r5,  sapply(ps, function(p) sum(w * z^p)))) # p=10 is wrong for 5-rule
+      p E[X^p]
+[1,]  2      1
+[2,]  4      3
+[3,]  6     15
+[4,]  8    105
+[5,] 10    825
+> p <- 1:15
+> GQ12 <- with(r12, sapply(p, function(p) sum(w * z^p)))
+> cbind(p = p, "E[X^p]" = zapsmall(GQ12))
+       p E[X^p]
+ [1,]  1      0
+ [2,]  2      1
+ [3,]  3      0
+ [4,]  4      3
+ [5,]  5      0
+ [6,]  6     15
+ [7,]  7      0
+ [8,]  8    105
+ [9,]  9      0
+[10,] 10    945
+[11,] 11      0
+[12,] 12  10395
+[13,] 13      0
+[14,] 14 135135
+[15,] 15      0
+> ## standard R numerical integration can do it too:
+> intL <- lapply(p, function(p) integrate(function(x) x^p * dnorm(x),
++                                         -Inf, Inf, rel.tol=1e-11))
+> integR <- sapply(intL, `[[`, "value")
+> cbind(p, "E[X^p]" = integR)# no zapsmall() needed here
+       p E[X^p]
+ [1,]  1      0
+ [2,]  2      1
+ [3,]  3      0
+ [4,]  4      3
+ [5,]  5      0
+ [6,]  6     15
+ [7,]  7      0
+ [8,]  8    105
+ [9,]  9      0
+[10,] 10    945
+[11,] 11      0
+[12,] 12  10395
+[13,] 13      0
+[14,] 14 135135
+[15,] 15      0
+> all.equal(GQ12, integR, tol=0)# => shows small difference
+[1] "Mean relative difference: 5.910896e-15"
+> stopifnot(all.equal(GQ12, integR, tol = 1e-10))
+> (xactMom <- cumprod(seq(1,13, by=2)))
+[1]      1      3     15    105    945  10395 135135
+> stopifnot(all.equal(xactMom, GQ12[2*(1:7)], tol=1e-14))
+> ## mean relative errors :
+> mean(abs(GQ12  [2*(1:7)] / xactMom - 1)) # 3.17e-16
+[1] 3.172066e-16
+> mean(abs(integR[2*(1:7)] / xactMom - 1)) # 9.52e-17 {even better}
+[1] 9.516197e-17
+> 
+> 
+> 
+> cleanEx()
+> nameEx("GQdk")
+> ### * GQdk
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: GQdk
+> ### Title: Sparse Gaussian / Gauss-Hermite Quadrature grid
+> ### Aliases: GQdk GQN
+> 
+> ### ** Examples
+> 
+> GQdk(2,5) # 53 x 3
+             [,1]       [,2]       [,3]
+ [1,]  1.51111111  0.0000000  0.0000000
+ [2,] -0.45412415  0.0000000 -0.7419638
+ [3,] -0.33333333  0.0000000 -1.0000000
+ [4,]  0.22207592  0.0000000 -1.3556262
+ [5,]  0.11111111  0.0000000 -1.7320508
+ [6,] -0.04587585  0.0000000 -2.3344142
+ [7,]  0.01125741  0.0000000 -2.8569700
+ [8,]  0.22706207 -0.7419638 -1.0000000
+ [9,] -0.08333333 -1.0000000 -1.7320508
+[10,]  0.02293793 -1.0000000 -2.3344142
+[11,]  0.02777778 -1.7320508 -1.7320508
+[12,] -0.45412415 -0.7419638  0.0000000
+[13,] -0.33333333 -1.0000000  0.0000000
+[14,]  0.22207592 -1.3556262  0.0000000
+[15,]  0.11111111 -1.7320508  0.0000000
+[16,] -0.04587585 -2.3344142  0.0000000
+[17,]  0.01125741 -2.8569700  0.0000000
+[18,]  0.22706207 -1.0000000 -0.7419638
+[19,] -0.08333333 -1.7320508 -1.0000000
+[20,]  0.02293793 -2.3344142 -1.0000000
+[21,]  0.22706207  0.7419638 -1.0000000
+[22,] -0.08333333  1.0000000 -1.7320508
+[23,]  0.02293793  1.0000000 -2.3344142
+[24,]  0.02777778  1.7320508 -1.7320508
+[25,] -0.45412415  0.7419638  0.0000000
+[26,] -0.33333333  1.0000000  0.0000000
+[27,]  0.22207592  1.3556262  0.0000000
+[28,]  0.11111111  1.7320508  0.0000000
+[29,] -0.04587585  2.3344142  0.0000000
+[30,]  0.01125741  2.8569700  0.0000000
+[31,]  0.22706207  1.0000000 -0.7419638
+[32,] -0.08333333  1.7320508 -1.0000000
+[33,]  0.02293793  2.3344142 -1.0000000
+[34,] -0.45412415  0.0000000  0.7419638
+[35,] -0.33333333  0.0000000  1.0000000
+[36,]  0.22207592  0.0000000  1.3556262
+[37,]  0.11111111  0.0000000  1.7320508
+[38,] -0.04587585  0.0000000  2.3344142
+[39,]  0.01125741  0.0000000  2.8569700
+[40,]  0.22706207 -0.7419638  1.0000000
+[41,] -0.08333333 -1.0000000  1.7320508
+[42,]  0.02293793 -1.0000000  2.3344142
+[43,]  0.02777778 -1.7320508  1.7320508
+[44,]  0.22706207 -1.0000000  0.7419638
+[45,] -0.08333333 -1.7320508  1.0000000
+[46,]  0.02293793 -2.3344142  1.0000000
+[47,]  0.22706207  0.7419638  1.0000000
+[48,] -0.08333333  1.0000000  1.7320508
+[49,]  0.02293793  1.0000000  2.3344142
+[50,]  0.02777778  1.7320508  1.7320508
+[51,]  0.22706207  1.0000000  0.7419638
+[52,] -0.08333333  1.7320508  1.0000000
+[53,]  0.02293793  2.3344142  1.0000000
+> 
+> GQN[[3]][[5]] # a 14 x 4 matrix
+             [,1] [,2]      [,3]      [,4]
+ [1,]  4.93333333    0 0.0000000 0.0000000
+ [2,] -0.90824829    0 0.0000000 0.7419638
+ [3,] -1.33333333    0 0.0000000 1.0000000
+ [4,]  0.22207592    0 0.0000000 1.3556262
+ [5,]  0.38888889    0 0.0000000 1.7320508
+ [6,] -0.09175171    0 0.0000000 2.3344142
+ [7,]  0.01125741    0 0.0000000 2.8569700
+ [8,]  0.22706207    0 0.7419638 1.0000000
+ [9,]  0.41666667    0 1.0000000 1.0000000
+[10,] -0.16666667    0 1.0000000 1.7320508
+[11,]  0.02293793    0 1.0000000 2.3344142
+[12,]  0.02777778    0 1.7320508 1.7320508
+[13,] -0.25000000    1 1.0000000 1.0000000
+[14,]  0.04166667    1 1.0000000 1.7320508
+> 
+> 
+> 
+> cleanEx()
+> nameEx("InstEval")
+> ### * InstEval
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: InstEval
+> ### Title: University Lecture/Instructor Evaluations by Students at ETH
+> ### Aliases: InstEval
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> str(InstEval)
+'data.frame':	73421 obs. of  7 variables:
+ $ s      : Factor w/ 2972 levels "1","2","3","4",..: 1 1 1 1 2 2 3 3 3 3 ...
+ $ d      : Factor w/ 1128 levels "1","6","7","8",..: 525 560 832 1068 62 406 3 6 19 75 ...
+ $ studage: Ord.factor w/ 4 levels "2"<"4"<"6"<"8": 1 1 1 1 1 1 1 1 1 1 ...
+ $ lectage: Ord.factor w/ 6 levels "1"<"2"<"3"<"4"<..: 2 1 2 2 1 1 1 1 1 1 ...
+ $ service: Factor w/ 2 levels "0","1": 1 2 1 2 1 1 2 1 1 1 ...
+ $ dept   : Factor w/ 14 levels "15","5","10",..: 14 5 14 12 2 2 13 3 3 3 ...
+ $ y      : int  5 2 5 3 2 4 4 5 5 4 ...
+> 
+> head(InstEval, 16)
+   s    d studage lectage service dept y
+1  1 1002       2       2       0    2 5
+2  1 1050       2       1       1    6 2
+3  1 1582       2       2       0    2 5
+4  1 2050       2       2       1    3 3
+5  2  115       2       1       0    5 2
+6  2  756       2       1       0    5 4
+7  3    7       2       1       1   11 4
+8  3   13       2       1       0   10 5
+9  3   36       2       1       0   10 5
+10 3  140       2       1       0   10 4
+11 3  409       2       2       0   10 4
+12 3  444       2       2       0   10 4
+13 3  494       2       1       1    9 4
+14 3  625       2       2       0   10 3
+15 3  696       2       2       1    9 2
+16 3 1056       2       2       1    8 4
+> xtabs(~ service + dept, InstEval)
+       dept
+service   15    5   10   12    6    7    4    8    9   14    1    3   11    2
+      0 2466 3576 4343 6209 3772 1601 4518  578 4224 2606 1260 3550 1711 1224
+      1  826  214  365 3319 4325  919 2207 3848 2400 1328 1372 1199 6863 2598
+> 
+> 
+> 
+> cleanEx()
+> nameEx("NelderMead-class")
+> ### * NelderMead-class
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: NelderMead-class
+> ### Title: Class '"NelderMead"' of Nelder-Mead optimizers and its Generator
+> ### Aliases: NelderMead NelderMead-class
+> ### Keywords: classes
+> 
+> ### ** Examples
+> 
+> showClass("NelderMead")
+Class "NelderMead" [package "lme4"]
+
+Slots:
+                  
+Name:       .xData
+Class: environment
+
+Extends: 
+Class "envRefClass", directly
+Class ".environment", by class "envRefClass", distance 2
+Class "refClass", by class "envRefClass", distance 2
+Class "environment", by class "envRefClass", distance 3, with explicit coerce
+Class "refObject", by class "envRefClass", distance 3
+> 
+> 
+> 
+> cleanEx()
+> nameEx("Nelder_Mead")
+> ### * Nelder_Mead
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: NelderMead
+> ### Title: Nelder-Mead Optimization of Parameters, Possibly (Box)
+> ###   Constrained
+> ### Aliases: Nelder_Mead
+> ### Keywords: classes
+> 
+> ### ** Examples
+> 
+> fr <- function(x) {   ## Rosenbrock Banana function
++     x1 <- x[1]
++     x2 <- x[2]
++     100 * (x2 - x1 * x1)^2 + (1 - x1)^2
++ }
+> p0 <- c(-1.2, 1)
+> 
+> oo  <- optim(p0, fr) ## also uses Nelder-Mead by default
+> o.  <- Nelder_Mead(fr, p0)
+> o.1 <- Nelder_Mead(fr, p0, control=list(verbose=1))# -> some iteration output
+(NM) 20: f = 4.09883 at -0.998242   1.02902
+(NM) 40: f = 3.85065 at -0.946969  0.921237
+(NM) 60: f = 2.12558 at -0.43529 0.215075
+(NM) 80: f = 1.052 at -0.00264012  -0.0216052
+(NM) 100: f = 0.351113 at 0.431272 0.169364
+(NM) 120: f = 0.0662375 at  0.77641 0.590067
+(NM) 140: f = 0.00120832 at 0.976014  0.95512
+(NM) 160: f = 8.04753e-06 at 1.00132  1.0029
+(NM) 180: f = 4.64058e-08 at 0.999793 0.999593
+(NM) 200: f = 1.94299e-10 at 0.999989 0.999979
+> stopifnot(identical(o.[1:4], o.1[1:4]),
++           all.equal(o.$par, oo$par, tolerance=1e-3))# diff: 0.0003865
+> 
+> o.2 <- Nelder_Mead(fr, p0, control=list(verbose=3, XtolRel=1e-15, FtolAbs= 1e-14))
+(NM) 1: f = inf at -1.2    1
+(NM) init_pos <= d_n
+(NM) 2: f = 24.2 at -1.2    1
+(NM) init_pos <= d_n
+(NM) 3: f = 20.1502 at -1.18     1
+(NM) init_pos <= d_n
+(NM) 4: f = 20.1502 at -1.18     1
+(NM) 5: f = 18.6206 at -1.18  1.02
+(NM) 6: f = 16.1942 at -1.17  1.03
+(NM) 7: f = 14.3881 at -1.15  1.01
+(NM) 8: f = 11.3082 at -1.125  1.005
+(NM) 9: f = 8.80899 at -1.115  1.035
+(NM) 10: f = 5.7602 at -1.0825  1.0525
+(NM) 11: f = 4.39059 at -1.0375  1.0275
+(NM) 12: f = 4.39059 at -1.0375  1.0275
+(NM) 13: f = 4.39059 at -1.0375  1.0275
+(NM) 14: f = 4.39059 at -1.0375  1.0275
+(NM) 15: f = 4.39059 at -1.0375  1.0275
+(NM) 16: f = 4.39059 at -1.0375  1.0275
+(NM) 17: f = 4.12674 at -1.02852  1.04695
+(NM) 18: f = 4.12674 at -1.02852  1.04695
+(NM) 19: f = 4.12674 at -1.02852  1.04695
+(NM) 20: f = 4.09883 at -0.998242   1.02902
+(NM) 21: f = 4.09883 at -0.998242   1.02902
+(NM) 22: f = 4.07791 at -1.01767  1.02731
+(NM) 23: f = 4.06835 at -0.987393   1.00938
+(NM) 24: f = 4.06835 at -0.987393   1.00938
+(NM) 25: f = 4.03092 at -1.00682  1.00768
+(NM) 26: f = 4.03092 at -1.00682  1.00768
+(NM) 27: f = 4.03092 at -1.00682  1.00768
+(NM) 28: f = 3.98541 at -0.995967  0.988037
+(NM) 29: f = 3.98541 at -0.995967  0.988037
+(NM) 30: f = 3.98541 at -0.995967  0.988037
+(NM) 31: f = 3.98541 at -0.995967  0.988037
+(NM) 32: f = 3.98541 at -0.995967  0.988037
+(NM) 33: f = 3.98078 at -0.988967  0.993801
+(NM) 34: f = 3.94339 at -0.978118  0.974163
+(NM) 35: f = 3.93793 at -0.963768  0.957406
+(NM) 36: f = 3.93793 at -0.963768  0.957406
+(NM) 37: f = 3.93793 at -0.963768  0.957406
+(NM) 38: f = 3.89364 at -0.960968  0.945425
+(NM) 39: f = 3.85065 at -0.946969  0.921237
+(NM) 40: f = 3.85065 at -0.946969  0.921237
+(NM) 41: f = 3.77359 at -0.90777 0.860654
+(NM) 42: f = 3.68007 at -0.879771  0.812278
+(NM) 43: f = 3.67015 at -0.90217 0.836692
+(NM) 44: f = 3.59215 at -0.890971  0.806627
+(NM) 45: f = 3.36249 at -0.823773  0.697667
+(NM) 46: f = 3.10773 at -0.762175  0.585882
+(NM) 47: f = 3.10773 at -0.762175  0.585882
+(NM) 48: f = 3.0182 at -0.64458 0.359486
+(NM) 49: f = 3.0182 at -0.64458 0.359486
+(NM) 50: f = 2.79777 at -0.63338 0.365137
+(NM) 51: f = 2.79777 at -0.63338 0.365137
+(NM) 52: f = 2.79777 at -0.63338 0.365137
+(NM) 53: f = 2.79777 at -0.63338 0.365137
+(NM) 54: f = 2.59475 at -0.601882  0.345315
+(NM) 55: f = 2.49823 at -0.580533  0.338229
+(NM) 56: f = 2.49823 at -0.580533  0.338229
+(NM) 57: f = 2.18451 at -0.477988  0.229247
+(NM) 58: f = 2.12558 at -0.43529 0.215075
+(NM) 59: f = 2.12558 at -0.43529 0.215075
+(NM) 60: f = 2.12558 at -0.43529 0.215075
+(NM) 61: f = 1.85847 at -0.339132 0.0894769
+(NM) 62: f = 1.85847 at -0.339132 0.0894769
+(NM) 63: f = 1.74109 at  -0.169346 -0.0324544
+(NM) 64: f = 1.74109 at  -0.169346 -0.0324544
+(NM) 65: f = 1.74109 at  -0.169346 -0.0324544
+(NM) 66: f = 1.74109 at  -0.169346 -0.0324544
+(NM) 67: f = 1.74109 at  -0.169346 -0.0324544
+(NM) 68: f = 1.74109 at  -0.169346 -0.0324544
+(NM) 69: f = 1.74109 at  -0.169346 -0.0324544
+(NM) 70: f = 1.6557 at -0.269968 0.0521755
+(NM) 71: f = 1.55396 at    -0.17894 -0.00848461
+(NM) 72: f = 1.50655 at  -0.138222 -0.0268297
+(NM) 73: f = 1.50655 at  -0.138222 -0.0268297
+(NM) 74: f = 1.33243 at -0.107098 -0.021205
+(NM) 75: f = 1.33243 at -0.107098 -0.021205
+(NM) 76: f = 1.33243 at -0.107098 -0.021205
+(NM) 77: f = 1.33243 at -0.107098 -0.021205
+(NM) 78: f = 1.16367 at -0.0478342 -0.0233467
+(NM) 79: f = 1.052 at -0.00264012  -0.0216052
+(NM) 80: f = 1.052 at -0.00264012  -0.0216052
+(NM) 81: f = 0.980011 at 0.0203829 0.0146849
+(NM) 82: f = 0.794206 at  0.110771 0.0181679
+(NM) 83: f = 0.794206 at  0.110771 0.0181679
+(NM) 84: f = 0.794206 at  0.110771 0.0181679
+(NM) 85: f = 0.794206 at  0.110771 0.0181679
+(NM) 86: f = 0.794206 at  0.110771 0.0181679
+(NM) 87: f = 0.607797 at  0.224182 0.0579409
+(NM) 88: f = 0.607797 at  0.224182 0.0579409
+(NM) 89: f = 0.607797 at  0.224182 0.0579409
+(NM) 90: f = 0.607797 at  0.224182 0.0579409
+(NM) 91: f = 0.44247 at 0.375246 0.117973
+(NM) 92: f = 0.44247 at 0.375246 0.117973
+(NM) 93: f = 0.44247 at 0.375246 0.117973
+(NM) 94: f = 0.44247 at 0.375246 0.117973
+(NM) 95: f = 0.351113 at 0.431272 0.169364
+(NM) 96: f = 0.351113 at 0.431272 0.169364
+(NM) 97: f = 0.351113 at 0.431272 0.169364
+(NM) 98: f = 0.351113 at 0.431272 0.169364
+(NM) 99: f = 0.351113 at 0.431272 0.169364
+(NM) 100: f = 0.351113 at 0.431272 0.169364
+(NM) 101: f = 0.308628 at 0.445597 0.194999
+(NM) 102: f = 0.270158 at 0.480773 0.233512
+(NM) 103: f = 0.270158 at 0.480773 0.233512
+(NM) 104: f = 0.197707 at 0.593757 0.334471
+(NM) 105: f = 0.197707 at 0.593757 0.334471
+(NM) 106: f = 0.197707 at 0.593757 0.334471
+(NM) 107: f = 0.197707 at 0.593757 0.334471
+(NM) 108: f = 0.197707 at 0.593757 0.334471
+(NM) 109: f = 0.126096 at 0.645994 0.420093
+(NM) 110: f = 0.126096 at 0.645994 0.420093
+(NM) 111: f = 0.126096 at 0.645994 0.420093
+(NM) 112: f = 0.106835 at 0.690501 0.487301
+(NM) 113: f = 0.106835 at 0.690501 0.487301
+(NM) 114: f = 0.106835 at 0.690501 0.487301
+(NM) 115: f = 0.106835 at 0.690501 0.487301
+(NM) 116: f = 0.106835 at 0.690501 0.487301
+(NM) 117: f = 0.10306 at 0.688431 0.466201
+(NM) 118: f = 0.0727579 at 0.732938 0.533409
+(NM) 119: f = 0.0662375 at  0.77641 0.590067
+(NM) 120: f = 0.0662375 at  0.77641 0.590067
+(NM) 121: f = 0.0662375 at  0.77641 0.590067
+(NM) 122: f = 0.0458798 at 0.799439 0.631583
+(NM) 123: f = 0.0458798 at 0.799439 0.631583
+(NM) 124: f = 0.0458798 at 0.799439 0.631583
+(NM) 125: f = 0.0458798 at 0.799439 0.631583
+(NM) 126: f = 0.0274164 at 0.842102 0.704151
+(NM) 127: f = 0.0175222 at 0.874948 0.761194
+(NM) 128: f = 0.0175222 at 0.874948 0.761194
+(NM) 129: f = 0.0175222 at 0.874948 0.761194
+(NM) 130: f = 0.0175222 at 0.874948 0.761194
+(NM) 131: f = 0.0175222 at 0.874948 0.761194
+(NM) 132: f = 0.0175222 at 0.874948 0.761194
+(NM) 133: f = 0.00997536 at 0.900123 0.810242
+(NM) 134: f = 0.00440675 at 0.943057 0.885944
+(NM) 135: f = 0.00440675 at 0.943057 0.885944
+(NM) 136: f = 0.00440675 at 0.943057 0.885944
+(NM) 137: f = 0.00395144 at 0.942326 0.890478
+(NM) 138: f = 0.00120832 at 0.976014  0.95512
+(NM) 139: f = 0.00120832 at 0.976014  0.95512
+(NM) 140: f = 0.00120832 at 0.976014  0.95512
+(NM) 141: f = 0.00120832 at 0.976014  0.95512
+(NM) 142: f = 0.00120832 at 0.976014  0.95512
+(NM) 143: f = 0.00120832 at 0.976014  0.95512
+(NM) 144: f = 0.00120832 at 0.976014  0.95512
+(NM) 145: f = 0.00101227 at 1.00728 1.01771
+(NM) 146: f = 0.00101227 at 1.00728 1.01771
+(NM) 147: f = 0.000184224 at  1.0134 1.02676
+(NM) 148: f = 0.000184224 at  1.0134 1.02676
+(NM) 149: f = 0.000184224 at  1.0134 1.02676
+(NM) 150: f = 7.50713e-05 at 0.999298 0.997733
+(NM) 151: f = 7.50713e-05 at 0.999298 0.997733
+(NM) 152: f = 7.50713e-05 at 0.999298 0.997733
+(NM) 153: f = 7.50713e-05 at 0.999298 0.997733
+(NM) 154: f = 7.50713e-05 at 0.999298 0.997733
+(NM) 155: f = 7.50713e-05 at 0.999298 0.997733
+(NM) 156: f = 7.50713e-05 at 0.999298 0.997733
+(NM) 157: f = 4.19678e-05 at 1.00646 1.01293
+(NM) 158: f = 4.19678e-05 at 1.00646 1.01293
+(NM) 159: f = 8.04753e-06 at 1.00132  1.0029
+(NM) 160: f = 8.04753e-06 at 1.00132  1.0029
+(NM) 161: f = 8.04753e-06 at 1.00132  1.0029
+(NM) 162: f = 8.04753e-06 at 1.00132  1.0029
+(NM) 163: f = 8.04753e-06 at 1.00132  1.0029
+(NM) 164: f = 2.30719e-06 at 1.00024 1.00033
+(NM) 165: f = 2.30719e-06 at 1.00024 1.00033
+(NM) 166: f = 2.02763e-06 at 0.998617 0.997203
+(NM) 167: f = 2.02763e-06 at 0.998617 0.997203
+(NM) 168: f = 7.9281e-07 at 1.00038 1.00083
+(NM) 169: f = 7.9281e-07 at 1.00038 1.00083
+(NM) 170: f = 4.11309e-07 at 0.999869 0.999675
+(NM) 171: f = 4.11309e-07 at 0.999869 0.999675
+(NM) 172: f = 4.11309e-07 at 0.999869 0.999675
+(NM) 173: f = 4.11309e-07 at 0.999869 0.999675
+(NM) 174: f = 4.77849e-08 at 0.999998  1.00002
+(NM) 175: f = 4.77849e-08 at 0.999998  1.00002
+(NM) 176: f = 4.77849e-08 at 0.999998  1.00002
+(NM) 177: f = 4.77849e-08 at 0.999998  1.00002
+(NM) 178: f = 4.77849e-08 at 0.999998  1.00002
+(NM) 179: f = 4.77849e-08 at 0.999998  1.00002
+(NM) 180: f = 4.64058e-08 at 0.999793 0.999593
+(NM) 181: f = 4.64058e-08 at 0.999793 0.999593
+(NM) 182: f = 9.81791e-09 at 0.999977 0.999944
+(NM) 183: f = 9.81791e-09 at 0.999977 0.999944
+(NM) 184: f = 9.81791e-09 at 0.999977 0.999944
+(NM) 185: f = 9.81791e-09 at 0.999977 0.999944
+(NM) 186: f = 9.81791e-09 at 0.999977 0.999944
+(NM) 187: f = 2.51267e-09 at 1.00004 1.00008
+(NM) 188: f = 2.51267e-09 at 1.00004 1.00008
+(NM) 189: f = 9.81397e-10 at 0.999975 0.999953
+(NM) 190: f = 9.81397e-10 at 0.999975 0.999953
+(NM) 191: f = 9.81397e-10 at 0.999975 0.999953
+(NM) 192: f = 9.81397e-10 at 0.999975 0.999953
+(NM) 193: f = 9.81397e-10 at 0.999975 0.999953
+(NM) 194: f = 4.39883e-10 at 1.00002 1.00004
+(NM) 195: f = 4.39883e-10 at 1.00002 1.00004
+(NM) 196: f = 4.39883e-10 at 1.00002 1.00004
+(NM) 197: f = 2.55886e-10 at 0.999985 0.999969
+(NM) 198: f = 2.55886e-10 at 0.999985 0.999969
+(NM) 199: f = 1.94299e-10 at 0.999989 0.999979
+(NM) 200: f = 1.94299e-10 at 0.999989 0.999979
+(NM) 201: f = 1.84303e-11 at       1 1.00001
+(NM) 202: f = 1.84303e-11 at       1 1.00001
+(NM) 203: f = 1.84303e-11 at       1 1.00001
+(NM) 204: f = 1.84303e-11 at       1 1.00001
+(NM) 205: f = 1.84303e-11 at       1 1.00001
+> all.equal(o.2[-5],o.1[-5], tolerance=1e-15)# TRUE, unexpectedly
+[1] "Component “control”: Component “iprint”: Mean relative difference: 19"    
+[2] "Component “control”: Component “FtolAbs”: Mean relative difference: 1e+09"
+[3] "Component “control”: Component “XtolRel”: Mean absolute difference: 1e-07"
+> 
+> 
+> 
+> cleanEx()
+> nameEx("Pastes")
+> ### * Pastes
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: Pastes
+> ### Title: Paste strength by batch and cask
+> ### Aliases: Pastes
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> str(Pastes)
+'data.frame':	60 obs. of  4 variables:
+ $ strength: num  62.8 62.6 60.1 62.3 62.7 63.1 60 61.4 57.5 56.9 ...
+ $ batch   : Factor w/ 10 levels "A","B","C","D",..: 1 1 1 1 1 1 2 2 2 2 ...
+ $ cask    : Factor w/ 3 levels "a","b","c": 1 1 2 2 3 3 1 1 2 2 ...
+ $ sample  : Factor w/ 30 levels "A:a","A:b","A:c",..: 1 1 2 2 3 3 4 4 5 5 ...
+> require(lattice)
+Loading required package: lattice
+> dotplot(cask ~ strength | reorder(batch, strength), Pastes,
++         strip = FALSE, strip.left = TRUE, layout = c(1, 10),
++         ylab = "Cask within batch",
++         xlab = "Paste strength", jitter.y = TRUE)
+> ## Modifying the factors to enhance the plot
+> Pastes <- within(Pastes, batch <- reorder(batch, strength))
+> Pastes <- within(Pastes, sample <- reorder(reorder(sample, strength),
++           as.numeric(batch)))
+> dotplot(sample ~ strength | batch, Pastes,
++         strip = FALSE, strip.left = TRUE, layout = c(1, 10),
++         scales = list(y = list(relation = "free")),
++         ylab = "Sample within batch",
++         xlab = "Paste strength", jitter.y = TRUE)
+> ## Four equivalent models differing only in specification
+> (fm1 <- lmer(strength ~ (1|batch) + (1|sample), Pastes))
+Linear mixed model fit by REML ['lmerMod']
+Formula: strength ~ (1 | batch) + (1 | sample)
+   Data: Pastes
+REML criterion at convergence: 246.9907
+Random effects:
+ Groups   Name        Std.Dev.
+ sample   (Intercept) 2.9041  
+ batch    (Intercept) 1.2874  
+ Residual             0.8234  
+Number of obs: 60, groups:  sample, 30; batch, 10
+Fixed Effects:
+(Intercept)  
+      60.05  
+> (fm2 <- lmer(strength ~ (1|batch/cask), Pastes))
+Linear mixed model fit by REML ['lmerMod']
+Formula: strength ~ (1 | batch/cask)
+   Data: Pastes
+REML criterion at convergence: 246.9907
+Random effects:
+ Groups     Name        Std.Dev.
+ cask:batch (Intercept) 2.9041  
+ batch      (Intercept) 1.2874  
+ Residual               0.8234  
+Number of obs: 60, groups:  cask:batch, 30; batch, 10
+Fixed Effects:
+(Intercept)  
+      60.05  
+> (fm3 <- lmer(strength ~ (1|batch) + (1|batch:cask), Pastes))
+Linear mixed model fit by REML ['lmerMod']
+Formula: strength ~ (1 | batch) + (1 | batch:cask)
+   Data: Pastes
+REML criterion at convergence: 246.9907
+Random effects:
+ Groups     Name        Std.Dev.
+ batch:cask (Intercept) 2.9041  
+ batch      (Intercept) 1.2874  
+ Residual               0.8234  
+Number of obs: 60, groups:  batch:cask, 30; batch, 10
+Fixed Effects:
+(Intercept)  
+      60.05  
+> (fm4 <- lmer(strength ~ (1|batch/sample), Pastes))
+Linear mixed model fit by REML ['lmerMod']
+Formula: strength ~ (1 | batch/sample)
+   Data: Pastes
+REML criterion at convergence: 246.9907
+Random effects:
+ Groups       Name        Std.Dev.
+ sample:batch (Intercept) 2.9041  
+ batch        (Intercept) 1.2874  
+ Residual                 0.8234  
+Number of obs: 60, groups:  sample:batch, 30; batch, 10
+Fixed Effects:
+(Intercept)  
+      60.05  
+> ## fm4 results in redundant labels on the sample:batch interaction
+> head(ranef(fm4)[[1]])
+      (Intercept)
+E:b:E  -3.9424485
+E:a:E  -3.3175663
+E:c:E  -0.3854267
+J:c:J  -1.7031213
+J:a:J  -0.6936962
+J:b:J  -0.3091533
+> ## compare to fm1
+> head(ranef(fm1)[[1]])
+    (Intercept)
+E:b  -3.9424485
+E:a  -3.3175663
+E:c  -0.3854267
+J:c  -1.7031213
+J:a  -0.6936962
+J:b  -0.3091533
+> ## This model is different and NOT appropriate for these data
+> (fm5 <- lmer(strength ~ (1|batch) + (1|cask), Pastes))
+Linear mixed model fit by REML ['lmerMod']
+Formula: strength ~ (1 | batch) + (1 | cask)
+   Data: Pastes
+REML criterion at convergence: 301.4709
+Random effects:
+ Groups   Name        Std.Dev.
+ batch    (Intercept) 1.8341  
+ cask     (Intercept) 0.3856  
+ Residual             2.7030  
+Number of obs: 60, groups:  batch, 10; cask, 3
+Fixed Effects:
+(Intercept)  
+      60.05  
+> 
+> L <- getME(fm1, "L")
+> Matrix::image(L, sub = "Structure of random effects interaction in pastes model")
+> 
+> 
+> 
+> cleanEx()
+
+detaching ‘package:lattice’
+
+> nameEx("Penicillin")
+> ### * Penicillin
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: Penicillin
+> ### Title: Variation in penicillin testing
+> ### Aliases: Penicillin
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> str(Penicillin)
+'data.frame':	144 obs. of  3 variables:
+ $ diameter: num  27 23 26 23 23 21 27 23 26 23 ...
+ $ plate   : Factor w/ 24 levels "a","b","c","d",..: 1 1 1 1 1 1 2 2 2 2 ...
+ $ sample  : Factor w/ 6 levels "A","B","C","D",..: 1 2 3 4 5 6 1 2 3 4 ...
+> require(lattice)
+Loading required package: lattice
+> dotplot(reorder(plate, diameter) ~ diameter, Penicillin, groups = sample,
++         ylab = "Plate", xlab = "Diameter of growth inhibition zone (mm)",
++         type = c("p", "a"), auto.key = list(columns = 3, lines = TRUE,
++         title = "Penicillin sample"))
+> (fm1 <- lmer(diameter ~ (1|plate) + (1|sample), Penicillin))
+Linear mixed model fit by REML ['lmerMod']
+Formula: diameter ~ (1 | plate) + (1 | sample)
+   Data: Penicillin
+REML criterion at convergence: 330.8606
+Random effects:
+ Groups   Name        Std.Dev.
+ plate    (Intercept) 0.8467  
+ sample   (Intercept) 1.9316  
+ Residual             0.5499  
+Number of obs: 144, groups:  plate, 24; sample, 6
+Fixed Effects:
+(Intercept)  
+      22.97  
+> 
+> L <- getME(fm1, "L")
+> Matrix::image(L, main = "L",
++               sub = "Penicillin: Structure of random effects interaction")
+> 
+> 
+> 
+> cleanEx()
+
+detaching ‘package:lattice’
+
+> nameEx("VarCorr")
+> ### * VarCorr
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: VarCorr
+> ### Title: Extract Variance and Correlation Components
+> ### Aliases: VarCorr VarCorr.merMod as.data.frame.VarCorr.merMod
+> ###   print.VarCorr.merMod
+> ### Keywords: models
+> 
+> ### ** Examples
+> 
+> data(Orthodont, package="nlme")
+> fm1 <- lmer(distance ~ age + (age|Subject), data = Orthodont)
+> print(vc <- VarCorr(fm1))  ## default print method: standard dev and corr
+ Groups   Name        Std.Dev. Corr  
+ Subject  (Intercept) 2.32736        
+          age         0.22645  -0.609
+ Residual             1.31002        
+> ## both variance and std.dev.
+> print(vc,comp=c("Variance","Std.Dev."), digits=2)
+ Groups   Name        Variance Std.Dev. Corr 
+ Subject  (Intercept) 5.417    2.33          
+          age         0.051    0.23     -0.61
+ Residual             1.716    1.31          
+> ## variance only
+> print(vc, comp=c("Variance"))
+ Groups   Name        Variance Cov   
+ Subject  (Intercept) 5.416600       
+          age         0.051279 -0.321
+ Residual             1.716157       
+> ## standard deviations only, but covariances rather than correlations
+> print(vc, corr = FALSE)
+ Groups   Name        Std.Dev. Cov   
+ Subject  (Intercept) 2.32736        
+          age         0.22645  -0.321
+ Residual             1.31002        
+> as.data.frame(vc)
+       grp        var1 var2       vcov      sdcor
+1  Subject (Intercept) <NA>  5.4166005  2.3273591
+2  Subject         age <NA>  0.0512792  0.2264491
+3  Subject (Intercept)  age -0.3211854 -0.6094270
+4 Residual        <NA> <NA>  1.7161573  1.3100219
+> as.data.frame(vc, order="lower.tri")
+       grp        var1 var2       vcov      sdcor
+1  Subject (Intercept) <NA>  5.4166005  2.3273591
+2  Subject (Intercept)  age -0.3211854 -0.6094270
+3  Subject         age <NA>  0.0512792  0.2264491
+4 Residual        <NA> <NA>  1.7161573  1.3100219
+> 
+> 
+> 
+> cleanEx()
+> nameEx("VerbAgg")
+> ### * VerbAgg
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: VerbAgg
+> ### Title: Verbal Aggression item responses
+> ### Aliases: VerbAgg
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> str(VerbAgg)
+'data.frame':	7584 obs. of  9 variables:
+ $ Anger : int  20 11 17 21 17 21 39 21 24 16 ...
+ $ Gender: Factor w/ 2 levels "F","M": 2 2 1 1 1 1 1 1 1 1 ...
+ $ item  : Factor w/ 24 levels "S1WantCurse",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ resp  : Ord.factor w/ 3 levels "no"<"perhaps"<..: 1 1 2 2 2 3 3 1 1 3 ...
+ $ id    : Factor w/ 316 levels "1","2","3","4",..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ btype : Factor w/ 3 levels "curse","scold",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ situ  : Factor w/ 2 levels "other","self": 1 1 1 1 1 1 1 1 1 1 ...
+ $ mode  : Factor w/ 2 levels "want","do": 1 1 1 1 1 1 1 1 1 1 ...
+ $ r2    : Factor w/ 2 levels "N","Y": 1 1 2 2 2 2 2 1 1 2 ...
+> ## Show how  r2 := h(resp) is defined:
+> with(VerbAgg, stopifnot( identical(r2, {
++      r <- factor(resp, ordered=FALSE); levels(r) <- c("N","Y","Y"); r})))
+> 
+> xtabs(~ item + resp, VerbAgg)
+             resp
+item           no perhaps yes
+  S1WantCurse  91      95 130
+  S1WantScold 126      86 104
+  S1WantShout 154      99  63
+  S2WantCurse  67     112 137
+  S2WantScold 118      93 105
+  S2WantShout 158      84  74
+  S3WantCurse 128     120  68
+  S3WantScold 198      90  28
+  S3WantShout 240      63  13
+  S4wantCurse  98     127  91
+  S4WantScold 179      88  49
+  S4WantShout 217      64  35
+  S1DoCurse    91     108 117
+  S1DoScold   136      97  83
+  S1DoShout   208      68  40
+  S2DoCurse   109      97 110
+  S2DoScold   162      92  62
+  S2DoShout   238      53  25
+  S3DoCurse   171     108  37
+  S3DoScold   239      61  16
+  S3DoShout   287      25   4
+  S4DoCurse   118     117  81
+  S4DoScold   181      91  44
+  S4DoShout   259      43  14
+> xtabs(~ btype + resp, VerbAgg)
+       resp
+btype     no perhaps  yes
+  curse  873     884  771
+  scold 1339     698  491
+  shout 1761     499  268
+> round(100 * ftable(prop.table(xtabs(~ situ + mode + resp, VerbAgg), 1:2), 1))
+           resp no perhaps yes
+situ  mode                    
+other want      38      30  32
+      do        50      27  23
+self  want      56      29  15
+      do        66      23  10
+> person <- unique(subset(VerbAgg, select = c(id, Gender, Anger)))
+> require(lattice)
+Loading required package: lattice
+> densityplot(~ Anger, person, groups = Gender, auto.key = list(columns = 2),
++             xlab = "Trait Anger score (STAXI)")
+> 
+> if(lme4:::testLevel() >= 3) { ## takes about 15 sec
++     print(fmVA <- glmer(r2 ~ (Anger + Gender + btype + situ)^2 +
++  		   (1|id) + (1|item), family = binomial, data =
++ 		   VerbAgg), corr=FALSE)
++ } ## testLevel() >= 3
+> if (interactive()) {
++ ## much faster but less accurate
++     print(fmVA0 <- glmer(r2 ~ (Anger + Gender + btype + situ)^2 +
++                              (1|id) + (1|item), family = binomial,
++                          data = VerbAgg, nAGQ=0L), corr=FALSE)
++ } ## interactive()
+> 
+> 
+> 
+> cleanEx()
+
+detaching ‘package:lattice’
+
+> nameEx("allFit")
+> ### * allFit
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: allFit
+> ### Title: Refit a fitted model with all available optimizers
+> ### Aliases: allFit
+> ### Keywords: models
+> 
+> ### ** Examples
+> 
+> if (interactive()) {
++ library(lme4)
++   gm1 <- glmer(cbind(incidence, size - incidence) ~ period + (1 | herd),
++              data = cbpp, family = binomial)
++   ## show available methods
++   allFit(show.meth.tab=TRUE) 
++   gm_all <- allFit(gm1)
++   ss <- summary(gm_all)
++   ss$which.OK            ## logical vector: which optimizers worked?
++   ## the other components only contain values for the optimizers that worked
++   ss$llik                ## vector of log-likelihoods
++   ss$fixef               ## table of fixed effects
++   ss$sdcor               ## table of random effect SDs and correlations
++   ss$theta               ## table of random effects parameters, Cholesky scale
++ } 
+> ## Not run: 
+> ##D   ## Parallel examples for Windows
+> ##D   nc <- detectCores()-1
+> ##D   optCls <- makeCluster(nc, type = "SOCK")
+> ##D   clusterEvalQ(optCls,library("lme4"))
+> ##D   ### not necessary here because using a built-in
+> ##D   ## data set, but in general you should clusterExport() your data
+> ##D   clusterExport(optCls, "cbpp")
+> ##D   system.time(af1 <- allFit(m0, parallel = 'snow', 
+> ##D                           ncpus = nc, cl=optCls))
+> ##D   stopCluster(optCls)
+> ## End(Not run)
+>  
+> 
+> 
+> 
+> cleanEx()
+> nameEx("bootMer")
+> ### * bootMer
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: bootMer
+> ### Title: Model-based (Semi-)Parametric Bootstrap for Mixed Models
+> ### Aliases: bootMer
+> ### Keywords: htest models
+> 
+> ### ** Examples
+> 
+> if (interactive()) {
++ fm01ML <- lmer(Yield ~ 1|Batch, Dyestuff, REML = FALSE)
++ ## see ?"profile-methods"
++ mySumm <- function(.) { s <- sigma(.)
++     c(beta =getME(., "beta"), sigma = s, sig01 = unname(s * getME(., "theta"))) }
++ (t0 <- mySumm(fm01ML)) # just three parameters
++ ## alternatively:
++ mySumm2 <- function(.) {
++     c(beta=fixef(.),sigma=sigma(.), sig01=sqrt(unlist(VarCorr(.))))
++ }
++ 
++ set.seed(101)
++ ## 3.8s (on a 5600 MIPS 64bit fast(year 2009) desktop "AMD Phenom(tm) II X4 925"):
++ system.time( boo01 <- bootMer(fm01ML, mySumm, nsim = 100) )
++ 
++ ## to "look" at it
++ if (requireNamespace("boot")) {
++     boo01
++     ## note large estimated bias for sig01
++     ## (~30% low, decreases _slightly_ for nsim = 1000)
++ 
++     ## extract the bootstrapped values as a data frame ...
++     head(as.data.frame(boo01))
++ 
++     ## ------ Bootstrap-based confidence intervals ------------
++ 
++     ## warnings about "Some ... intervals may be unstable" go away
++     ##   for larger bootstrap samples, e.g. nsim=500
++ 
++     ## intercept
++     (bCI.1 <- boot::boot.ci(boo01, index=1, type=c("norm", "basic", "perc")))# beta
++ 
++     ## Residual standard deviation - original scale:
++     (bCI.2  <- boot::boot.ci(boo01, index=2, type=c("norm", "basic", "perc")))
++     ## Residual SD - transform to log scale:
++     (bCI.2L <- boot::boot.ci(boo01, index=2, type=c("norm", "basic", "perc"),
++                        h = log, hdot = function(.) 1/., hinv = exp))
++ 
++     ## Among-batch variance:
++     (bCI.3 <- boot::boot.ci(boo01, index=3, type=c("norm", "basic", "perc"))) # sig01
++ 
++     
++     confint(boo01)
++     confint(boo01,type="norm")
++     confint(boo01,type="basic")
++ 
++     ## Graphical examination:
++     plot(boo01,index=3)
++ 
++     ## Check stored values from a longer (1000-replicate) run:
++     (load(system.file("testdata","boo01L.RData", package="lme4")))# "boo01L"
++     plot(boo01L, index=3)
++     mean(boo01L$t[,"sig01"]==0) ## note point mass at zero!
++ } 
++ } 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("cake")
+> ### * cake
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: cake
+> ### Title: Breakage Angle of Chocolate Cakes
+> ### Aliases: cake
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> str(cake)
+'data.frame':	270 obs. of  5 variables:
+ $ replicate  : Factor w/ 15 levels "1","2","3","4",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ recipe     : Factor w/ 3 levels "A","B","C": 1 1 1 1 1 1 2 2 2 2 ...
+ $ temperature: Ord.factor w/ 6 levels "175"<"185"<"195"<..: 1 2 3 4 5 6 1 2 3 4 ...
+ $ angle      : int  42 46 47 39 53 42 39 46 51 49 ...
+ $ temp       : num  175 185 195 205 215 225 175 185 195 205 ...
+> ## 'temp' is continuous, 'temperature' an ordered factor with 6 levels
+> 
+> (fm1 <- lmer(angle ~ recipe * temperature + (1|recipe:replicate), cake, REML= FALSE))
+Linear mixed model fit by maximum likelihood  ['lmerMod']
+Formula: angle ~ recipe * temperature + (1 | recipe:replicate)
+   Data: cake
+      AIC       BIC    logLik -2*log(L)  df.resid 
+1719.0519 1791.0203 -839.5259 1679.0519       250 
+Random effects:
+ Groups           Name        Std.Dev.
+ recipe:replicate (Intercept) 6.249   
+ Residual                     4.371   
+Number of obs: 270, groups:  recipe:replicate, 45
+Fixed Effects:
+          (Intercept)                recipeB                recipeC  
+             33.12222               -1.47778               -1.52222  
+        temperature.L          temperature.Q          temperature.C  
+              6.43033               -0.71285               -2.32551  
+        temperature^4          temperature^5  recipeB:temperature.L  
+             -3.35128               -0.15119                0.45419  
+recipeC:temperature.L  recipeB:temperature.Q  recipeC:temperature.Q  
+              0.08765               -0.23277                1.21475  
+recipeB:temperature.C  recipeC:temperature.C  recipeB:temperature^4  
+              2.69322                2.63856                3.02372  
+recipeC:temperature^4  recipeB:temperature^5  recipeC:temperature^5  
+              3.13711               -0.66354               -1.62525  
+> (fm2 <- lmer(angle ~ recipe + temperature + (1|recipe:replicate), cake, REML= FALSE))
+Linear mixed model fit by maximum likelihood  ['lmerMod']
+Formula: angle ~ recipe + temperature + (1 | recipe:replicate)
+   Data: cake
+      AIC       BIC    logLik -2*log(L)  df.resid 
+1709.5822 1745.5665 -844.7911 1689.5822       260 
+Random effects:
+ Groups           Name        Std.Dev.
+ recipe:replicate (Intercept) 6.237   
+ Residual                     4.475   
+Number of obs: 270, groups:  recipe:replicate, 45
+Fixed Effects:
+  (Intercept)        recipeB        recipeC  temperature.L  temperature.Q  
+      33.1222        -1.4778        -1.5222         6.6109        -0.3855  
+temperature.C  temperature^4  temperature^5  
+      -0.5483        -1.2977        -0.9141  
+> (fm3 <- lmer(angle ~ recipe + temp        + (1|recipe:replicate), cake, REML= FALSE))
+Linear mixed model fit by maximum likelihood  ['lmerMod']
+Formula: angle ~ recipe + temp + (1 | recipe:replicate)
+   Data: cake
+      AIC       BIC    logLik -2*log(L)  df.resid 
+1708.1578 1729.7483 -848.0789 1696.1578       264 
+Random effects:
+ Groups           Name        Std.Dev.
+ recipe:replicate (Intercept) 6.229   
+ Residual                     4.540   
+Number of obs: 270, groups:  recipe:replicate, 45
+Fixed Effects:
+(Intercept)      recipeB      recipeC         temp  
+      1.516       -1.478       -1.522        0.158  
+> 
+> ## and now "choose" :
+> anova(fm3, fm2, fm1)
+Data: cake
+Models:
+fm3: angle ~ recipe + temp + (1 | recipe:replicate)
+fm2: angle ~ recipe + temperature + (1 | recipe:replicate)
+fm1: angle ~ recipe * temperature + (1 | recipe:replicate)
+    npar    AIC    BIC  logLik deviance   Chisq Df Pr(>Chisq)
+fm3    6 1708.2 1729.8 -848.08   1696.2                      
+fm2   10 1709.6 1745.6 -844.79   1689.6  6.5755  4     0.1601
+fm1   20 1719.0 1791.0 -839.53   1679.0 10.5304 10     0.3953
+> 
+> 
+> 
+> cleanEx()
+> nameEx("cbpp")
+> ### * cbpp
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: cbpp
+> ### Title: Contagious bovine pleuropneumonia
+> ### Aliases: cbpp
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> ## response as a matrix
+> (m1 <- glmer(cbind(incidence, size - incidence) ~ period + (1 | herd),
++              family = binomial, data = cbpp))
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: cbind(incidence, size - incidence) ~ period + (1 | herd)
+   Data: cbpp
+      AIC       BIC    logLik -2*log(L)  df.resid 
+ 194.0531  204.1799  -92.0266  184.0531        51 
+Random effects:
+ Groups Name        Std.Dev.
+ herd   (Intercept) 0.6421  
+Number of obs: 56, groups:  herd, 15
+Fixed Effects:
+(Intercept)      period2      period3      period4  
+    -1.3983      -0.9919      -1.1282      -1.5797  
+> ## response as a vector of probabilities and usage of argument "weights"
+> m1p <- glmer(incidence / size ~ period + (1 | herd), weights = size,
++              family = binomial, data = cbpp)
+> ## Confirm that these are equivalent:
+> stopifnot(all.equal(fixef(m1), fixef(m1p), tolerance = 1e-5),
++           all.equal(ranef(m1), ranef(m1p), tolerance = 1e-5))
+> 
+> ## GLMM with individual-level variability (accounting for overdispersion)
+> cbpp$obs <- 1:nrow(cbpp)
+> (m2 <- glmer(cbind(incidence, size - incidence) ~ period + (1 | herd) +  (1|obs),
++               family = binomial, data = cbpp))
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: cbind(incidence, size - incidence) ~ period + (1 | herd) + (1 |  
+    obs)
+   Data: cbpp
+      AIC       BIC    logLik -2*log(L)  df.resid 
+ 186.6383  198.7904  -87.3192  174.6383        50 
+Random effects:
+ Groups Name        Std.Dev.
+ obs    (Intercept) 0.8911  
+ herd   (Intercept) 0.1840  
+Number of obs: 56, groups:  obs, 56; herd, 15
+Fixed Effects:
+(Intercept)      period2      period3      period4  
+     -1.500       -1.226       -1.329       -1.866  
+> 
+> 
+> 
+> cleanEx()
+> nameEx("confint.merMod")
+> ### * confint.merMod
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: confint.merMod
+> ### Title: Compute Confidence Intervals for Parameters of a [ng]lmer Fit
+> ### Aliases: confint.merMod confint.thpr
+> 
+> ### ** Examples
+> 
+> if (interactive() || lme4_testlevel() >= 3) {
++ fm1 <- lmer(Reaction ~ Days + (Days|Subject), sleepstudy)
++ fm1W <- confint(fm1, method="Wald")# very fast, but not useful for "sigmas" = var-cov pars
++ fm1W
++ (fm2 <- lmer(Reaction ~ Days + (Days || Subject), sleepstudy))
++ (CI2 <- confint(fm2, maxpts = 8)) # method = "profile"; 8: to be much faster
++ ## Don't show: 
++  stopifnot(all.equal(tolerance = 5e-6, signif(unname(CI2), 7),
++                array(c(15.25847, 3.964157, 22.88062, 237.5732,  7.33431,
++                        37.78184, 8.768238, 28.78768, 265.2383, 13.60057),
++                      dim = c(5L, 2L))))
++ ## End(Don't show)
++ if (lme4_testlevel() >= 3) {
++   system.time(fm1P <- confint(fm1, method="profile", ## <- default
++                               oldNames = FALSE))
++   ## --> ~ 2.2 seconds (2022)
++   set.seed(123) # (reproducibility when using bootstrap)
++   system.time(fm1B <- confint(fm1, method="boot", oldNames=FALSE,
++                               .progress="txt", PBargs= list(style=3)))
++   ## --> ~ 6.2 seconds (2022) and warning, messages
++ } else {
++     load(system.file("testdata","confint_ex.rda",package="lme4"))
++ }
++ fm1P
++ fm1B
++ } ## if interactive && testlevel>=3
+> 
+> 
+> 
+> cleanEx()
+> nameEx("convergence")
+> ### * convergence
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: convergence
+> ### Title: Assessing Convergence for Fitted Models
+> ### Aliases: convergence
+> 
+> ### ** Examples
+> 
+> if (interactive()) {
++ fm1 <- lmer(Reaction ~ Days + (Days | Subject), sleepstudy)
++ 
++ ## 1. decrease stopping tolerances
++ strict_tol <- lmerControl(optCtrl=list(xtol_abs=1e-8, ftol_abs=1e-8))
++ if (all(fm1@optinfo$optimizer=="nloptwrap")) {
++     fm1.tol <- update(fm1, control=strict_tol)
++ }
++ 
++ ## 2. center and scale predictors:
++ ss.CS <- transform(sleepstudy, Days=scale(Days))
++ fm1.CS <- update(fm1, data=ss.CS)
++ 
++ ## 3. recompute gradient and Hessian with Richardson extrapolation
++ devfun <- update(fm1, devFunOnly=TRUE)
++ if (isLMM(fm1)) {
++     pars <- getME(fm1,"theta")
++ } else {
++     ## GLMM: requires both random and fixed parameters
++     pars <- getME(fm1, c("theta","fixef"))
++ }
++ if (require("numDeriv")) {
++     cat("hess:\n"); print(hess <- hessian(devfun, unlist(pars)))
++     cat("grad:\n"); print(grad <- grad(devfun, unlist(pars)))
++     cat("scaled gradient:\n")
++     print(scgrad <- solve(chol(hess), grad))
++ }
++ ## compare with internal calculations:
++ fm1@optinfo$derivs
++ 
++ ## compute reciprocal condition number of Hessian
++ H <- fm1@optinfo$derivs$Hessian
++ Matrix::rcond(H)
++ 
++ ## 4. restart the fit from the original value (or
++ ## a slightly perturbed value):
++ fm1.restart <- update(fm1, start=pars)
++ set.seed(101)
++ pars_x <- runif(length(pars),pars/1.01,pars*1.01)
++ fm1.restart2 <- update(fm1, start=pars_x,
++                        control=strict_tol)
++ 
++ ## 5. try all available optimizers
++ 
++   fm1.all <- allFit(fm1)
++   ss <- summary(fm1.all)
++   ss$ fixef               ## fixed effects
++   ss$ llik                ## log-likelihoods
++   ss$ sdcor               ## SDs and correlations
++   ss$ theta               ## Cholesky factors
++   ss$ which.OK            ## which fits worked
++ 
++ } 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("devfun2")
+> ### * devfun2
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: devfun2
+> ### Title: Deviance Function in Terms of Standard Deviations/Correlations
+> ### Aliases: devfun2
+> ### Keywords: utilities
+> 
+> ### ** Examples
+> 
+> m1 <- lmer(Reaction~Days+(Days|Subject),sleepstudy)
+> dd <- devfun2(m1, useSc=TRUE)
+> pp <- attr(dd,"optimum")
+> ## extract variance-covariance and residual std dev parameters
+> sigpars <- pp[grepl("^\\.sig",names(pp))]
+> all.equal(unname(dd(sigpars)),deviance(refitML(m1)))
+[1] TRUE
+> 
+> 
+> 
+> cleanEx()
+> nameEx("drop1.merMod")
+> ### * drop1.merMod
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: drop1.merMod
+> ### Title: Drop all possible single fixed-effect terms from a mixed effect
+> ###   model
+> ### Aliases: drop1.merMod
+> ### Keywords: misc
+> 
+> ### ** Examples
+> 
+> fm1 <- lmer(Reaction ~ Days + (Days|Subject), sleepstudy)
+> ## likelihood ratio tests
+> drop1(fm1,test="Chisq")
+Single term deletions
+
+Model:
+Reaction ~ Days + (Days | Subject)
+       npar    AIC    LRT   Pr(Chi)    
+<none>      1763.9                     
+Days      1 1785.5 23.537 1.226e-06 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> ## use Kenward-Roger corrected F test, or parametric bootstrap,
+> ## to test the significance of each dropped predictor
+> if (require(pbkrtest) && packageVersion("pbkrtest")>="0.3.8") {
++    KRSumFun <- function(object, objectDrop, ...) {
++       krnames <- c("ndf","ddf","Fstat","p.value","F.scaling")
++       r <- if (missing(objectDrop)) {
++           setNames(rep(NA,length(krnames)),krnames)
++       } else {
++          krtest <- KRmodcomp(object,objectDrop)
++          unlist(krtest$stats[krnames])
++       }
++       attr(r,"method") <- c("Kenward-Roger via pbkrtest package")
++       r
++    }
++    drop1(fm1, test="user", sumFun=KRSumFun)
++ 
++    if(lme4:::testLevel() >= 3) { ## takes about 16 sec
++      nsim <- 100
++      PBSumFun <- function(object, objectDrop, ...) {
++ 	pbnames <- c("stat","p.value")
++ 	r <- if (missing(objectDrop)) {
++ 	    setNames(rep(NA,length(pbnames)),pbnames)
++ 	} else {
++ 	   pbtest <- PBmodcomp(object,objectDrop,nsim=nsim)
++ 	   unlist(pbtest$test[2,pbnames])
++ 	}
++ 	attr(r,"method") <- c("Parametric bootstrap via pbkrtest package")
++ 	r
++      }
++      system.time(drop1(fm1, test="user", sumFun=PBSumFun))
++    }
++ }
+Loading required package: pbkrtest
+> ## workaround for creating a formula in a separate environment
+> createFormula <- function(resp, fixed, rand) {  
++     f <- reformulate(c(fixed,rand),response=resp)
++     ## use the parent (createModel) environment, not the
++     ## environment of this function (which does not contain 'data')
++     environment(f) <- parent.frame()
++     f
++ }
+> createModel <- function(data) {
++     mf.final <- createFormula("Reaction", "Days", "(Days|Subject)")
++     lmer(mf.final, data=data)
++ }
+> drop1(createModel(data=sleepstudy))
+Single term deletions
+
+Model:
+Reaction ~ Days + (Days | Subject)
+       npar    AIC
+<none>      1763.9
+Days      1 1785.5
+> 
+> 
+> 
+> cleanEx()
+
+detaching ‘package:pbkrtest’
+
+> nameEx("dummy")
+> ### * dummy
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: dummy
+> ### Title: Dummy variables (experimental)
+> ### Aliases: dummy
+> 
+> ### ** Examples
+> 
+> data(Orthodont,package="nlme")
+> lmer(distance ~ age + (age|Subject) +
++      (0+dummy(Sex, "Female")|Subject), data = Orthodont)
+Linear mixed model fit by REML ['lmerMod']
+Formula: distance ~ age + (age | Subject) + (0 + dummy(Sex, "Female") |  
+    Subject)
+   Data: Orthodont
+REML criterion at convergence: 442.5444
+Random effects:
+ Groups    Name                 Std.Dev. Corr 
+ Subject   (Intercept)          2.3439        
+           age                  0.2264   -0.66
+ Subject.1 dummy(Sex, "Female") 1.0521        
+ Residual                       1.3100        
+Number of obs: 108, groups:  Subject, 27
+Fixed Effects:
+(Intercept)          age  
+    16.8643       0.6602  
+> 
+> 
+> 
+> cleanEx()
+> nameEx("expandDoubleVerts")
+> ### * expandDoubleVerts
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: expandDoubleVerts
+> ### Title: Expand terms with "||" notation into separate "|" terms
+> ### Aliases: expandDoubleVerts ||
+> ### Keywords: models utilities
+> 
+> ### ** Examples
+> 
+>   m <- ~ x + (x || g)
+>   expandDoubleVerts(m)
+~x + ((1 | g) + (0 + x | g))
+>   set.seed(101)
+>   dd <- expand.grid(f=factor(letters[1:3]),g=factor(1:200),rep=1:3)
+>   dd$y <- simulate(~f + (1|g) + (0+dummy(f,"b")|g) + (0+dummy(f,"c")|g),
++           newdata=dd,
++           newparams=list(beta=rep(0,3),
++                          theta=c(1,2,1),
++                          sigma=1),
++           family=gaussian)[[1]]
+>   m1 <- lmer(y~f+(f|g),data=dd)
+>   VarCorr(m1)
+ Groups   Name        Std.Dev. Corr         
+ g        (Intercept) 0.95687               
+          fb          1.97293   0.106       
+          fc          0.96425   0.109 -0.086
+ Residual             1.02172               
+>   m2 <- lmer(y~f+(1|g) + (0+dummy(f,"b")|g) + (0+dummy(f,"c")|g),
++                data=dd)
+>   VarCorr(m2)
+ Groups   Name          Std.Dev.
+ g        (Intercept)   0.98657 
+ g.1      dummy(f, "b") 2.00636 
+ g.2      dummy(f, "c") 0.99616 
+ Residual               1.01771 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("findbars")
+> ### * findbars
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: findbars
+> ### Title: Determine random-effects expressions from a formula
+> ### Aliases: findbars
+> ### Keywords: models utilities
+> 
+> ### ** Examples
+> 
+> findbars(f1 <- Reaction ~ Days + (Days | Subject))
+[[1]]
+Days | Subject
+
+> ## => list( Days | Subject )
+> ## These two are equivalent:% tests in ../inst/tests/test-doubleVertNotation.R
+> findbars(y ~ Days + (1 | Subject) + (0 + Days | Subject))
+[[1]]
+1 | Subject
+
+[[2]]
+0 + Days | Subject
+
+> findbars(y ~ Days + (Days || Subject))
+[[1]]
+1 | Subject
+
+[[2]]
+0 + Days | Subject
+
+> ## => list of length 2:  list ( 1 | Subject ,  0 + Days | Subject)
+> findbars(~ 1 + (1 | batch / cask))
+[[1]]
+1 | cask:batch
+
+[[2]]
+1 | batch
+
+> ## => list of length 2:  list ( 1 | cask:batch ,  1 | batch)
+> ## Don't show: 
+> stopifnot(identical(findbars(f1),
++                     list(quote(Days | Subject))))
+> ## End(Don't show)
+> 
+> 
+> 
+> cleanEx()
+> nameEx("fixef")
+> ### * fixef
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: fixef
+> ### Title: Extract fixed-effects estimates
+> ### Aliases: fixed.effects fixef fixef.merMod
+> ### Keywords: models
+> 
+> ### ** Examples
+> 
+> fixef(lmer(Reaction ~ Days + (1|Subject) + (0+Days|Subject), sleepstudy))
+(Intercept)        Days 
+  251.40510    10.46729 
+> fm2 <- lmer(Reaction ~ Days + Days2 + (1|Subject),
++             data=transform(sleepstudy,Days2=Days))
+fixed-effect model matrix is rank deficient so dropping 1 column / coefficient
+> fixef(fm2,add.dropped=TRUE)
+(Intercept)        Days       Days2 
+  251.40510    10.46729          NA 
+> ## first two parameters are the same ...
+> stopifnot(all.equal(fixef(fm2,add.dropped=TRUE)[1:2],
++                     fixef(fm2)))
+> 
+> 
+> 
+> cleanEx()
+> nameEx("fortify")
+> ### * fortify
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: fortify
+> ### Title: add information to data based on a fitted model
+> ### Aliases: fortify fortify.merMod getData getData.merMod
+> 
+> ### ** Examples
+> 
+>   fm1 <- lmer(Reaction~Days+(1|Subject),sleepstudy)
+>   names(fortify.merMod(fm1))
+[1] "Reaction" "Days"     "Subject"  ".fitted"  ".resid"   ".scresid"
+> 
+> 
+> 
+> cleanEx()
+> nameEx("getME")
+> ### * getME
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: getME
+> ### Title: Extract or Get Generalized Components from a Fitted Mixed
+> ###   Effects Model
+> ### Aliases: getL getL,merMod-method getME getME.merMod
+> ### Keywords: utilities
+> 
+> ### ** Examples
+> 
+> ## shows many methods you should consider *before* using getME():
+> methods(class = "merMod")
+ [1] VarCorr        anova          as.function    coef           confint       
+ [6] cooks.distance deviance       df.residual    drop1          extractAIC    
+[11] family         fitted         fixef          formula        getData       
+[16] getL           getME          hatvalues      influence      isGLMM        
+[21] isLMM          isNLMM         isREML         logLik         model.frame   
+[26] model.matrix   ngrps          nobs           plot           predict       
+[31] print          profile        ranef          rePCA          refit         
+[36] refitML        residuals      rstudent       show           sigma         
+[41] simulate       summary        terms          update         vcov          
+[46] weights       
+see '?methods' for accessing help and source code
+> 
+> (fm1 <- lmer(Reaction ~ Days + (Days|Subject), sleepstudy))
+Linear mixed model fit by REML ['lmerMod']
+Formula: Reaction ~ Days + (Days | Subject)
+   Data: sleepstudy
+REML criterion at convergence: 1743.628
+Random effects:
+ Groups   Name        Std.Dev. Corr
+ Subject  (Intercept) 24.741       
+          Days         5.922   0.07
+ Residual             25.592       
+Number of obs: 180, groups:  Subject, 18
+Fixed Effects:
+(Intercept)         Days  
+     251.41        10.47  
+> Z <- getME(fm1, "Z")
+> stopifnot(is(Z, "CsparseMatrix"),
++           c(180,36) == dim(Z),
++ 	  all.equal(fixef(fm1), b1 <- getME(fm1, "beta"),
++ 		    check.attributes=FALSE, tolerance = 0))
+> 
+> ## A way to get *all* getME()s :
+> ## internal consistency check ensuring that all work:
+> parts <- getME(fm1, "ALL")
+> str(parts, max=2)
+List of 45
+ $ X             : num [1:180, 1:2] 1 1 1 1 1 1 1 1 1 1 ...
+  ..- attr(*, "dimnames")=List of 2
+  ..- attr(*, "assign")= int [1:2] 0 1
+  ..- attr(*, "msgScaleX")= chr(0) 
+ $ Z             :Formal class 'dgCMatrix' [package "Matrix"] with 6 slots
+ $ Zt            :Formal class 'dgCMatrix' [package "Matrix"] with 6 slots
+ $ Ztlist        :List of 2
+  ..$ Subject.(Intercept):Formal class 'dgCMatrix' [package "Matrix"] with 6 slots
+  ..$ Subject.Days       :Formal class 'dgCMatrix' [package "Matrix"] with 6 slots
+ $ mmList        :List of 1
+  ..$ Days | Subject: num [1:180, 1:2] 1 1 1 1 1 1 1 1 1 1 ...
+  .. ..- attr(*, "dimnames")=List of 2
+  .. ..- attr(*, "assign")= int [1:2] 0 1
+ $ y             : num [1:180] 250 259 251 321 357 ...
+ $ mu            : num [1:180] 254 273 293 313 332 ...
+ $ u             : num [1:36] 2.34 39.68 -41.79 -34.58 -40.3 ...
+ $ b             :Formal class 'dgeMatrix' [package "Matrix"] with 4 slots
+ $ Gp            : int [1:2] 0 36
+ $ Tp            : Named num [1:2] 0 3
+  ..- attr(*, "names")= chr [1:2] "beg__" "Subject"
+ $ L             :Formal class 'dCHMsimpl' [package "Matrix"] with 11 slots
+ $ Lambda        :Formal class 'dgCMatrix' [package "Matrix"] with 6 slots
+ $ Lambdat       :Formal class 'dgCMatrix' [package "Matrix"] with 6 slots
+ $ Lind          : int [1:54] 1 2 3 1 2 3 1 2 3 1 ...
+ $ Tlist         :List of 1
+  ..$ Subject: num [1:2, 1:2] 0.9667 0.0152 0 0.2309
+ $ A             :Formal class 'dgCMatrix' [package "Matrix"] with 6 slots
+ $ RX            : num [1:2, 1:2] 3.79 0 2.3 16.56
+  ..- attr(*, "dimnames")=List of 2
+ $ RZX           : num [1:36, 1:2] 3.022 0.269 3.022 0.269 3.022 ...
+  ..- attr(*, "dimnames")=List of 2
+ $ sigma         : num 25.6
+ $ flist         :List of 1
+  ..$ Subject: Factor w/ 18 levels "308","309","310",..: 1 1 1 1 1 1 1 1 1 1 ...
+  ..- attr(*, "assign")= int 1
+ $ fixef         : Named num [1:2] 251.4 10.5
+  ..- attr(*, "names")= chr [1:2] "(Intercept)" "Days"
+ $ beta          : num [1:2] 251.4 10.5
+ $ theta         : Named num [1:3] 0.9667 0.0152 0.2309
+  ..- attr(*, "names")= chr [1:3] "Subject.(Intercept)" "Subject.Days.(Intercept)" "Subject.Days"
+ $ ST            :List of 1
+  ..$ Subject: num [1:2, 1:2] 0.9667 0.0157 0 0.2309
+ $ REML          : int 2
+ $ is_REML       : logi TRUE
+ $ n_rtrms       : int 1
+ $ n_rfacs       : int 1
+ $ N             : int 180
+ $ n             : int 180
+ $ p             : int 2
+ $ q             : int 36
+ $ p_i           : Named int 2
+  ..- attr(*, "names")= chr "Days | Subject"
+ $ l_i           : Named int 18
+  ..- attr(*, "names")= chr "Subject"
+ $ q_i           : Named int 36
+  ..- attr(*, "names")= chr "Days | Subject"
+ $ k             : int 1
+ $ m_i           : Named num 3
+  ..- attr(*, "names")= chr "Days | Subject"
+ $ m             : int 3
+ $ cnms          :List of 1
+  ..$ Subject: chr [1:2] "(Intercept)" "Days"
+ $ devcomp       :List of 2
+  ..$ cmp : Named num [1:10] 7.60e+01 8.28 9.89e+04 1.77e+04 1.17e+05 ...
+  .. ..- attr(*, "names")= chr [1:10] "ldL2" "ldRX2" "wrss" "ussq" ...
+  ..$ dims: Named int [1:12] 180 180 2 178 36 3 1 1 0 2 ...
+  .. ..- attr(*, "names")= chr [1:12] "N" "n" "p" "nmp" ...
+ $ offset        : num [1:180] 0 0 0 0 0 0 0 0 0 0 ...
+ $ lower         : Named num [1:3] 0 -Inf 0
+  ..- attr(*, "names")= chr [1:3] "Subject.(Intercept)" "Subject.Days.(Intercept)" "Subject.Days"
+ $ devfun        :function (theta)  
+ $ glmer.nb.theta: logi NA
+> stopifnot(identical(Z,  parts $ Z),
++           identical(b1, parts $ beta))
+> 
+> 
+> 
+> cleanEx()
+> nameEx("glmFamily-class")
+> ### * glmFamily-class
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: glmFamily-class
+> ### Title: Class '"glmFamily"' - a reference class for 'family'
+> ### Aliases: glmFamily-class
+> ### Keywords: classes
+> 
+> ### ** Examples
+> 
+> str(glmFamily$new(family=poisson()))
+Reference class 'glmFamily' [package "lme4"] with 2 fields
+ $ Ptr   :<externalptr> 
+ $ family:List of 13
+  ..$ family    : chr "poisson"
+  ..$ link      : chr "log"
+  ..$ linkfun   :function (mu)  
+  ..$ linkinv   :function (eta)  
+  ..$ variance  :function (mu)  
+  ..$ dev.resids:function (y, mu, wt)  
+  ..$ aic       :function (y, n, mu, wt, dev)  
+  ..$ mu.eta    :function (eta)  
+  ..$ initialize:  expression({  if (any(y < 0))  stop("negative values not allowed for the 'Poisson' family")  n <- rep.int(1, nobs| __truncated__
+  ..$ validmu   :function (mu)  
+  ..$ valideta  :function (eta)  
+  ..$ simulate  :function (object, nsim)  
+  ..$ dispersion: num 1
+  ..- attr(*, "class")= chr "family"
+ and 23 methods, of which 9 are  possibly relevant:
+   aic, devResid, link, linkInv, muEta, ptr, setTheta, theta, variance
+> 
+> 
+> 
+> cleanEx()
+> nameEx("glmer")
+> ### * glmer
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: glmer
+> ### Title: Fitting Generalized Linear Mixed-Effects Models
+> ### Aliases: glmer
+> ### Keywords: models
+> 
+> ### ** Examples
+> 
+> ## generalized linear mixed model
+> library(lattice)
+> xyplot(incidence/size ~ period|herd, cbpp, type=c('g','p','l'),
++        layout=c(3,5), index.cond = function(x,y)max(y))
+> (gm1 <- glmer(cbind(incidence, size - incidence) ~ period + (1 | herd),
++               data = cbpp, family = binomial))
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: cbind(incidence, size - incidence) ~ period + (1 | herd)
+   Data: cbpp
+      AIC       BIC    logLik -2*log(L)  df.resid 
+ 194.0531  204.1799  -92.0266  184.0531        51 
+Random effects:
+ Groups Name        Std.Dev.
+ herd   (Intercept) 0.6421  
+Number of obs: 56, groups:  herd, 15
+Fixed Effects:
+(Intercept)      period2      period3      period4  
+    -1.3983      -0.9919      -1.1282      -1.5797  
+> ## using nAGQ=0 only gets close to the optimum
+> (gm1a <- glmer(cbind(incidence, size - incidence) ~ period + (1 | herd),
++                cbpp, binomial, nAGQ = 0))
+Generalized linear mixed model fit by maximum likelihood (Adaptive
+  Gauss-Hermite Quadrature, nAGQ = 0) [glmerMod]
+ Family: binomial  ( logit )
+Formula: cbind(incidence, size - incidence) ~ period + (1 | herd)
+   Data: cbpp
+      AIC       BIC    logLik -2*log(L)  df.resid 
+ 194.1087  204.2355  -92.0543  184.1087        51 
+Random effects:
+ Groups Name        Std.Dev.
+ herd   (Intercept) 0.6418  
+Number of obs: 56, groups:  herd, 15
+Fixed Effects:
+(Intercept)      period2      period3      period4  
+    -1.3605      -0.9762      -1.1111      -1.5597  
+> ## using  nAGQ = 9  provides a better evaluation of the deviance
+> ## Currently the internal calculations use the sum of deviance residuals,
+> ## which is not directly comparable with the nAGQ=0 or nAGQ=1 result.
+> ## 'verbose = 1' monitors iteratin a bit; (verbose = 2 does more):
+> (gm1a <- glmer(cbind(incidence, size - incidence) ~ period + (1 | herd),
++                cbpp, binomial, verbose = 1, nAGQ = 9))
+start par. =  1 fn =  186.7231 
+At return
+eval:  18 fn:      184.10869 par: 0.641839
+(NM) 20: f = 100.035 at   0.65834  -1.40366 -0.973379  -1.12553  -1.51926
+(NM) 40: f = 100.012 at  0.650182  -1.39827 -0.993156  -1.11768  -1.57305
+(NM) 60: f = 100.011 at  0.649102  -1.39735 -0.999034  -1.13415  -1.57634
+(NM) 80: f = 100.01 at  0.647402  -1.39987 -0.987353  -1.12767  -1.57516
+(NM) 100: f = 100.01 at   0.64823      -1.4 -0.991134  -1.12755  -1.58048
+(NM) 120: f = 100.01 at  0.647543  -1.39916 -0.991869  -1.12839  -1.57993
+(NM) 140: f = 100.01 at  0.647452  -1.39935 -0.991366  -1.12764  -1.57936
+(NM) 160: f = 100.01 at  0.647519  -1.39925 -0.991348  -1.12784  -1.57948
+(NM) 180: f = 100.01 at  0.647513  -1.39924 -0.991381  -1.12783  -1.57947
+Generalized linear mixed model fit by maximum likelihood (Adaptive
+  Gauss-Hermite Quadrature, nAGQ = 9) [glmerMod]
+ Family: binomial  ( logit )
+Formula: cbind(incidence, size - incidence) ~ period + (1 | herd)
+   Data: cbpp
+      AIC       BIC    logLik -2*log(L)  df.resid 
+ 110.0100  120.1368  -50.0050  100.0100        51 
+Random effects:
+ Groups Name        Std.Dev.
+ herd   (Intercept) 0.6475  
+Number of obs: 56, groups:  herd, 15
+Fixed Effects:
+(Intercept)      period2      period3      period4  
+    -1.3992      -0.9914      -1.1278      -1.5795  
+> 
+> ## GLMM with individual-level variability (accounting for overdispersion)
+> ## For this data set the model is the same as one allowing for a period:herd
+> ## interaction, which the plot indicates could be needed.
+> cbpp$obs <- 1:nrow(cbpp)
+> (gm2 <- glmer(cbind(incidence, size - incidence) ~ period +
++     (1 | herd) +  (1|obs),
++               family = binomial, data = cbpp))
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: cbind(incidence, size - incidence) ~ period + (1 | herd) + (1 |  
+    obs)
+   Data: cbpp
+      AIC       BIC    logLik -2*log(L)  df.resid 
+ 186.6383  198.7904  -87.3192  174.6383        50 
+Random effects:
+ Groups Name        Std.Dev.
+ obs    (Intercept) 0.8911  
+ herd   (Intercept) 0.1840  
+Number of obs: 56, groups:  obs, 56; herd, 15
+Fixed Effects:
+(Intercept)      period2      period3      period4  
+     -1.500       -1.226       -1.329       -1.866  
+> anova(gm1,gm2)
+Data: cbpp
+Models:
+gm1: cbind(incidence, size - incidence) ~ period + (1 | herd)
+gm2: cbind(incidence, size - incidence) ~ period + (1 | herd) + (1 | obs)
+    npar    AIC    BIC  logLik deviance  Chisq Df Pr(>Chisq)   
+gm1    5 194.05 204.18 -92.027   184.05                        
+gm2    6 186.64 198.79 -87.319   174.64 9.4148  1   0.002152 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> 
+> ## glmer and glm log-likelihoods are consistent
+> gm1Devfun <- update(gm1,devFunOnly=TRUE)
+> gm0 <- glm(cbind(incidence, size - incidence) ~ period,
++            family = binomial, data = cbpp)
+> ## evaluate GLMM deviance at RE variance=theta=0, beta=(GLM coeffs)
+> gm1Dev0 <- gm1Devfun(c(0,coef(gm0)))
+> ## compare
+> stopifnot(all.equal(gm1Dev0,c(-2*logLik(gm0))))
+> ## the toenail oncholysis data from Backer et al 1998
+> ## these data are notoriously difficult to fit
+> ## Not run: 
+> ##D if (require("HSAUR3")) {
+> ##D     gm2 <- glmer(outcome~treatment*visit+(1|patientID),
+> ##D                  data=toenail,
+> ##D                  family=binomial,nAGQ=20)
+> ##D }
+> ## End(Not run)
+> 
+> 
+> 
+> cleanEx()
+
+detaching ‘package:lattice’
+
+> nameEx("glmer.nb")
+> ### * glmer.nb
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: glmer.nb
+> ### Title: Fitting Negative Binomial GLMMs
+> ### Aliases: glmer.nb negative.binomial
+> ### Keywords: models
+> 
+> ### ** Examples
+> 
+> set.seed(101)
+> dd <- expand.grid(f1 = factor(1:3),
++                   f2 = LETTERS[1:2], g=1:9, rep=1:15,
++           KEEP.OUT.ATTRS=FALSE)
+> summary(mu <- 5*(-4 + with(dd, as.integer(f1) + 4*as.numeric(f2))))
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      5      10      20      20      30      35 
+> dd$y <- rnbinom(nrow(dd), mu = mu, size = 0.5)
+> str(dd)
+'data.frame':	810 obs. of  5 variables:
+ $ f1 : Factor w/ 3 levels "1","2","3": 1 2 3 1 2 3 1 2 3 1 ...
+ $ f2 : Factor w/ 2 levels "A","B": 1 1 1 2 2 2 1 1 1 2 ...
+ $ g  : int  1 1 1 1 1 1 2 2 2 2 ...
+ $ rep: int  1 1 1 1 1 1 1 1 1 1 ...
+ $ y  : num  3 16 31 6 51 14 19 31 0 15 ...
+> require("MASS")## and use its glm.nb() - as indeed we have zero random effect:
+Loading required package: MASS
+> ## Not run: 
+> ##D m.glm <- glm.nb(y ~ f1*f2, data=dd, trace=TRUE)
+> ##D summary(m.glm)
+> ##D m.nb <- glmer.nb(y ~ f1*f2 + (1|g), data=dd, verbose=TRUE)
+> ##D m.nb
+> ##D ## The neg.binomial theta parameter:
+> ##D getME(m.nb, "glmer.nb.theta")
+> ##D LL <- logLik(m.nb)
+> ##D ## mixed model has 1 additional parameter (RE variance)
+> ##D stopifnot(attr(LL,"df")==attr(logLik(m.glm),"df")+1)
+> ##D plot(m.nb, resid(.) ~ g)# works, as long as data 'dd' is found
+> ## End(Not run)
+> 
+> 
+> 
+> cleanEx()
+
+detaching ‘package:MASS’
+
+> nameEx("golden-class")
+> ### * golden-class
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: golden-class
+> ### Title: Class '"golden"' and Generator for Golden Search Optimizer Class
+> ### Aliases: golden-class golden
+> ### Keywords: classes
+> 
+> ### ** Examples
+> 
+> showClass("golden")
+Class "golden" [package "lme4"]
+
+Slots:
+                  
+Name:       .xData
+Class: environment
+
+Extends: 
+Class "envRefClass", directly
+Class ".environment", by class "envRefClass", distance 2
+Class "refClass", by class "envRefClass", distance 2
+Class "environment", by class "envRefClass", distance 3, with explicit coerce
+Class "refObject", by class "envRefClass", distance 3
+> 
+> golden(lower= -100, upper= 1e100)
+Reference class object of class "golden"
+Field "Ptr":
+<pointer: 0x6411559b2f40>
+Field "lowerbd":
+[1] -100
+Field "upperbd":
+[1] 1e+100
+> 
+> 
+> 
+> cleanEx()
+> nameEx("grouseticks")
+> ### * grouseticks
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: grouseticks
+> ### Title: Data on red grouse ticks from Elston et al. 2001
+> ### Aliases: grouseticks grouseticks_agg
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> if (interactive()) {
++ data(grouseticks)
++ ## Figure 1a from Elston et al
++ par(las=1,bty="l")
++ tvec <- c(0,1,2,5,20,40,80)
++ pvec <- c(4,1,3)
++ with(grouseticks_agg,plot(1+meanTICKS~HEIGHT,
++                   pch=pvec[factor(YEAR)],
++                   log="y",axes=FALSE,
++                   xlab="Altitude (m)",
++                   ylab="Brood mean ticks"))
++ axis(side=1)
++ axis(side=2,at=tvec+1,label=tvec)
++ box()
++ abline(v=405,lty=2)
++ ## Figure 1b
++ with(grouseticks_agg,plot(varTICKS~meanTICKS,
++                   pch=4,
++                   xlab="Brood mean ticks",
++                   ylab="Within-brood variance"))
++ curve(1*x,from=0,to=70,add=TRUE)
++ ## Model fitting
++ form <- TICKS~YEAR+HEIGHT+(1|BROOD)+(1|INDEX)+(1|LOCATION)
++ (full_mod1  <- glmer(form, family="poisson",data=grouseticks))
++ }
+> 
+> 
+> 
+> graphics::par(get("par.postscript", pos = 'CheckExEnv'))
+> cleanEx()
+> nameEx("hatvalues.merMod")
+> ### * hatvalues.merMod
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: hatvalues.merMod
+> ### Title: Diagonal elements of the hat matrix
+> ### Aliases: hatvalues.merMod
+> 
+> ### ** Examples
+> 
+> m <- lmer(Reaction ~ Days + (Days | Subject), sleepstudy)
+> hatvalues(m)
+         1          2          3          4          5          6          7 
+0.22930404 0.16972999 0.12682372 0.10058520 0.09101445 0.09811147 0.12187625 
+         8          9         10         11         12         13         14 
+0.16230880 0.21940911 0.29317719 0.22930404 0.16972999 0.12682372 0.10058520 
+        15         16         17         18         19         20         21 
+0.09101445 0.09811147 0.12187625 0.16230880 0.21940911 0.29317719 0.22930404 
+        22         23         24         25         26         27         28 
+0.16972999 0.12682372 0.10058520 0.09101445 0.09811147 0.12187625 0.16230880 
+        29         30         31         32         33         34         35 
+0.21940911 0.29317719 0.22930404 0.16972999 0.12682372 0.10058520 0.09101445 
+        36         37         38         39         40         41         42 
+0.09811147 0.12187625 0.16230880 0.21940911 0.29317719 0.22930404 0.16972999 
+        43         44         45         46         47         48         49 
+0.12682372 0.10058520 0.09101445 0.09811147 0.12187625 0.16230880 0.21940911 
+        50         51         52         53         54         55         56 
+0.29317719 0.22930404 0.16972999 0.12682372 0.10058520 0.09101445 0.09811147 
+        57         58         59         60         61         62         63 
+0.12187625 0.16230880 0.21940911 0.29317719 0.22930404 0.16972999 0.12682372 
+        64         65         66         67         68         69         70 
+0.10058520 0.09101445 0.09811147 0.12187625 0.16230880 0.21940911 0.29317719 
+        71         72         73         74         75         76         77 
+0.22930404 0.16972999 0.12682372 0.10058520 0.09101445 0.09811147 0.12187625 
+        78         79         80         81         82         83         84 
+0.16230880 0.21940911 0.29317719 0.22930404 0.16972999 0.12682372 0.10058520 
+        85         86         87         88         89         90         91 
+0.09101445 0.09811147 0.12187625 0.16230880 0.21940911 0.29317719 0.22930404 
+        92         93         94         95         96         97         98 
+0.16972999 0.12682372 0.10058520 0.09101445 0.09811147 0.12187625 0.16230880 
+        99        100        101        102        103        104        105 
+0.21940911 0.29317719 0.22930404 0.16972999 0.12682372 0.10058520 0.09101445 
+       106        107        108        109        110        111        112 
+0.09811147 0.12187625 0.16230880 0.21940911 0.29317719 0.22930404 0.16972999 
+       113        114        115        116        117        118        119 
+0.12682372 0.10058520 0.09101445 0.09811147 0.12187625 0.16230880 0.21940911 
+       120        121        122        123        124        125        126 
+0.29317719 0.22930404 0.16972999 0.12682372 0.10058520 0.09101445 0.09811147 
+       127        128        129        130        131        132        133 
+0.12187625 0.16230880 0.21940911 0.29317719 0.22930404 0.16972999 0.12682372 
+       134        135        136        137        138        139        140 
+0.10058520 0.09101445 0.09811147 0.12187625 0.16230880 0.21940911 0.29317719 
+       141        142        143        144        145        146        147 
+0.22930404 0.16972999 0.12682372 0.10058520 0.09101445 0.09811147 0.12187625 
+       148        149        150        151        152        153        154 
+0.16230880 0.21940911 0.29317719 0.22930404 0.16972999 0.12682372 0.10058520 
+       155        156        157        158        159        160        161 
+0.09101445 0.09811147 0.12187625 0.16230880 0.21940911 0.29317719 0.22930404 
+       162        163        164        165        166        167        168 
+0.16972999 0.12682372 0.10058520 0.09101445 0.09811147 0.12187625 0.16230880 
+       169        170        171        172        173        174        175 
+0.21940911 0.29317719 0.22930404 0.16972999 0.12682372 0.10058520 0.09101445 
+       176        177        178        179        180 
+0.09811147 0.12187625 0.16230880 0.21940911 0.29317719 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("influence.merMod")
+> ### * influence.merMod
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: influence.merMod
+> ### Title: Influence Diagnostics for Mixed-Effects Models
+> ### Aliases: influence.merMod dfbeta.influence.merMod
+> ###   dfbetas.influence.merMod cooks.distance.influence.merMod
+> ###   cooks.distance.merMod
+> ### Keywords: models
+> 
+> ### ** Examples
+> 
+> if (interactive()) {
++   fm1 <- lmer(Reaction ~ Days + (Days | Subject), sleepstudy)
++   inf_fm1 <- influence(fm1, "Subject")
++   if (require("car")) {
++     infIndexPlot(inf_fm1)
++   }
++   dfbeta(inf_fm1)
++   dfbetas(inf_fm1)
++   gm1 <- glmer(cbind(incidence, size - incidence) ~ period + (1 | herd),
++                data = cbpp, family = binomial)
++   inf_gm1 <- influence(gm1, "herd", maxfun=100)
++   gm1.11 <- update(gm1, subset = herd != 11) # check deleting herd 11
++   if (require("car")) {
++     infIndexPlot(inf_gm1)
++     compareCoefs(gm1, gm1.11)
++   }
++   if(packageVersion("car") >= "3.0.10") {
++     dfbeta(inf_gm1)
++     dfbetas(inf_gm1)
++   }
++  } 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("isNested")
+> ### * isNested
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: isNested
+> ### Title: Is f1 nested within f2?
+> ### Aliases: isNested
+> 
+> ### ** Examples
+> 
+> with(Pastes, isNested(cask, batch))   ## => FALSE
+[1] FALSE
+> with(Pastes, isNested(sample, batch))  ## => TRUE
+[1] TRUE
+> 
+> 
+> 
+> cleanEx()
+> nameEx("isREML")
+> ### * isREML
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: isREML
+> ### Title: Check characteristics of models
+> ### Aliases: isGLMM isLMM isNLMM isREML isGLMM.merMod isLMM.merMod
+> ###   isNLMM.merMod isREML.merMod
+> 
+> ### ** Examples
+> 
+> fm1 <- lmer(Reaction ~ Days + (Days|Subject), sleepstudy)
+> gm1 <- glmer(cbind(incidence, size - incidence) ~ period + (1 | herd),
++               data = cbpp, family = binomial)
+> nm1 <- nlmer(circumference ~ SSlogis(age, Asym, xmid, scal) ~ Asym|Tree,
++              Orange, start = c(Asym = 200, xmid = 725, scal = 350))
+> 
+> isLMM(fm1)
+[1] TRUE
+> isGLMM(gm1)
+[1] TRUE
+> ## check all :
+> is.MM <- function(x) c(LMM = isLMM(x), GLMM= isGLMM(x), NLMM= isNLMM(x))
+> stopifnot(cbind(is.MM(fm1), is.MM(gm1), is.MM(nm1))
++ 	  == diag(rep(TRUE,3)))
+> 
+> 
+> 
+> cleanEx()
+> nameEx("lmList")
+> ### * lmList
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: lmList
+> ### Title: Fit List of lm or glm Objects with a Common Model
+> ### Aliases: lmList plot.lmList
+> ### Keywords: models
+> 
+> ### ** Examples
+> 
+> fm.plm  <- lmList(Reaction ~ Days | Subject, sleepstudy)
+> coef(fm.plm)
+    (Intercept)      Days
+308    244.1927 21.764702
+309    205.0549  2.261785
+310    203.4842  6.114899
+330    289.6851  3.008073
+331    285.7390  5.266019
+332    264.2516  9.566768
+333    275.0191  9.142045
+334    240.1629 12.253141
+335    263.0347 -2.881034
+337    290.1041 19.025974
+349    215.1118 13.493933
+350    225.8346 19.504017
+351    261.1470  6.433498
+352    276.3721 13.566549
+369    254.9681 11.348109
+370    210.4491 18.056151
+371    253.6360  9.188445
+372    267.0448 11.298073
+> fm.2  <- update(fm.plm, pool = FALSE)
+> ## coefficients are the same, "pooled or unpooled":
+> stopifnot( all.equal(coef(fm.2), coef(fm.plm)) )
+> 
+> (ci <- confint(fm.plm)) # print and rather *see* :
+An object of class "lmList4.confint"
+, , (Intercept)
+
+       2.5 %   97.5 %
+308 179.4339 308.9515
+309 193.0264 217.0834
+310 186.7857 220.1827
+330 259.4656 319.9046
+331 253.9831 317.4948
+332 181.7151 346.7882
+333 258.1329 291.9053
+334 212.3016 268.0243
+335 247.5990 278.4704
+337 267.9833 312.2249
+349 196.1192 234.1043
+350 192.8172 258.8520
+351 230.3022 291.9919
+352 241.7849 310.9592
+369 233.5099 276.4264
+370 177.7602 243.1379
+371 219.6541 287.6179
+372 251.7509 282.3387
+
+, , Days
+
+           2.5 %    97.5 %
+308  9.634266613 33.895138
+309  0.008641467  4.514929
+310  2.986982693  9.242815
+330 -2.652558845  8.668704
+331 -0.682394612 11.214432
+332 -5.893742346 25.027278
+333  5.978973800 12.305117
+334  7.034230035 17.472052
+335 -5.772399880  0.010332
+337 14.882372150 23.169576
+349  9.936302154 17.051563
+350 13.319294525 25.688739
+351  0.655729402 12.211266
+352  7.087781175 20.045317
+369  7.328617389 15.367601
+370 11.932968572 24.179333
+371  2.823051508 15.553838
+372  8.433264432 14.162882
+
+> plot(ci)                # how widely they vary for the individuals
+> 
+> 
+> 
+> cleanEx()
+> nameEx("lmList4-class")
+> ### * lmList4-class
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: lmList4-class
+> ### Title: Class "lmList4" of 'lm' Objects on Common Model
+> ### Aliases: lmList4-class show,lmList4-method
+> ### Keywords: classes
+> 
+> ### ** Examples
+> 
+> if(getRversion() >= "3.2.0") {
++   (mm <- methods(class = "lmList4"))
++   ## The S3 ("not S4") ones :
++   mm[!attr(mm,"info")[,"isS4"]]
++ }
+ [1] "coef.lmList4"      "confint.lmList4"   "fitted.lmList4"   
+ [4] "fixef.lmList4"     "formula.lmList4"   "logLik.lmList4"   
+ [7] "pairs.lmList4"     "plot.lmList4"      "predict.lmList4"  
+[10] "qqnorm.lmList4"    "ranef.lmList4"     "residuals.lmList4"
+[13] "sigma.lmList4"     "summary.lmList4"   "update.lmList4"   
+> ## For more examples:  example(lmList)  i.e., ?lmList
+> 
+> 
+> 
+> cleanEx()
+> nameEx("lmResp-class")
+> ### * lmResp-class
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: lmResp-class
+> ### Title: Reference Classes for Response Modules,
+> ###   '"(lm|glm|nls|lmer)Resp"'
+> ### Aliases: glmResp-class lmerResp-class lmResp-class nlsResp-class
+> ### Keywords: classes
+> 
+> ### ** Examples
+> 
+> showClass("lmResp")
+Class "lmResp" [package "lme4"]
+
+Slots:
+                  
+Name:       .xData
+Class: environment
+
+Extends: 
+Class "envRefClass", directly
+Class ".environment", by class "envRefClass", distance 2
+Class "refClass", by class "envRefClass", distance 2
+Class "environment", by class "envRefClass", distance 3, with explicit coerce
+Class "refObject", by class "envRefClass", distance 3
+
+Known Subclasses: "lmerResp", "glmResp", "nlsResp"
+> str(lmResp$new(y=1:4))
+Reference class 'lmResp' [package "lme4"] with 8 fields
+ $ Ptr    :<externalptr> 
+ $ mu     : num [1:4] 0 0 0 0
+ $ offset : num [1:4] 0 0 0 0
+ $ sqrtXwt: num [1:4] 1 1 1 1
+ $ sqrtrwt: num [1:4] 1 1 1 1
+ $ weights: num [1:4] 1 1 1 1
+ $ wtres  : num [1:4] 1 2 3 4
+ $ y      : num [1:4] 1 2 3 4
+ and 24 methods, of which 10 are  possibly relevant:
+   allInfo, copy#envRefClass, initialize, initializePtr, ptr, setOffset,
+   setResp, setWeights, updateMu, wrss
+> showClass("glmResp")
+Class "glmResp" [package "lme4"]
+
+Slots:
+                  
+Name:       .xData
+Class: environment
+
+Extends: 
+Class "lmResp", directly
+Class "envRefClass", by class "lmResp", distance 2
+Class ".environment", by class "lmResp", distance 3
+Class "refClass", by class "lmResp", distance 3
+Class "environment", by class "lmResp", distance 4, with explicit coerce
+Class "refObject", by class "lmResp", distance 4
+> str(glmResp$new(family=poisson(), y=1:4))
+Reference class 'glmResp' [package "lme4"] with 11 fields
+ $ Ptr    :<externalptr> 
+ $ mu     : num [1:4] 0 0 0 0
+ $ offset : num [1:4] 0 0 0 0
+ $ sqrtXwt: num [1:4] 1 1 1 1
+ $ sqrtrwt: num [1:4] 1 1 1 1
+ $ weights: num [1:4] 1 1 1 1
+ $ wtres  : num [1:4] 1 2 3 4
+ $ y      : num [1:4] 1 2 3 4
+ $ eta    : num [1:4] 0 0 0 0
+ $ family :List of 13
+  ..$ family    : chr "poisson"
+  ..$ link      : chr "log"
+  ..$ linkfun   :function (mu)  
+  ..$ linkinv   :function (eta)  
+  ..$ variance  :function (mu)  
+  ..$ dev.resids:function (y, mu, wt)  
+  ..$ aic       :function (y, n, mu, wt, dev)  
+  ..$ mu.eta    :function (eta)  
+  ..$ initialize:  expression({  if (any(y < 0))  stop("negative values not allowed for the 'Poisson' family")  n <- rep.int(1, nobs| __truncated__
+  ..$ validmu   :function (mu)  
+  ..$ valideta  :function (eta)  
+  ..$ simulate  :function (object, nsim)  
+  ..$ dispersion: num 1
+  ..- attr(*, "class")= chr "family"
+ $ n      : num [1:4] 1 1 1 1
+ and 43 methods, of which 29 are  possibly relevant:
+   Laplace, aic, allInfo, allInfo#lmResp, copy#envRefClass, devResid, fam,
+   initialize, initialize#lmResp, initializePtr, link, muEta, ptr, ptr#lmResp,
+   resDev, setOffset, setResp, setTheta, setWeights, sqrtWrkWt, theta,
+   updateMu, updateMu#lmResp, updateWts, variance, wrkResids, wrkResp, wrss,
+   wtWrkResp
+> showClass("nlsResp")
+Class "nlsResp" [package "lme4"]
+
+Slots:
+                  
+Name:       .xData
+Class: environment
+
+Extends: 
+Class "lmResp", directly
+Class "envRefClass", by class "lmResp", distance 2
+Class ".environment", by class "lmResp", distance 3
+Class "refClass", by class "lmResp", distance 3
+Class "environment", by class "lmResp", distance 4, with explicit coerce
+Class "refObject", by class "lmResp", distance 4
+> showClass("lmerResp")
+Class "lmerResp" [package "lme4"]
+
+Slots:
+                  
+Name:       .xData
+Class: environment
+
+Extends: 
+Class "lmResp", directly
+Class "envRefClass", by class "lmResp", distance 2
+Class ".environment", by class "lmResp", distance 3
+Class "refClass", by class "lmResp", distance 3
+Class "environment", by class "lmResp", distance 4, with explicit coerce
+Class "refObject", by class "lmResp", distance 4
+> str(lmerResp$new(y=1:4))
+Reference class 'lmerResp' [package "lme4"] with 9 fields
+ $ Ptr    :<externalptr> 
+ $ mu     : num [1:4] 0 0 0 0
+ $ offset : num [1:4] 0 0 0 0
+ $ sqrtXwt: num [1:4] 1 1 1 1
+ $ sqrtrwt: num [1:4] 1 1 1 1
+ $ weights: num [1:4] 1 1 1 1
+ $ wtres  : num [1:4] 1 2 3 4
+ $ y      : num [1:4] 1 2 3 4
+ $ REML   : int 0
+ and 28 methods, of which 14 are  possibly relevant:
+   allInfo, copy#envRefClass, initialize, initialize#lmResp, initializePtr,
+   initializePtr#lmResp, objective, ptr, ptr#lmResp, setOffset, setResp,
+   setWeights, updateMu, wrss
+> 
+> 
+> 
+> cleanEx()
+> nameEx("lmer")
+> ### * lmer
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: lmer
+> ### Title: Fit Linear Mixed-Effects Models
+> ### Aliases: lmer
+> ### Keywords: models
+> 
+> ### ** Examples
+> 
+> ## linear mixed models - reference values from older code
+> (fm1 <- lmer(Reaction ~ Days + (Days | Subject), sleepstudy))
+Linear mixed model fit by REML ['lmerMod']
+Formula: Reaction ~ Days + (Days | Subject)
+   Data: sleepstudy
+REML criterion at convergence: 1743.628
+Random effects:
+ Groups   Name        Std.Dev. Corr
+ Subject  (Intercept) 24.741       
+          Days         5.922   0.07
+ Residual             25.592       
+Number of obs: 180, groups:  Subject, 18
+Fixed Effects:
+(Intercept)         Days  
+     251.41        10.47  
+> summary(fm1)# (with its own print method; see class?merMod % ./merMod-class.Rd
+Linear mixed model fit by REML ['lmerMod']
+Formula: Reaction ~ Days + (Days | Subject)
+   Data: sleepstudy
+
+REML criterion at convergence: 1743.6
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.9536 -0.4634  0.0231  0.4634  5.1793 
+
+Random effects:
+ Groups   Name        Variance Std.Dev. Corr
+ Subject  (Intercept) 612.10   24.741       
+          Days         35.07    5.922   0.07
+ Residual             654.94   25.592       
+Number of obs: 180, groups:  Subject, 18
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept)  251.405      6.825  36.838
+Days          10.467      1.546   6.771
+
+Correlation of Fixed Effects:
+     (Intr)
+Days -0.138
+> 
+> str(terms(fm1))
+Classes 'terms', 'formula'  language Reaction ~ Days
+  ..- attr(*, "variables")= language list(Reaction, Days)
+  ..- attr(*, "factors")= int [1:2, 1] 0 1
+  .. ..- attr(*, "dimnames")=List of 2
+  .. .. ..$ : chr [1:2] "Reaction" "Days"
+  .. .. ..$ : chr "Days"
+  ..- attr(*, "term.labels")= chr "Days"
+  ..- attr(*, "order")= int 1
+  ..- attr(*, "intercept")= int 1
+  ..- attr(*, "response")= int 1
+  ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+  ..- attr(*, "predvars")= language list(Reaction, Days)
+> stopifnot(identical(terms(fm1, fixed.only=FALSE),
++                     terms(model.frame(fm1))))
+> attr(terms(fm1, FALSE), "dataClasses") # fixed.only=FALSE needed for dataCl.
+ Reaction      Days   Subject 
+"numeric" "numeric"  "factor" 
+> 
+> ## Maximum Likelihood (ML), and "monitor" iterations via 'verbose':
+> fm1_ML <- update(fm1, REML=FALSE, verbose = 1)
+iteration: 1
+	f(x) = 1784.642296
+iteration: 2
+	f(x) = 1790.125637
+iteration: 3
+	f(x) = 1798.999624
+iteration: 4
+	f(x) = 1803.853200
+iteration: 5
+	f(x) = 1800.613981
+iteration: 6
+	f(x) = 1798.604631
+iteration: 7
+	f(x) = 1752.260737
+iteration: 8
+	f(x) = 1797.587692
+iteration: 9
+	f(x) = 1754.954110
+iteration: 10
+	f(x) = 1753.695682
+iteration: 11
+	f(x) = 1754.816999
+iteration: 12
+	f(x) = 1753.106734
+iteration: 13
+	f(x) = 1752.939377
+iteration: 14
+	f(x) = 1752.256879
+iteration: 15
+	f(x) = 1752.057448
+iteration: 16
+	f(x) = 1752.022389
+iteration: 17
+	f(x) = 1752.022728
+iteration: 18
+	f(x) = 1751.971687
+iteration: 19
+	f(x) = 1751.952603
+iteration: 20
+	f(x) = 1751.948524
+iteration: 21
+	f(x) = 1751.987176
+iteration: 22
+	f(x) = 1751.983213
+iteration: 23
+	f(x) = 1751.951971
+iteration: 24
+	f(x) = 1751.946276
+iteration: 25
+	f(x) = 1751.946698
+iteration: 26
+	f(x) = 1751.947568
+iteration: 27
+	f(x) = 1751.945312
+iteration: 28
+	f(x) = 1751.944180
+iteration: 29
+	f(x) = 1751.943533
+iteration: 30
+	f(x) = 1751.942441
+iteration: 31
+	f(x) = 1751.942170
+iteration: 32
+	f(x) = 1751.942370
+iteration: 33
+	f(x) = 1751.942278
+iteration: 34
+	f(x) = 1751.942204
+iteration: 35
+	f(x) = 1751.941309
+iteration: 36
+	f(x) = 1751.940931
+iteration: 37
+	f(x) = 1751.940567
+iteration: 38
+	f(x) = 1751.940179
+iteration: 39
+	f(x) = 1751.940082
+iteration: 40
+	f(x) = 1751.940270
+iteration: 41
+	f(x) = 1751.941501
+iteration: 42
+	f(x) = 1751.939489
+iteration: 43
+	f(x) = 1751.939392
+iteration: 44
+	f(x) = 1751.939398
+iteration: 45
+	f(x) = 1751.939425
+iteration: 46
+	f(x) = 1751.939355
+iteration: 47
+	f(x) = 1751.939490
+iteration: 48
+	f(x) = 1751.939363
+iteration: 49
+	f(x) = 1751.939345
+iteration: 50
+	f(x) = 1751.939344
+iteration: 51
+	f(x) = 1751.939345
+iteration: 52
+	f(x) = 1751.939348
+iteration: 53
+	f(x) = 1751.939344
+> (fm2 <- lmer(Reaction ~ Days + (Days || Subject), sleepstudy))
+Linear mixed model fit by REML ['lmerMod']
+Formula: Reaction ~ Days + ((1 | Subject) + (0 + Days | Subject))
+   Data: sleepstudy
+REML criterion at convergence: 1743.669
+Random effects:
+ Groups    Name        Std.Dev.
+ Subject   (Intercept) 25.051  
+ Subject.1 Days         5.988  
+ Residual              25.565  
+Number of obs: 180, groups:  Subject, 18
+Fixed Effects:
+(Intercept)         Days  
+     251.41        10.47  
+> anova(fm1, fm2)
+refitting model(s) with ML (instead of REML)
+Data: sleepstudy
+Models:
+fm2: Reaction ~ Days + ((1 | Subject) + (0 + Days | Subject))
+fm1: Reaction ~ Days + (Days | Subject)
+    npar    AIC    BIC  logLik deviance  Chisq Df Pr(>Chisq)
+fm2    5 1762.0 1778.0 -876.00   1752.0                     
+fm1    6 1763.9 1783.1 -875.97   1751.9 0.0639  1     0.8004
+> sm2 <- summary(fm2)
+> print(fm2, digits=7, ranef.comp="Var") # the print.merMod()         method
+Linear mixed model fit by REML ['lmerMod']
+Formula: Reaction ~ Days + ((1 | Subject) + (0 + Days | Subject))
+   Data: sleepstudy
+REML criterion at convergence: 1743.669
+Random effects:
+ Groups    Name        Variance 
+ Subject   (Intercept) 627.56905
+ Subject.1 Days         35.85838
+ Residual              653.58350
+Number of obs: 180, groups:  Subject, 18
+Fixed Effects:
+(Intercept)         Days  
+  251.40510     10.46729  
+> print(sm2, digits=3, corr=FALSE)       # the print.summary.merMod() method
+Linear mixed model fit by REML ['lmerMod']
+Formula: Reaction ~ Days + ((1 | Subject) + (0 + Days | Subject))
+   Data: sleepstudy
+
+REML criterion at convergence: 1743.7
+
+Scaled residuals: 
+   Min     1Q Median     3Q    Max 
+-3.963 -0.463  0.020  0.465  5.186 
+
+Random effects:
+ Groups    Name        Variance Std.Dev.
+ Subject   (Intercept) 627.6    25.05   
+ Subject.1 Days         35.9     5.99   
+ Residual              653.6    25.57   
+Number of obs: 180, groups:  Subject, 18
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept)   251.41       6.89   36.51
+Days           10.47       1.56    6.71
+> 
+> ## Fit sex-specific variances by constructing numeric dummy variables
+> ## for sex and sex:age; in this case the estimated variance differences
+> ## between groups in both intercept and slope are zero ...
+> data(Orthodont,package="nlme")
+> Orthodont$nsex <- as.numeric(Orthodont$Sex=="Male")
+> Orthodont$nsexage <- with(Orthodont, nsex*age)
+> lmer(distance ~ age + (age|Subject) + (0+nsex|Subject) +
++      (0 + nsexage|Subject), data=Orthodont)
+boundary (singular) fit: see help('isSingular')
+Linear mixed model fit by REML ['lmerMod']
+Formula: distance ~ age + (age | Subject) + (0 + nsex | Subject) + (0 +  
+    nsexage | Subject)
+   Data: Orthodont
+REML criterion at convergence: 442.6367
+Random effects:
+ Groups    Name        Std.Dev.  Corr 
+ Subject   (Intercept) 2.3268096      
+           age         0.2264158 -0.61
+ Subject.1 nsex        0.0001559      
+ Subject.2 nsexage     0.0000000      
+ Residual              1.3100560      
+Number of obs: 108, groups:  Subject, 27
+Fixed Effects:
+(Intercept)          age  
+    16.7611       0.6602  
+optimizer (nloptwrap) convergence code: 0 (OK) ; 0 optimizer warnings; 1 lme4 warnings 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("lmerControl")
+> ### * lmerControl
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: lmerControl
+> ### Title: Control of Mixed Model Fitting
+> ### Aliases: glmerControl lmerControl nlmerControl .makeCC
+> 
+> ### ** Examples
+> 
+> str(lmerControl())
+List of 8
+ $ optimizer      : chr "nloptwrap"
+ $ restart_edge   : logi TRUE
+ $ boundary.tol   : num 1e-05
+ $ calc.derivs    : logi TRUE
+ $ use.last.params: logi FALSE
+ $ checkControl   :List of 8
+  ..$ check.nobs.vs.rankZ: chr "ignore"
+  ..$ check.nobs.vs.nlev : chr "stop"
+  ..$ check.nlev.gtreq.5 : chr "ignore"
+  ..$ check.nlev.gtr.1   : chr "stop"
+  ..$ check.nobs.vs.nRE  : chr "stop"
+  ..$ check.rankX        : chr "message+drop.cols"
+  ..$ check.scaleX       : chr "warning"
+  ..$ check.formula.LHS  : chr "stop"
+ $ checkConv      :List of 3
+  ..$ check.conv.grad    :List of 3
+  .. ..$ action: chr "warning"
+  .. ..$ tol   : num 0.002
+  .. ..$ relTol: NULL
+  ..$ check.conv.singular:List of 2
+  .. ..$ action: chr "message"
+  .. ..$ tol   : num 1e-04
+  ..$ check.conv.hess    :List of 2
+  .. ..$ action: chr "warning"
+  .. ..$ tol   : num 1e-06
+ $ optCtrl        : list()
+ - attr(*, "class")= chr [1:2] "lmerControl" "merControl"
+> str(glmerControl())
+List of 11
+ $ optimizer      : chr [1:2] "bobyqa" "Nelder_Mead"
+ $ restart_edge   : logi FALSE
+ $ boundary.tol   : num 1e-05
+ $ calc.derivs    : logi TRUE
+ $ use.last.params: logi FALSE
+ $ checkControl   :List of 9
+  ..$ check.nobs.vs.rankZ     : chr "ignore"
+  ..$ check.nobs.vs.nlev      : chr "stop"
+  ..$ check.nlev.gtreq.5      : chr "ignore"
+  ..$ check.nlev.gtr.1        : chr "stop"
+  ..$ check.nobs.vs.nRE       : chr "stop"
+  ..$ check.rankX             : chr "message+drop.cols"
+  ..$ check.scaleX            : chr "warning"
+  ..$ check.formula.LHS       : chr "stop"
+  ..$ check.response.not.const: chr "stop"
+ $ checkConv      :List of 3
+  ..$ check.conv.grad    :List of 3
+  .. ..$ action: chr "warning"
+  .. ..$ tol   : num 0.002
+  .. ..$ relTol: NULL
+  ..$ check.conv.singular:List of 2
+  .. ..$ action: chr "message"
+  .. ..$ tol   : num 1e-04
+  ..$ check.conv.hess    :List of 2
+  .. ..$ action: chr "warning"
+  .. ..$ tol   : num 1e-06
+ $ optCtrl        : list()
+ $ tolPwrss       : num 1e-07
+ $ compDev        : logi TRUE
+ $ nAGQ0initStep  : logi TRUE
+ - attr(*, "class")= chr [1:2] "glmerControl" "merControl"
+> ## fit with default algorithm [nloptr version of BOBYQA] ...
+> fm0 <- lmer(Reaction ~ Days +   ( 1 | Subject), sleepstudy)
+> fm1 <- lmer(Reaction ~ Days + (Days | Subject), sleepstudy)
+> ## or with "bobyqa" (default 2013 - 2019-02) ...
+> fm1_bobyqa <- update(fm1, control = lmerControl(optimizer="bobyqa"))
+> ## or with "Nelder_Mead" (the default till 2013) ...
+> fm1_NMead <- update(fm1, control = lmerControl(optimizer="Nelder_Mead"))
+> ## or with the nlminb function used in older (<1.0) versions of lme4;
+> ## this will usually replicate older results
+> if (require(optimx)) {
++     fm1_nlminb <- update(fm1,
++                          control = lmerControl(optimizer= "optimx",
++                                                optCtrl  = list(method="nlminb")))
++     ## The other option here is method="L-BFGS-B".
++ }
+Loading required package: optimx
+> 
+> ## Or we can wrap base::optim():
+> optimwrap <- function(fn,par,lower,upper,control=list(),
++                       ...) {
++     if (is.null(control$method)) stop("must specify method in optCtrl")
++     method <- control$method
++     control$method <- NULL
++     ## "Brent" requires finite upper values (lower bound will always
++     ##  be zero in this case)
++     if (method=="Brent") upper <- pmin(1e4,upper)
++     res <- optim(par=par, fn=fn, lower=lower,upper=upper,
++                  control=control,method=method,...)
++     with(res, list(par  = par,
++                    fval = value,
++                    feval= counts[1],
++                    conv = convergence,
++                    message = message))
++ }
+> fm0_brent <- update(fm0,
++                     control = lmerControl(optimizer = "optimwrap",
++                                           optCtrl = list(method="Brent")))
+> 
+> ## You can also use functions (in addition to the lmerControl() default "NLOPT_BOBYQA")
+> ## from the 'nloptr' package, see also  '?nloptwrap' :
+> if (require(nloptr)) {
++     fm1_nloptr_NM <- update(fm1, control=lmerControl(optimizer="nloptwrap",
++                                       optCtrl=list(algorithm="NLOPT_LN_NELDERMEAD")))
++     fm1_nloptr_COBYLA <- update(fm1, control=lmerControl(optimizer="nloptwrap",
++                                       optCtrl=list(algorithm="NLOPT_LN_COBYLA",
++                                                    xtol_rel=1e-6,
++                                                    xtol_abs=1e-10,
++                                                    ftol_abs=1e-10)))
++ }
+Loading required package: nloptr
+> ## other algorithm options include NLOPT_LN_SBPLX
+> 
+> 
+> 
+> cleanEx()
+
+detaching ‘package:nloptr’, ‘package:optimx’
+
+> nameEx("merMod-class")
+> ### * merMod-class
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: merMod-class
+> ### Title: Class "merMod" of Fitted Mixed-Effect Models
+> ### Aliases: anova.merMod as.function.merMod coef.merMod deviance.merMod
+> ###   df.residual.merMod extractAIC.merMod family.merMod fitted.merMod
+> ###   formula.merMod glmerMod-class lmerMod-class logLik.merMod merMod
+> ###   merMod-class model.frame.merMod model.matrix.merMod ngrps.merMod
+> ###   nobs.merMod nobs nlmerMod-class print.merMod print.summary.merMod
+> ###   show,merMod-method show.merMod show.summary.merMod summary.merMod
+> ###   summary.summary.merMod terms.merMod update.merMod weights.merMod
+> ###   REMLcrit
+> ### Keywords: classes
+> 
+> ### ** Examples
+> 
+> showClass("merMod")
+Class "merMod" [package "lme4"]
+
+Slots:
+                                                                        
+Name:          Gp       call      frame      flist       cnms      lower
+Class:    integer       call data.frame       list       list    numeric
+                                                                        
+Name:       theta       beta          u    devcomp         pp    optinfo
+Class:    numeric    numeric    numeric       list   merPredD       list
+
+Known Subclasses: "lmerMod", "glmerMod", "nlmerMod"
+> methods(class="merMod")## over 30  (S3) methods available
+ [1] VarCorr        anova          as.function    coef           confint       
+ [6] cooks.distance deviance       df.residual    drop1          extractAIC    
+[11] family         fitted         fixef          formula        getData       
+[16] getL           getME          hatvalues      influence      isGLMM        
+[21] isLMM          isNLMM         isREML         logLik         model.frame   
+[26] model.matrix   ngrps          nobs           plot           predict       
+[31] print          profile        ranef          rePCA          refit         
+[36] refitML        residuals      rstudent       show           sigma         
+[41] simulate       summary        terms          update         vcov          
+[46] weights       
+see '?methods' for accessing help and source code
+> 
+> m1 <- lmer(Reaction ~ Days + (Days | Subject), sleepstudy)
+> print(m1, ranef.corr = TRUE)   ## print correlations of REs
+Linear mixed model fit by REML ['lmerMod']
+Formula: Reaction ~ Days + (Days | Subject)
+   Data: sleepstudy
+REML criterion at convergence: 1743.628
+Random effects:
+ Groups   Name        Std.Dev. Corr
+ Subject  (Intercept) 24.741       
+          Days         5.922   0.07
+ Residual             25.592       
+Number of obs: 180, groups:  Subject, 18
+Fixed Effects:
+(Intercept)         Days  
+     251.41        10.47  
+> print(m1, ranef.corr = FALSE)  ## print covariances of REs
+Linear mixed model fit by REML ['lmerMod']
+Formula: Reaction ~ Days + (Days | Subject)
+   Data: sleepstudy
+REML criterion at convergence: 1743.628
+Random effects:
+ Groups   Name        Std.Dev. Cov   
+ Subject  (Intercept) 24.741         
+          Days         5.922     9.60
+ Residual             25.592         
+Number of obs: 180, groups:  Subject, 18
+Fixed Effects:
+(Intercept)         Days  
+     251.41        10.47  
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("merPredD-class")
+> ### * merPredD-class
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: merPredD-class
+> ### Title: Class '"merPredD"' - a Dense Predictor Reference Class
+> ### Aliases: merPredD-class
+> ### Keywords: classes
+> 
+> ### ** Examples
+> 
+> showClass("merPredD")
+Class "merPredD" [package "lme4"]
+
+Slots:
+                  
+Name:       .xData
+Class: environment
+
+Extends: 
+Class "envRefClass", directly
+Class ".environment", by class "envRefClass", distance 2
+Class "refClass", by class "envRefClass", distance 2
+Class "environment", by class "envRefClass", distance 3, with explicit coerce
+Class "refObject", by class "envRefClass", distance 3
+> pp <- slot(lmer(Yield ~ 1|Batch, Dyestuff), "pp")
+> stopifnot(is(pp, "merPredD"))
+> str(pp) # an overview of all fields and methods' names.
+Reference class 'merPredD' [package "lme4"] with 18 fields
+ $ Lambdat:Formal class 'dgCMatrix' [package "Matrix"] with 6 slots
+  .. ..@ i       : int [1:6] 0 1 2 3 4 5
+  .. ..@ p       : int [1:7] 0 1 2 3 4 5 6
+  .. ..@ Dim     : int [1:2] 6 6
+  .. ..@ Dimnames:List of 2
+  .. .. ..$ : NULL
+  .. .. ..$ : NULL
+  .. ..@ x       : num [1:6] 0.848 0.848 0.848 0.848 0.848 ...
+  .. ..@ factors : list()
+ $ LamtUt :Formal class 'dgCMatrix' [package "Matrix"] with 6 slots
+  .. ..@ i       : int [1:30] 0 0 0 0 0 1 1 1 1 1 ...
+  .. ..@ p       : int [1:31] 0 1 2 3 4 5 6 7 8 9 ...
+  .. ..@ Dim     : int [1:2] 6 30
+  .. ..@ Dimnames:List of 2
+  .. .. ..$ : NULL
+  .. .. ..$ : chr [1:30] "1" "2" "3" "4" ...
+  .. ..@ x       : num [1:30] 0.848 0.848 0.848 0.848 0.848 ...
+  .. ..@ factors : list()
+ $ Lind   : int [1:6] 1 1 1 1 1 1
+ $ Ptr    :<externalptr> 
+ $ RZX    : num [1:6, 1] 1.98 1.98 1.98 1.98 1.98 ...
+ $ Ut     :Formal class 'dgCMatrix' [package "Matrix"] with 6 slots
+  .. ..@ i       : int [1:30] 0 0 0 0 0 1 1 1 1 1 ...
+  .. ..@ p       : int [1:31] 0 1 2 3 4 5 6 7 8 9 ...
+  .. ..@ Dim     : int [1:2] 6 30
+  .. ..@ Dimnames:List of 2
+  .. .. ..$ : chr [1:6] "A" "B" "C" "D" ...
+  .. .. ..$ : chr [1:30] "1" "2" "3" "4" ...
+  .. ..@ x       : num [1:30] 1 1 1 1 1 1 1 1 1 1 ...
+  .. ..@ factors : list()
+ $ Utr    : num [1:6] 6384 6481 6634 6354 6787 ...
+ $ V      : num [1:30, 1] 1 1 1 1 1 1 1 1 1 1 ...
+ $ VtV    : num [1, 1] 30
+ $ Vtr    : num 45825
+ $ X      : num [1:30, 1] 1 1 1 1 1 1 1 1 1 1 ...
+  ..- attr(*, "dimnames")=List of 2
+  .. ..$ : chr [1:30] "1" "2" "3" "4" ...
+  .. ..$ : chr "(Intercept)"
+  ..- attr(*, "assign")= int 0
+  ..- attr(*, "msgScaleX")= chr(0) 
+ $ Xwts   : num [1:30] 1 1 1 1 1 1 1 1 1 1 ...
+ $ Zt     :Formal class 'dgCMatrix' [package "Matrix"] with 6 slots
+  .. ..@ i       : int [1:30] 0 0 0 0 0 1 1 1 1 1 ...
+  .. ..@ p       : int [1:31] 0 1 2 3 4 5 6 7 8 9 ...
+  .. ..@ Dim     : int [1:2] 6 30
+  .. ..@ Dimnames:List of 2
+  .. .. ..$ : chr [1:6] "A" "B" "C" "D" ...
+  .. .. ..$ : chr [1:30] "1" "2" "3" "4" ...
+  .. ..@ x       : num [1:30] 1 1 1 1 1 1 1 1 1 1 ...
+  .. ..@ factors : list()
+ $ beta0  : num 0
+ $ delb   : num 1528
+ $ delu   : num [1:6] -20.755 0.461 33.669 -27.212 66.877 ...
+ $ theta  : num 0.848
+ $ u0     : num [1:6] 0 0 0 0 0 0
+ and 45 methods, of which 31 are  possibly relevant:
+   CcNumer, L, P, RX, RXdiag, RXi, b, beta, copy#envRefClass, initialize,
+   initializePtr, installPars, ldL2, ldRX2, linPred, ptr, setBeta0, setDelb,
+   setDelu, setTheta, setZt, solve, solveU, sqrL, u, unsc, updateDecomp,
+   updateL, updateLamtUt, updateRes, updateXwts
+> 
+> 
+> 
+> cleanEx()
+> nameEx("mkReTrms")
+> ### * mkReTrms
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: mkReTrms
+> ### Title: Make Random Effect Terms: Create Z, Lambda, Lind, etc.
+> ### Aliases: mkReTrms mkNewReTrms
+> ### Keywords: utilities
+> 
+> ### ** Examples
+> 
+> data("Pixel", package="nlme")
+> mform <- pixel ~ day + I(day^2) + (day | Dog) + (1 | Side/Dog)
+> (bar.f <- findbars(mform)) # list with 3 terms
+[[1]]
+day | Dog
+
+[[2]]
+1 | Dog:Side
+
+[[3]]
+1 | Side
+
+> mf <- model.frame(subbars(mform),data=Pixel)
+> rt <- mkReTrms(bar.f,mf)
+> names(rt)
+ [1] "Zt"      "theta"   "Lind"    "Gp"      "lower"   "Lambdat" "flist"  
+ [8] "cnms"    "Ztlist"  "nl"     
+> 
+> 
+> 
+> cleanEx()
+> nameEx("modular")
+> ### * modular
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: modular
+> ### Title: Modular Functions for Mixed Model Fits
+> ### Aliases: glFormula lFormula mkGlmerDevfun mkLmerDevfun modular
+> ###   optimizeGlmer optimizeLmer updateGlmerDevfun
+> ### Keywords: models
+> 
+> ### ** Examples
+> 
+> ### Fitting a linear mixed model in 4 modularized steps
+> 
+> ## 1.  Parse the data and formula:
+> lmod <- lFormula(Reaction ~ Days + (Days|Subject), sleepstudy)
+> names(lmod)
+[1] "fr"      "X"       "reTrms"  "REML"    "formula" "wmsgs"  
+> ## 2.  Create the deviance function to be optimized:
+> (devfun <- do.call(mkLmerDevfun, lmod))
+function (theta) 
+.Call(lmer_Deviance, pp$ptr(), resp$ptr(), as.double(theta))
+<environment: 0x64115eff4f28>
+> ls(environment(devfun)) # the environment of 'devfun' contains objects
+[1] "lmer_Deviance" "lower"         "pp"            "resp"         
+>                         # required for its evaluation
+> ## 3.  Optimize the deviance function:
+> opt <- optimizeLmer(devfun)
+> opt[1:3]
+$par
+[1] 0.96674177 0.01516906 0.23090995
+
+$fval
+[1] 1743.628
+
+$feval
+[1] 43
+
+> ## 4.  Package up the results:
+> mkMerMod(environment(devfun), opt, lmod$reTrms, fr = lmod$fr)
+Linear mixed model fit by REML ['lmerMod']
+REML criterion at convergence: 1743.628
+Random effects:
+ Groups   Name        Std.Dev. Corr
+ Subject  (Intercept) 24.741       
+          Days         5.922   0.07
+ Residual             25.592       
+Number of obs: 180, groups:  Subject, 18
+Fixed Effects:
+(Intercept)         Days  
+     251.41        10.47  
+> 
+> 
+> ### Same model in one line
+> lmer(Reaction ~ Days + (Days|Subject), sleepstudy)
+Linear mixed model fit by REML ['lmerMod']
+Formula: Reaction ~ Days + (Days | Subject)
+   Data: sleepstudy
+REML criterion at convergence: 1743.628
+Random effects:
+ Groups   Name        Std.Dev. Corr
+ Subject  (Intercept) 24.741       
+          Days         5.922   0.07
+ Residual             25.592       
+Number of obs: 180, groups:  Subject, 18
+Fixed Effects:
+(Intercept)         Days  
+     251.41        10.47  
+> 
+> 
+> ### Fitting a generalized linear mixed model in six modularized steps
+> 
+> ## 1.  Parse the data and formula:
+> glmod <- glFormula(cbind(incidence, size - incidence) ~ period + (1 | herd),
++                    data = cbpp, family = binomial)
+>     #.... see what've got :
+> str(glmod, max=1, give.attr=FALSE)
+List of 6
+ $ fr     :'data.frame':	56 obs. of  3 variables:
+ $ X      : num [1:56, 1:4] 1 1 1 1 1 1 1 1 1 1 ...
+ $ reTrms :List of 10
+ $ family :List of 13
+ $ formula:Class 'formula'  language cbind(incidence, size - incidence) ~ period + (1 | herd)
+ $ wmsgs  : chr(0) 
+> ## 2.  Create the deviance function for optimizing over theta:
+> (devfun <- do.call(mkGlmerDevfun, glmod))
+function (theta) 
+{
+    resp$updateMu(lp0)
+    pp$setTheta(theta)
+    p <- pwrssUpdate(pp, resp, tol = tolPwrss, GQmat = GHrule(0L), 
+        compDev = compDev, maxit = maxit, verbose = verbose)
+    resp$updateWts()
+    p
+}
+<environment: 0x64116009b2b8>
+> ls(environment(devfun)) # the environment of devfun contains lots of info
+[1] "compDev"     "lower"       "lp0"         "maxit"       "pp"         
+[6] "pwrssUpdate" "resp"        "tolPwrss"    "verbose"    
+> ## 3.  Optimize over theta using a rough approximation (i.e. nAGQ = 0):
+> (opt <- optimizeGlmer(devfun))
+parameter estimates: 0.641838555326752 
+objective: 184.108693002453 
+number of function evaluations: 18 
+> ## 4.  Update the deviance function for optimizing over theta and beta:
+> (devfun <- updateGlmerDevfun(devfun, glmod$reTrms))
+function (pars) 
+{
+    resp$setOffset(baseOffset)
+    resp$updateMu(lp0)
+    pp$setTheta(as.double(pars[dpars]))
+    spars <- as.numeric(pars[-dpars])
+    offset <- if (length(spars) == 0) 
+        baseOffset
+    else baseOffset + pp$X %*% spars
+    resp$setOffset(offset)
+    p <- pwrssUpdate(pp, resp, tol = tolPwrss, GQmat = GQmat, 
+        compDev = compDev, grpFac = fac, maxit = maxit, verbose = verbose)
+    resp$updateWts()
+    p
+}
+<environment: 0x64116009b2b8>
+> ## 5.  Optimize over theta and beta:
+> opt <- optimizeGlmer(devfun, stage=2)
+> str(opt, max=1) # seeing what we'got
+List of 7
+ $ fval       : num 184
+ $ par        : num [1:5] 0.642 -1.398 -0.992 -1.128 -1.58
+ $ convergence: num 0
+ $ NM.result  : int 3
+ $ message    : chr "parameter values converged to within tolerance"
+ $ control    :List of 17
+ $ feval      : num 285
+ - attr(*, "optimizer")= chr "Nelder_Mead"
+ - attr(*, "control")=List of 3
+ - attr(*, "warnings")= list()
+ - attr(*, "derivs")=List of 2
+> ## 6.  Package up the results:
+> (fMod <- mkMerMod(environment(devfun), opt, glmod$reTrms, fr = glmod$fr))
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+      AIC       BIC    logLik -2*log(L)  df.resid 
+ 194.0531  204.1799  -92.0266  184.0531        51 
+Random effects:
+ Groups Name        Std.Dev.
+ herd   (Intercept) 0.6421  
+Number of obs: 56, groups:  herd, 15
+Fixed Effects:
+(Intercept)      period2      period3      period4  
+    -1.3983      -0.9919      -1.1282      -1.5797  
+> 
+> ### Same model in one line
+> fM <- glmer(cbind(incidence, size - incidence) ~ period + (1 | herd),
++             data = cbpp, family = binomial)
+> all.equal(fMod, fM, check.attributes=FALSE, tolerance = 1e-12)
+[1] TRUE
+>         # ----  --  even tolerance = 0  may work
+> 
+> 
+> 
+> cleanEx()
+> nameEx("namedList")
+> ### * namedList
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: namedList
+> ### Title: Self-naming list function
+> ### Aliases: namedList
+> 
+> ### ** Examples
+> 
+> a <- 1
+> b <- 2
+> c <- 3
+> str(namedList(a, b, d = c))
+List of 3
+ $ a: num 1
+ $ b: num 2
+ $ d: num 3
+> 
+> 
+> 
+> cleanEx()
+> nameEx("ngrps")
+> ### * ngrps
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: ngrps
+> ### Title: Number of Levels of a Factor or a "merMod" Model
+> ### Aliases: ngrps
+> 
+> ### ** Examples
+> 
+> ngrps(factor(seq(1,10,2)))
+[1] 5
+> ngrps(lmer(Reaction ~ 1|Subject, sleepstudy))
+Subject 
+     18 
+> 
+> ## A named vector if there's more than one grouping factor :
+> ngrps(lmer(strength ~ (1|batch/cask), Pastes))
+cask:batch      batch 
+        30         10 
+> ## cask:batch      batch
+> ##         30         10
+> 
+> methods(ngrps) # -> "factor" and "merMod"
+[1] ngrps.default* ngrps.factor*  ngrps.merMod* 
+see '?methods' for accessing help and source code
+> 
+> 
+> 
+> cleanEx()
+> nameEx("nlmer")
+> ### * nlmer
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: nlmer
+> ### Title: Fitting Nonlinear Mixed-Effects Models
+> ### Aliases: nlmer
+> ### Keywords: models
+> 
+> ### ** Examples
+> 
+> ## nonlinear mixed models --- 3-part formulas ---
+> ## 1. basic nonlinear fit. Use stats::SSlogis for its
+> ## implementation of the 3-parameter logistic curve.
+> ## "SS" stands for "self-starting logistic", but the
+> ## "self-starting" part is not currently used by nlmer ... 'start' is
+> ## necessary
+> startvec <- c(Asym = 200, xmid = 725, scal = 350)
+> (nm1 <- nlmer(circumference ~ SSlogis(age, Asym, xmid, scal) ~ Asym|Tree,
++              Orange, start = startvec))
+Nonlinear mixed model fit by maximum likelihood  ['nlmerMod']
+Formula: circumference ~ SSlogis(age, Asym, xmid, scal) ~ Asym | Tree
+   Data: Orange
+      AIC       BIC    logLik -2*log(L)  df.resid 
+ 273.1438  280.9205 -131.5719  263.1438        30 
+Random effects:
+ Groups   Name Std.Dev.
+ Tree     Asym 31.646  
+ Residual       7.843  
+Number of obs: 35, groups:  Tree, 5
+Fixed Effects:
+ Asym   xmid   scal  
+192.1  727.9  348.1  
+> ## 2. re-run with "quick and dirty" PIRLS step
+> (nm1a <- update(nm1, nAGQ = 0L))
+Nonlinear mixed model fit by maximum likelihood  ['nlmerMod']
+Formula: circumference ~ SSlogis(age, Asym, xmid, scal) ~ Asym | Tree
+   Data: Orange
+      AIC       BIC    logLik -2*log(L)  df.resid 
+ 273.1689  280.9456 -131.5844  263.1689        30 
+Random effects:
+ Groups   Name Std.Dev.
+ Tree     Asym 31.63   
+ Residual       7.84   
+Number of obs: 35, groups:  Tree, 5
+Fixed Effects:
+ Asym   xmid   scal  
+191.1  722.6  344.2  
+> 
+> ## 3. Fit the same model with a user-built function:
+> ## a. Define formula
+> nform <- ~Asym/(1+exp((xmid-input)/scal))
+> ## b. Use deriv() to construct function:
+> nfun <- deriv(nform,namevec=c("Asym","xmid","scal"),
++               function.arg=c("input","Asym","xmid","scal"))
+> nm1b <- update(nm1,circumference ~ nfun(age, Asym, xmid, scal)  ~ Asym | Tree)
+> 
+> ## 4. User-built function without using deriv():
+> ##    derivatives could be computed more efficiently
+> ##    by pre-computing components, but these are essentially
+> ##    the gradients as one would derive them by hand
+> nfun2 <- function(input, Asym, xmid, scal) {
++     value <- Asym/(1+exp((xmid-input)/scal))
++     grad <- cbind(Asym=1/(1+exp((xmid-input)/scal)),
++               xmid=-Asym/(1+exp((xmid-input)/scal))^2*1/scal*
++                     exp((xmid-input)/scal),
++               scal=-Asym/(1+exp((xmid-input)/scal))^2*
++                      -(xmid-input)/scal^2*exp((xmid-input)/scal))
++     attr(value,"gradient") <- grad
++     value
++ }
+> stopifnot(all.equal(attr(nfun(2,1,3,4),"gradient"),
++                     attr(nfun(2,1,3,4),"gradient")))
+> nm1c <- update(nm1,circumference ~ nfun2(age, Asym, xmid, scal)  ~ Asym | Tree)
+> 
+> 
+> 
+> cleanEx()
+> nameEx("nloptwrap")
+> ### * nloptwrap
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: nloptwrap
+> ### Title: Wrappers for additional optimizers
+> ### Aliases: nloptwrap nlminbwrap
+> 
+> ### ** Examples
+> 
+> library(lme4)
+> ls.str(environment(nloptwrap)) # 'defaultControl' algorithm "NLOPT_LN_BOBYQA"
+defaultControl : List of 4
+ $ algorithm: chr "NLOPT_LN_BOBYQA"
+ $ xtol_abs : num 1e-08
+ $ ftol_abs : num 1e-08
+ $ maxeval  : num 1e+05
+> ## Note that  'optimizer =  "nloptwrap"' is now the default for lmer() :
+> fm1 <- lmer(Reaction ~ Days + (Days|Subject), sleepstudy)
+> ## tighten tolerances
+> fm1B <- update(fm1, control= lmerControl(optCtrl = list(xtol_abs=1e-8, ftol_abs=1e-8)))
+> ## run for longer (no effect in this case)
+> fm1C <- update(fm1,control = lmerControl(optCtrl = list(maxeval=10000)))
+> 
+>   logLik(fm1B) - logLik(fm1)  ## small difference in log likelihood
+'log Lik.' 0 (df=6)
+> c(logLik(fm1C) - logLik(fm1)) ## no difference in LL
+[1] 0
+> ## Nelder-Mead
+> fm1_nloptr_NM <- update(fm1, control=
++                   lmerControl(optimizer = "nloptwrap",
++                               optCtrl = list(algorithm = "NLOPT_LN_NELDERMEAD")))
+> ## other nlOpt algorithm options include NLOPT_LN_COBYLA, NLOPT_LN_SBPLX, see
+> if(interactive())
++   nloptr::nloptr.print.options()
+> 
+> fm1_nlminb <- update(fm1, control=lmerControl(optimizer = "nlminbwrap"))
+> if (require(optimx)) { ## the 'optimx'-based nlminb :
++   fm1_nlminb2 <- update(fm1, control=
++                 lmerControl(optimizer = "optimx",
++                             optCtrl = list(method="nlminb", kkt=FALSE)))
++   cat("Likelihood difference (typically zero):  ",
++       c(logLik(fm1_nlminb) - logLik(fm1_nlminb2)), "\n")
++ }
+Loading required package: optimx
+Likelihood difference (typically zero):   0 
+> 
+> 
+> 
+> 
+> 
+> cleanEx()
+
+detaching ‘package:optimx’
+
+> nameEx("nobars")
+> ### * nobars
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: nobars
+> ### Title: Omit terms separated by vertical bars in a formula
+> ### Aliases: nobars
+> ### Keywords: models utilities
+> 
+> ### ** Examples
+> 
+> nobars(Reaction ~ Days + (Days|Subject)) ## => Reaction ~ Days
+Reaction ~ Days
+> 
+> 
+> 
+> cleanEx()
+> nameEx("plot.merMod")
+> ### * plot.merMod
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: plot.merMod
+> ### Title: Diagnostic Plots for 'merMod' Fits
+> ### Aliases: plot.merMod qqmath.merMod
+> 
+> ### ** Examples
+> 
+> data(Orthodont,package="nlme")
+> fm1 <- lmer(distance ~ age + (age|Subject), data=Orthodont)
+> ## standardized residuals versus fitted values by gender
+> plot(fm1, resid(., scaled=TRUE) ~ fitted(.) | Sex, abline = 0)
+> ## box-plots of residuals by Subject
+> plot(fm1, Subject ~ resid(., scaled=TRUE))
+> ## observed versus fitted values by Subject
+> plot(fm1, distance ~ fitted(.) | Subject, abline = c(0,1))
+> ## residuals by age, separated by Subject
+> plot(fm1, resid(., scaled=TRUE) ~ age | Sex, abline = 0)
+> ## scale-location plot, with red smoothed line
+> scale_loc_plot <- function(m, line.col = "red", line.lty = 1,
++                            line.lwd = 2) {
++   plot(fm1, sqrt(abs(resid(.))) ~ fitted(.),
++        type = c("p", "smooth"),
++        par.settings = list(plot.line =
++                              list(alpha=1, col = line.col,
++                                   lty = line.lty, lwd = line.lwd)))
++ }
+> scale_loc_plot(fm1)
+> ## Q-Q plot
+> lattice::qqmath(fm1, id=0.05)
+> ggp.there <- "package:ggplot2" %in% search()
+> if (ggp.there || require("ggplot2")) {
++     ## we can create the same plots using ggplot2 and the fortify() function
++     fm1F <- fortify.merMod(fm1)
++     ggplot(fm1F, aes(.fitted, .resid)) + geom_point(colour="blue") +
++            facet_grid(. ~ Sex) + geom_hline(yintercept=0)
++     ## note: Subjects are ordered by mean distance
++     ggplot(fm1F, aes(Subject,.resid)) + geom_boxplot() + coord_flip()
++     ggplot(fm1F, aes(.fitted,distance)) + geom_point(colour="blue") +
++         facet_wrap(~Subject) +geom_abline(intercept=0,slope=1)
++     ggplot(fm1F, aes(age,.resid)) + geom_point(colour="blue") + facet_grid(.~Sex) +
++         geom_hline(yintercept=0)+ geom_line(aes(group=Subject),alpha=0.4) +
++         geom_smooth(method="loess")
++     ## (warnings about loess are due to having only 4 unique x values)
++     if(!ggp.there) detach("package:ggplot2")
++ }
+Loading required package: ggplot2
+> 
+> 
+> 
+> cleanEx()
+> nameEx("plots.thpr")
+> ### * plots.thpr
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: plots.thpr
+> ### Title: Mixed-Effects Profile Plots (Regular / Density / Pairs)
+> ### Aliases: xyplot.thpr densityplot.thpr splom.thpr
+> 
+> ### ** Examples
+> 
+> ## see   example("profile.merMod")
+> 
+> 
+> 
+> cleanEx()
+> nameEx("predict.merMod")
+> ### * predict.merMod
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: predict.merMod
+> ### Title: Predictions from a model at new data values
+> ### Aliases: predict.merMod
+> 
+> ### ** Examples
+> 
+> (gm1 <- glmer(cbind(incidence, size - incidence) ~ period + (1 |herd), cbpp, binomial))
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: cbind(incidence, size - incidence) ~ period + (1 | herd)
+   Data: cbpp
+      AIC       BIC    logLik -2*log(L)  df.resid 
+ 194.0531  204.1799  -92.0266  184.0531        51 
+Random effects:
+ Groups Name        Std.Dev.
+ herd   (Intercept) 0.6421  
+Number of obs: 56, groups:  herd, 15
+Fixed Effects:
+(Intercept)      period2      period3      period4  
+    -1.3983      -0.9919      -1.1282      -1.5797  
+> str(p0 <- predict(gm1))            # fitted values
+ Named num [1:56] -0.809 -1.801 -1.937 -2.388 -1.697 ...
+ - attr(*, "names")= chr [1:56] "1" "2" "3" "4" ...
+> str(p1 <- predict(gm1,re.form=NA))  # fitted values, unconditional (level-0)
+ Named num [1:56] -1.4 -2.39 -2.53 -2.98 -1.4 ...
+ - attr(*, "names")= chr [1:56] "1" "2" "3" "4" ...
+> newdata <- with(cbpp, expand.grid(period=unique(period), herd=unique(herd)))
+> str(p2 <- predict(gm1,newdata))    # new data, all RE
+ Named num [1:60] -0.809 -1.801 -1.937 -2.388 -1.697 ...
+ - attr(*, "names")= chr [1:60] "1" "2" "3" "4" ...
+> str(p3 <- predict(gm1,newdata,re.form=NA)) # new data, level-0
+ Named num [1:60] -1.4 -2.39 -2.53 -2.98 -1.4 ...
+ - attr(*, "names")= chr [1:60] "1" "2" "3" "4" ...
+> str(p4 <- predict(gm1,newdata,re.form= ~(1|herd))) # explicitly specify RE
+ Named num [1:60] -0.809 -1.801 -1.937 -2.388 -1.697 ...
+ - attr(*, "names")= chr [1:60] "1" "2" "3" "4" ...
+> stopifnot(identical(p2, p4))
+> ## Don't show: 
+> 
+> ## predict() should work with variable names with spaces [as lm() does]:
+> dd <- expand.grid(y=1:3, "Animal ID" = 1:9)
+> fm <- lmer(y ~ 1 + (1 | `Animal ID`),  dd)
+boundary (singular) fit: see help('isSingular')
+> summary(fm)
+Linear mixed model fit by REML ['lmerMod']
+Formula: y ~ 1 + (1 | `Animal ID`)
+   Data: dd
+
+REML criterion at convergence: 67.5
+
+Scaled residuals: 
+   Min     1Q Median     3Q    Max 
+-1.202 -1.202  0.000  1.202  1.202 
+
+Random effects:
+ Groups    Name        Variance Std.Dev.
+ Animal ID (Intercept) 0.0000   0.0000  
+ Residual              0.6923   0.8321  
+Number of obs: 27, groups:  Animal ID, 9
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept)   2.0000     0.1601   12.49
+optimizer (nloptwrap) convergence code: 0 (OK)
+boundary (singular) fit: see help('isSingular')
+
+> isel <- c(7, 9, 11, 13:17, 20:22)
+> stopifnot(all.equal(vcov(fm)[1,1], 0.02564102564),
++ 	  all.equal(unname(predict(fm, newdata = dd[isel,])),
++ 		    unname( fitted(fm) [isel])))
+> ## End(Don't show)
+>  
+> 
+> 
+> 
+> cleanEx()
+> nameEx("profile-methods")
+> ### * profile-methods
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: profile-methods
+> ### Title: Profile method for merMod objects
+> ### Aliases: as.data.frame.thpr log.thpr logProf varianceProf
+> ###   profile-methods profile.merMod
+> ### Keywords: methods
+> 
+> ### ** Examples
+> 
+> fm01ML <- lmer(Yield ~ 1|Batch, Dyestuff, REML = FALSE)
+> system.time(
++   tpr  <- profile(fm01ML, optimizer="Nelder_Mead", which="beta_")
++ )## fast; as only *one* beta parameter is profiled over -> 0.09s (2022)
+   user  system elapsed 
+  0.073   0.000   0.073 
+> 
+> ## full profiling (default which means 'all') needs longer:
+> system.time( tpr  <- profile(fm01ML, signames=FALSE))
+   user  system elapsed 
+  0.196   0.000   0.197 
+> ## ~ 0.26s (2022) + possible warning about convergence
+> (confint(tpr) -> CIpr)
+                          2.5 %     97.5 %
+sd_(Intercept)|Batch   12.19854   84.06305
+sigma                  38.22998   67.65770
+(Intercept)          1486.45150 1568.54849
+> if (interactive()) {
++  library("lattice")
++  xyplot(tpr)
++  xyplot(tpr, absVal=TRUE) # easier to see conf.int.s (and check symmetry)
++  xyplot(tpr, conf = c(0.95, 0.99), # (instead of all five 50, 80,...)
++         main = "95% and 99% profile() intervals")
++  xyplot(logProf(tpr, ranef=FALSE),
++         main = expression("lmer profile()s"~~ log(sigma)*" (only log)"))
++  densityplot(tpr, main="densityplot( profile(lmer(..)) )")
++  densityplot(varianceProf(tpr), main=" varianceProf( profile(lmer(..)) )")
++  splom(tpr)
++  splom(logProf(tpr, ranef=FALSE))
++  doMore <- lme4:::testLevel() > 2 
++  if(doMore) { ## not typically, for time constraint reasons
++    ## Batch and residual variance only
++    system.time(tpr2 <- profile(fm01ML, which=1:2)) # , optimizer="Nelder_Mead" gives warning
++    print( xyplot(tpr2) )
++    print( xyplot(log(tpr2)) )# log(sigma) is better
++    print( xyplot(logProf(tpr2, ranef=FALSE)) )
++ 
++    ## GLMM example
++    gm1 <- glmer(cbind(incidence, size - incidence) ~ period + (1 | herd),
++                data = cbpp, family = binomial)
++    ## running ~ 10 seconds on a modern machine {-> "verbose" while you wait}:
++    print( system.time(pr4 <- profile(gm1, verbose=TRUE)) )
++    print( xyplot(pr4, layout=c(5,1), as.table=TRUE) )
++    print( xyplot(log(pr4), absVal=TRUE) ) # log(sigma_1)
++    print( splom(pr4) )
++    print( system.time( # quicker: only sig01 and one fixed effect
++        pr2 <- profile(gm1, which=c("theta_", "period2"))))
++    print( confint(pr2) )
++    ## delta..: higher underlying resolution, only for 'sigma_1':
++    print( system.time(
++        pr4.hr <- profile(gm1, which="theta_", delta.cutoff=1/16)))
++    print( xyplot(pr4.hr) )
++  }
++ } # only if interactive()
+> 
+> 
+> 
+> cleanEx()
+> nameEx("ranef")
+> ### * ranef
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: ranef
+> ### Title: Extract the modes of the random effects
+> ### Aliases: ranef ranef.merMod dotplot.ranef.mer qqmath.ranef.mer
+> ###   as.data.frame.ranef.mer
+> ### Keywords: methods models
+> 
+> ### ** Examples
+> 
+> library(lattice) ## for dotplot, qqmath
+> fm1 <- lmer(Reaction ~ Days + (Days|Subject), sleepstudy)
+> fm2 <- lmer(Reaction ~ Days + (1|Subject) + (0+Days|Subject), sleepstudy)
+> fm3 <- lmer(diameter ~ (1|plate) + (1|sample), Penicillin)
+> ranef(fm1)
+$Subject
+    (Intercept)        Days
+308   2.2585509   9.1989758
+309 -40.3987381  -8.6196806
+310 -38.9604090  -5.4488565
+330  23.6906196  -4.8143503
+331  22.2603126  -3.0699116
+332   9.0395679  -0.2721770
+333  16.8405086  -0.2236361
+334  -7.2326151   1.0745816
+335  -0.3336684 -10.7521652
+337  34.8904868   8.6282652
+349 -25.2102286   1.1734322
+350 -13.0700342   6.6142178
+351   4.5778642  -3.0152621
+352  20.8636782   3.5360011
+369   3.2754656   0.8722149
+370 -25.6129993   4.8224850
+371   0.8070461  -0.9881562
+372  12.3145921   1.2840221
+
+with conditional variances for “Subject” 
+> str(rr1 <- ranef(fm1))
+List of 1
+ $ Subject:'data.frame':	18 obs. of  2 variables:
+  ..$ (Intercept): num [1:18] 2.26 -40.4 -38.96 23.69 22.26 ...
+  ..$ Days       : num [1:18] 9.2 -8.62 -5.45 -4.81 -3.07 ...
+  ..- attr(*, "postVar")= num [1:2, 1:2, 1:18] 145.71 -21.44 -21.44 5.31 145.71 ...
+ - attr(*, "class")= chr "ranef.mer"
+> dotplot(rr1)  ## default
+$Subject
+
+> qqmath(rr1)
+$Subject
+
+> ## specify free scales in order to make Day effects more visible
+> dotplot(rr1,scales = list(x = list(relation = 'free')))[["Subject"]]
+> ## plot options: ... can specify appearance of vertical lines with
+> ## lty.v, col.line.v, lwd.v, etc..
+> dotplot(rr1, lty = 3, lty.v = 2, col.line.v = "purple",
++         col = "red", col.line.h = "gray")
+$Subject
+
+> ranef(fm2)
+$Subject
+    (Intercept)        Days
+308   1.5126648   9.3234970
+309 -40.3738728  -8.5991757
+310 -39.1810279  -5.3877944
+330  24.5189244  -4.9686503
+331  22.9144470  -3.1939378
+332   9.2219759  -0.3084939
+333  17.1561243  -0.2872078
+334  -7.4517382   1.1159911
+335   0.5787623 -10.9059754
+337  34.7679030   8.6276228
+349 -25.7543312   1.2806892
+350 -13.8650598   6.7564064
+351   4.9159912  -3.0751356
+352  20.9290332   3.5122123
+369   3.2586448   0.8730514
+370 -26.4758468   4.9837910
+371   0.9056510  -1.0052938
+372  12.4217547   1.2584037
+
+with conditional variances for “Subject” 
+> op <- options(digits = 4)
+> ranef(fm3, drop = TRUE)
+$plate
+       a        b        c        d        e        f        g        h 
+ 0.80455  0.80455  0.18167  0.33739  0.02595 -0.44120 -1.37552  0.80455 
+       i        j        k        l        m        n        o        p 
+-0.75264 -0.75264  0.96027  0.49311  1.42742  0.49311  0.96027  0.02595 
+       q        r        s        t        u        v        w        x 
+-0.28548 -0.28548 -1.37552  0.96027 -0.90836 -0.28548 -0.59692 -1.21980 
+attr(,"postVar")
+ [1] 0.07364 0.07364 0.07364 0.07364 0.07364 0.07364 0.07364 0.07364 0.07364
+[10] 0.07364 0.07364 0.07364 0.07364 0.07364 0.07364 0.07364 0.07364 0.07364
+[19] 0.07364 0.07364 0.07364 0.07364 0.07364 0.07364
+
+$sample
+       A        B        C        D        E        F 
+ 2.18706 -1.01048  1.93790 -0.09689 -0.01384 -3.00374 
+attr(,"postVar")
+[1] 0.04087 0.04087 0.04087 0.04087 0.04087 0.04087
+
+with conditional variances for “plate” “sample” 
+> options(op)
+> ## as.data.frame() provides RE's and conditional standard deviations:
+> str(dd <- as.data.frame(rr1))
+'data.frame':	36 obs. of  5 variables:
+ $ grpvar : chr  "Subject" "Subject" "Subject" "Subject" ...
+ $ term   : Factor w/ 2 levels "(Intercept)",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ grp    : Factor w/ 18 levels "309","310","370",..: 9 1 2 17 16 12 14 6 7 18 ...
+ $ condval: num  2.26 -40.4 -38.96 23.69 22.26 ...
+ $ condsd : num  12.1 12.1 12.1 12.1 12.1 ...
+> if (require(ggplot2)) {
++     ggplot(dd, aes(y=grp,x=condval)) +
++         geom_point() + facet_wrap(~term,scales="free_x") +
++         geom_errorbarh(aes(xmin=condval -2*condsd,
++                            xmax=condval +2*condsd), height=0)
++ }
+Loading required package: ggplot2
+> 
+> 
+> 
+> cleanEx()
+
+detaching ‘package:ggplot2’, ‘package:lattice’
+
+> nameEx("rePCA")
+> ### * rePCA
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: rePCA
+> ### Title: PCA of random-effects covariance matrix
+> ### Aliases: rePCA
+> 
+> ### ** Examples
+> 
+>   fm1 <- lmer(Reaction~Days+(Days|Subject), sleepstudy)
+>   rePCA(fm1)
+$Subject
+Standard deviations (1, .., p=2):
+[1] 0.9668680 0.2308798
+
+Rotation (n x k) = (2 x 2):
+            [,1]        [,2]
+[1,] -0.99986158 -0.01663769
+[2,] -0.01663769  0.99986158
+
+attr(,"class")
+[1] "prcomplist"
+> 
+> 
+> 
+> cleanEx()
+> nameEx("rePos-class")
+> ### * rePos-class
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: rePos-class
+> ### Title: Class '"rePos"'
+> ### Aliases: rePos-class
+> ### Keywords: classes
+> 
+> ### ** Examples
+> 
+> showClass("rePos")
+Class "rePos" [package "lme4"]
+
+Slots:
+                  
+Name:       .xData
+Class: environment
+
+Extends: 
+Class "envRefClass", directly
+Class ".environment", by class "envRefClass", distance 2
+Class "refClass", by class "envRefClass", distance 2
+Class "environment", by class "envRefClass", distance 3, with explicit coerce
+Class "refObject", by class "envRefClass", distance 3
+> 
+> 
+> 
+> cleanEx()
+> nameEx("refit")
+> ### * refit
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: refit
+> ### Title: Refit a (merMod) Model with a Different Response
+> ### Aliases: refit refit.merMod
+> 
+> ### ** Examples
+> 
+> ## Ex. 1: using refit() to fit each column in a matrix of responses -------
+> set.seed(101)
+> Y <- matrix(rnorm(1000),ncol=10)
+> ## combine first column of responses with predictor variables
+> d <- data.frame(y=Y[,1],x=rnorm(100),f=rep(1:10,10))
+> ## (use check.conv.grad="ignore" to disable convergence checks because we
+> ##  are using a fake example)
+> ## fit first response
+> fit1 <- lmer(y ~ x+(1|f), data = d,
++              control= lmerControl(check.conv.grad="ignore",
++                                   check.conv.hess="ignore"))
+> ## combine fit to first response with fits to remaining responses
+> res <- c(fit1, lapply(as.data.frame(Y[,-1]), refit, object=fit1))
+boundary (singular) fit: see help('isSingular')
+boundary (singular) fit: see help('isSingular')
+boundary (singular) fit: see help('isSingular')
+boundary (singular) fit: see help('isSingular')
+boundary (singular) fit: see help('isSingular')
+> 
+> ## Ex. 2: refitting simulated data using data that contain NA values ------
+> sleepstudyNA <- sleepstudy
+> sleepstudyNA$Reaction[1:3] <- NA
+> fm0 <- lmer(Reaction ~ Days + (1|Subject), sleepstudyNA)
+> ## the special case of refitting with a single simulation works ...
+> ss0 <- refit(fm0, simulate(fm0))
+> ## ... but if simulating multiple responses (for efficiency),
+> ## need to use na.action=na.exclude in order to have proper length of data
+> fm1 <- lmer(Reaction ~ Days + (1|Subject), sleepstudyNA, na.action=na.exclude)
+> ss <- simulate(fm1, 5)
+> res2 <- refit(fm1, ss[[5]])
+> 
+> 
+> 
+> cleanEx()
+> nameEx("sigma")
+> ### * sigma
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: sigma
+> ### Title: Extract Residual Standard Deviation 'Sigma'
+> ### Aliases: sigma sigma.merMod
+> 
+> ### ** Examples
+> 
+> methods(sigma)# from R 3.3.0 on, shows methods from pkgs 'stats' *and* 'lme4'
+[1] sigma.default* sigma.glm*     sigma.gls*     sigma.lmList*  sigma.lmList4*
+[6] sigma.lme*     sigma.merMod*  sigma.mlm*    
+see '?methods' for accessing help and source code
+> 
+> 
+> 
+> cleanEx()
+> nameEx("simulate.merMod")
+> ### * simulate.merMod
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: simulate.merMod
+> ### Title: Simulate Responses From 'merMod' Object
+> ### Aliases: simulate.merMod .simulateFun
+> 
+> ### ** Examples
+> 
+> ## test whether fitted models are consistent with the
+> ##  observed number of zeros in CBPP data set:
+> gm1 <- glmer(cbind(incidence, size - incidence) ~ period + (1 | herd),
++              data = cbpp, family = binomial)
+> gg <- simulate(gm1,1000)
+> zeros <- sapply(gg,function(x) sum(x[,"incidence"]==0))
+> plot(table(zeros))
+> abline(v=sum(cbpp$incidence==0),col=2)
+> ##
+> ## simulate from a non-fitted model; in this case we are just
+> ## replicating the previous model, but starting from scratch
+> params <- list(theta=0.5,beta=c(2,-1,-2,-3))
+> simdat <- with(cbpp,expand.grid(herd=levels(herd),period=factor(1:4)))
+> simdat$size <- 15
+> simdat$incidence <- sample(0:1,size=nrow(simdat),replace=TRUE)
+> form <- formula(gm1)[-2]  ## RHS of equation only
+> simulate(form,newdata=simdat,family=binomial,
++     newparams=params)
+   sim_1
+1      1
+2      1
+3      0
+4      1
+5      1
+6      1
+7      0
+8      1
+9      1
+10     1
+11     1
+12     1
+13     1
+14     1
+15     1
+16     1
+17     1
+18     0
+19     1
+20     0
+21     1
+22     1
+23     1
+24     1
+25     1
+26     0
+27     0
+28     1
+29     0
+30     1
+31     0
+32     1
+33     0
+34     1
+35     0
+36     1
+37     1
+38     1
+39     1
+40     1
+41     0
+42     0
+43     1
+44     1
+45     0
+46     0
+47     0
+48     0
+49     0
+50     0
+51     1
+52     1
+53     0
+54     0
+55     0
+56     1
+57     0
+58     1
+59     0
+60     0
+> ## simulate from negative binomial distribution instead
+> simulate(form,newdata=simdat,family=negative.binomial(theta=2.5),
++     newparams=params)
+   sim_1
+1     16
+2      5
+3      1
+4     17
+5      1
+6      1
+7     21
+8      9
+9     59
+10    10
+11     2
+12     6
+13     7
+14     1
+15     4
+16     2
+17     1
+18     2
+19     4
+20     2
+21     0
+22     7
+23     8
+24     6
+25     3
+26     0
+27     2
+28     3
+29     2
+30     1
+31     4
+32     0
+33     0
+34     0
+35     1
+36     2
+37     1
+38     1
+39     7
+40     0
+41     0
+42     0
+43     0
+44     0
+45     0
+46     0
+47     0
+48     0
+49     1
+50     0
+51     0
+52     0
+53     0
+54     2
+55     0
+56     0
+57     0
+58     0
+59     0
+60     0
+> 
+> 
+> 
+> cleanEx()
+> nameEx("sleepstudy")
+> ### * sleepstudy
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: sleepstudy
+> ### Title: Reaction times in a sleep deprivation study
+> ### Aliases: sleepstudy
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> str(sleepstudy)
+'data.frame':	180 obs. of  3 variables:
+ $ Reaction: num  250 259 251 321 357 ...
+ $ Days    : num  0 1 2 3 4 5 6 7 8 9 ...
+ $ Subject : Factor w/ 18 levels "308","309","310",..: 1 1 1 1 1 1 1 1 1 1 ...
+> require(lattice)
+Loading required package: lattice
+> xyplot(Reaction ~ Days | Subject, sleepstudy, type = c("g","p","r"),
++        index = function(x,y) coef(lm(y ~ x))[1],
++        xlab = "Days of sleep deprivation",
++        ylab = "Average reaction time (ms)", aspect = "xy")
+> (fm1 <- lmer(Reaction ~ Days + (Days|Subject), sleepstudy, subset=Days>=2))
+Linear mixed model fit by REML ['lmerMod']
+Formula: Reaction ~ Days + (Days | Subject)
+   Data: sleepstudy
+ Subset: Days >= 2
+REML criterion at convergence: 1404.094
+Random effects:
+ Groups   Name        Std.Dev. Corr 
+ Subject  (Intercept) 31.507        
+          Days         6.766   -0.25
+ Residual             25.526        
+Number of obs: 144, groups:  Subject, 18
+Fixed Effects:
+(Intercept)         Days  
+     245.10        11.44  
+> ## independent model
+> (fm2 <- lmer(Reaction ~ Days + (1|Subject) + (0+Days|Subject), sleepstudy, subset=Days>=2))
+Linear mixed model fit by REML ['lmerMod']
+Formula: Reaction ~ Days + (1 | Subject) + (0 + Days | Subject)
+   Data: sleepstudy
+ Subset: Days >= 2
+REML criterion at convergence: 1404.626
+Random effects:
+ Groups    Name        Std.Dev.
+ Subject   (Intercept) 28.843  
+ Subject.1 Days         6.285  
+ Residual              25.747  
+Number of obs: 144, groups:  Subject, 18
+Fixed Effects:
+(Intercept)         Days  
+     245.10        11.44  
+> 
+> 
+> 
+> cleanEx()
+
+detaching ‘package:lattice’
+
+> nameEx("subbars")
+> ### * subbars
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: subbars
+> ### Title: "Sub[stitute] Bars"
+> ### Aliases: subbars
+> ### Keywords: models utilities
+> 
+> ### ** Examples
+> 
+> subbars(Reaction ~ Days + (Days|Subject)) ## => Reaction ~ Days + (Days + Subject)
+Reaction ~ Days + (Days + Subject)
+> 
+> 
+> 
+> cleanEx()
+> nameEx("utilities")
+> ### * utilities
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: prt-utilities
+> ### Title: Print and Summary Method Utilities for Mixed Effects
+> ### Aliases: .prt.methTit .prt.VC .prt.aictab .prt.call .prt.family
+> ###   .prt.grps .prt.methTit .prt.resids .prt.warn formatVC llikAIC
+> ###   methTitle
+> ### Keywords: utilities
+> 
+> ### ** Examples
+> 
+> ## Create a few "lme4 standard" models ------------------------------
+> fm1 <- lmer(Reaction ~ Days + (Days | Subject), sleepstudy)
+> fmM <- update(fm1, REML=FALSE) # -> Maximum Likelihood
+> fmQ <- update(fm1, . ~ Days + (Days | Subject))
+> 
+> gm1 <- glmer(cbind(incidence, size - incidence) ~ period + (1 | herd),
++              data = cbpp, family = binomial)
+> gmA <- update(gm1, nAGQ = 5)
+> 
+> 
+> (lA1 <- llikAIC(fm1))
+$logLik
+'log Lik.' -871.8141 (df=6)
+
+$AICtab
+    REML 
+1743.628 
+
+> (lAM <- llikAIC(fmM))
+$logLik
+'log Lik.' -875.9697 (df=6)
+
+$AICtab
+      AIC       BIC    logLik -2*log(L)  df.resid 
+1763.9393 1783.0971 -875.9697 1751.9393  174.0000 
+
+> (lAg <- llikAIC(gmA))
+$logLik
+'log Lik.' -50.00568 (df=5)
+
+$AICtab
+      AIC       BIC    logLik -2*log(L)  df.resid 
+110.01137 120.13813 -50.00568 100.01137  51.00000 
+
+> 
+> (m1 <- methTitle(fm1 @ devcomp $ dims))
+[1] "Linear mixed model fit by REML"
+> (mM <- methTitle(fmM @ devcomp $ dims))
+[1] "Linear mixed model fit by maximum likelihood "
+> (mG <- methTitle(gm1 @ devcomp $ dims))
+[1] "Generalized linear mixed model fit by maximum likelihood (Laplace Approximation)"
+> (mA <- methTitle(gmA @ devcomp $ dims))
+[1] "Generalized linear mixed model fit by maximum likelihood (Adaptive Gauss-Hermite Quadrature, nAGQ = 5)"
+> 
+> .prt.methTit(m1, class(fm1))
+Linear mixed model fit by REML ['lmerMod']
+> .prt.methTit(mA, class(gmA))
+Generalized linear mixed model fit by maximum likelihood (Adaptive
+  Gauss-Hermite Quadrature, nAGQ = 5) [glmerMod]
+> 
+> .prt.family(gaussian())
+ Family: gaussian  ( identity )
+> .prt.family(binomial())
+ Family: binomial  ( logit )
+> .prt.family( poisson())
+ Family: poisson  ( log )
+> 
+> .prt.resids(residuals(fm1), digits = 4)
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-101.179  -11.859    0.592   11.859  132.547 
+
+> .prt.resids(residuals(fmM), digits = 2)
+Scaled residuals: 
+   Min     1Q Median     3Q    Max 
+-100.9  -11.9    0.7   11.9  132.5 
+
+> 
+> .prt.call(getCall(fm1))
+Formula: Reaction ~ Days + (Days | Subject)
+   Data: sleepstudy
+> .prt.call(getCall(gm1))
+Formula: cbind(incidence, size - incidence) ~ period + (1 | herd)
+   Data: cbpp
+> 
+> .prt.aictab ( lA1 $ AICtab ) # REML
+REML criterion at convergence: 1743.6
+> .prt.aictab ( lAM $ AICtab ) # ML --> AIC, BIC, ...
+      AIC       BIC    logLik -2*log(L)  df.resid 
+   1763.9    1783.1    -876.0    1751.9       174 
+> 
+> V1 <- VarCorr(fm1)
+> m <- formatVC(V1)
+> stopifnot(is.matrix(m), is.character(m), ncol(m) == 4)
+> print(m, quote = FALSE) ## prints all but the first line of .prt.VC() below:
+ Groups   Name        Std.Dev. Corr 
+ Subject  (Intercept) 24.7407       
+          Days         5.9221  0.066
+ Residual             25.5918       
+> .prt.VC( V1, digits = 4)
+Random effects:
+ Groups   Name        Std.Dev. Corr
+ Subject  (Intercept) 24.741       
+          Days         5.922   0.07
+ Residual             25.592       
+> ## Random effects:
+> ##  Groups   Name        Std.Dev. Corr
+> ##  Subject  (Intercept) 24.740
+> ##           Days         5.922   0.07
+> ##  Residual             25.592
+> p1 <- capture.output(V1)
+> p2 <- capture.output( print(m, quote=FALSE) )
+> pX <- capture.output( .prt.VC(V1, digits = max(3, getOption("digits")-2)) )
+> stopifnot(identical(p1, p2),
++           identical(p1, pX[-1])) # [-1] : dropping 1st line
+> 
+> (Vq <- VarCorr(fmQ)) # default print()
+ Groups   Name        Std.Dev. Corr 
+ Subject  (Intercept) 24.7407       
+          Days         5.9221  0.066
+ Residual             25.5918       
+> print(Vq, comp = c("Std.Dev.", "Variance"))
+ Groups   Name        Std.Dev. Variance Corr 
+ Subject  (Intercept) 24.7407  612.100       
+          Days         5.9221   35.072  0.066
+ Residual             25.5918  654.940       
+> print(Vq, comp = c("Std.Dev.", "Variance"), corr=FALSE)
+ Groups   Name        Std.Dev. Variance Cov    
+ Subject  (Intercept) 24.7407  612.100         
+          Days         5.9221   35.072    9.604
+ Residual             25.5918  654.940         
+> print(Vq, comp = "Variance")
+ Groups   Name        Variance Cov    
+ Subject  (Intercept) 612.100         
+          Days         35.072    9.604
+ Residual             654.940         
+> 
+> .prt.grps(ngrps = ngrps(fm1),
++           nobs  = nobs (fm1))
+Number of obs: 180, groups:  Subject, 18
+> ## --> Number of obs: 180, groups:  Subject, 18
+> 
+> .prt.warn(fm1 @ optinfo) # nothing .. had no warnings
+> .prt.warn(fmQ @ optinfo) # (ditto)
+> 
+> 
+> 
+> cleanEx()
+> nameEx("vcconv")
+> ### * vcconv
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: vcconv
+> ### Title: Convert between representations of (co-)variance structures
+> ### Aliases: vcconv mlist2vec vec2mlist vec2STlist sdcor2cov cov2sdcor
+> ###   Vv_to_Cv Sv_to_Cv Cv_to_Vv Cv_to_Sv
+> 
+> ### ** Examples
+> 
+> vec2mlist(1:6)
+$`1`
+     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    2    4    5
+[3,]    3    5    6
+
+> mlist2vec(vec2mlist(1:6)) # approximate inverse
+11 12 13 14 15 16 
+ 1  2  3  4  5  6 
+attr(,"clen")
+1 
+3 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("vcov.merMod")
+> ### * vcov.merMod
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: vcov.merMod
+> ### Title: Covariance matrix of estimated parameters
+> ### Aliases: vcov.merMod vcov.summary.merMod
+> ### Keywords: models
+> 
+> ### ** Examples
+> 
+> fm1 <- lmer(Reaction ~ Days + (Days | Subject), sleepstudy)
+> gm1 <- glmer(cbind(incidence, size - incidence) ~ period + (1 | herd),
++              data = cbpp, family = binomial)
+> (v1 <- vcov(fm1))
+2 x 2 Matrix of class "dpoMatrix"
+            (Intercept)      Days
+(Intercept)   46.575120 -1.451088
+Days          -1.451088  2.389466
+> v2 <- vcov(fm1, correlation = TRUE)
+> # extract the hidden 'correlation' entry in @factors
+> as(v2, "corMatrix")
+2 x 2 Matrix of class "corMatrix"
+            (Intercept)       Days
+(Intercept)   1.0000000 -0.1375519
+Days         -0.1375519  1.0000000
+> v3 <- vcov(gm1)
+> v3X <- vcov(gm1, use.hessian  = FALSE)
+Warning in vcov.merMod(gm1, use.hessian = FALSE) :
+  variance-covariance matrix computed from finite-difference Hessian
+and from RX differ by >1e-04: consider 'use.hessian=TRUE'
+> all.equal(v3, v3X)
+[1] "Mean relative difference: 0.02937752"
+> ## full correlatiom matrix
+> cv <- vcov(fm1, full = TRUE)
+> image(cv, xlab = "", ylab = "",
++       scales = list(y = list(labels = rownames(cv)),
++                     at = seq(nrow(cv)),
++                     x = list(labels = NULL)))
+> 
+> 
+> 
+> ### * <FOOTER>
+> ###
+> cleanEx()
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  6.73 0.094 7.18 0.002 0.003 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

@@ -1,0 +1,45 @@
+
+R version 4.4.3 (2025-02-28) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ### nlmer() convergence testing / monitoring / ...
+> ##  -------------------
+> 
+> ### The output of tests here are *not* 'diff'ed  (<==> no *.Rout.save file)
+> library(lme4)
+Loading required package: Matrix
+> 
+> ## 'Theoph' Data modeling
+> 
+> if (lme4:::testLevel() > 1) {
++     Th.start <- c(lKe=-2.5, lKa=0.5, lCl=-3)
++ 
++     (nm2 <- nlmer(conc ~ SSfol(Dose, Time,lKe, lKa, lCl) ~ lKe + lKa + lCl|Subject,
++                   Theoph, start = Th.start))
++     (nm3 <- nlmer(conc ~ SSfol(Dose, Time,lKe, lKa, lCl) ~ (lKe|Subject) +
++                                                            (lKa|Subject) + (lCl|Subject),
++                   Theoph, start = Th.start))
++     ## dropping   lKe  from random effects:
++     (nm4 <- nlmer(conc ~ SSfol(Dose, Time,lKe, lKa, lCl) ~ lKa + lCl|Subject,
++                   Theoph, start = Th.start,
++                   control = nlmerControl(tolPwrss=1e-8)))
++     (nm5 <- nlmer(conc ~ SSfol(Dose, Time,lKe, lKa, lCl) ~ (lKa|Subject) + (lCl|Subject),
++                   Theoph, start = Th.start))
++ }
+> 
+> proc.time()
+   user  system elapsed 
+  0.798   0.067   0.858 

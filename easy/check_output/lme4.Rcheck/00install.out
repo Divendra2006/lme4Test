@@ -1,0 +1,25 @@
+* installing *source* package ‘lme4’ ...
+** using staged installation
+** libs
+using C++ compiler: ‘g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0’
+g++ -std=gnu++17 -I"/usr/share/R/include" -DNDEBUG  -I'/home/yadav/R/x86_64-pc-linux-gnu-library/4.4/Rcpp/include' -I'/home/yadav/R/x86_64-pc-linux-gnu-library/4.4/RcppEigen/include' -I'/home/yadav/R/x86_64-pc-linux-gnu-library/4.4/Matrix/include'    -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/r-base-fxpJxi/r-base-4.4.3=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/r-base-fxpJxi/r-base-4.4.3=/usr/src/r-base-4.4.3-1.2404.0 -Wdate-time -D_FORTIFY_SOURCE=3   -c external.cpp -o external.o
+g++ -std=gnu++17 -I"/usr/share/R/include" -DNDEBUG  -I'/home/yadav/R/x86_64-pc-linux-gnu-library/4.4/Rcpp/include' -I'/home/yadav/R/x86_64-pc-linux-gnu-library/4.4/RcppEigen/include' -I'/home/yadav/R/x86_64-pc-linux-gnu-library/4.4/Matrix/include'    -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/r-base-fxpJxi/r-base-4.4.3=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/r-base-fxpJxi/r-base-4.4.3=/usr/src/r-base-4.4.3-1.2404.0 -Wdate-time -D_FORTIFY_SOURCE=3   -c glmFamily.cpp -o glmFamily.o
+g++ -std=gnu++17 -I"/usr/share/R/include" -DNDEBUG  -I'/home/yadav/R/x86_64-pc-linux-gnu-library/4.4/Rcpp/include' -I'/home/yadav/R/x86_64-pc-linux-gnu-library/4.4/RcppEigen/include' -I'/home/yadav/R/x86_64-pc-linux-gnu-library/4.4/Matrix/include'    -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/r-base-fxpJxi/r-base-4.4.3=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/r-base-fxpJxi/r-base-4.4.3=/usr/src/r-base-4.4.3-1.2404.0 -Wdate-time -D_FORTIFY_SOURCE=3   -c optimizer.cpp -o optimizer.o
+g++ -std=gnu++17 -I"/usr/share/R/include" -DNDEBUG  -I'/home/yadav/R/x86_64-pc-linux-gnu-library/4.4/Rcpp/include' -I'/home/yadav/R/x86_64-pc-linux-gnu-library/4.4/RcppEigen/include' -I'/home/yadav/R/x86_64-pc-linux-gnu-library/4.4/Matrix/include'    -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/r-base-fxpJxi/r-base-4.4.3=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/r-base-fxpJxi/r-base-4.4.3=/usr/src/r-base-4.4.3-1.2404.0 -Wdate-time -D_FORTIFY_SOURCE=3   -c predModule.cpp -o predModule.o
+g++ -std=gnu++17 -I"/usr/share/R/include" -DNDEBUG  -I'/home/yadav/R/x86_64-pc-linux-gnu-library/4.4/Rcpp/include' -I'/home/yadav/R/x86_64-pc-linux-gnu-library/4.4/RcppEigen/include' -I'/home/yadav/R/x86_64-pc-linux-gnu-library/4.4/Matrix/include'    -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/r-base-fxpJxi/r-base-4.4.3=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/r-base-fxpJxi/r-base-4.4.3=/usr/src/r-base-4.4.3-1.2404.0 -Wdate-time -D_FORTIFY_SOURCE=3   -c respModule.cpp -o respModule.o
+g++ -std=gnu++17 -shared -L/usr/lib/R/lib -Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -Wl,-z,relro -o lme4.so external.o glmFamily.o optimizer.o predModule.o respModule.o -L/usr/lib/R/lib -lR
+installing to /home/yadav/lme4/lme4.Rcheck/00LOCK-lme4/00new/lme4/libs
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (lme4)

@@ -1,0 +1,78 @@
+
+R version 4.4.3 (2025-02-28) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> if (.Platform$OS.type != "windows") {
++     ## test of false zero problem reported by Vince Dorie
++     ## (no longer occurs with current development lme4)
++     ## https://github.com/lme4/lme4/issues/17
++     library(lme4)
++ 
++     sigma.eps <- 2
++     sigma.the <- 0.75
++     mu <- 2
++ 
++     n <- 5
++     J <- 10
++     g <- gl(J, n)
++ 
++     set.seed(1)
++ 
++     theta <- rnorm(J, 0, sigma.eps * sigma.the)
++     y <- rnorm(n * J, mu + theta[g], sigma.eps)
++     lmerFit <- lmer(y ~ 1 + (1 | g), REML = FALSE, verbose=TRUE)
++ 
++     y.bar <- mean(y)
++     y.bar.j <- sapply(1:J, function(j) mean(y[g == j]))
++     S.w <- sum((y - y.bar.j[g])^2)
++     S.b <- n * sum((y.bar.j - y.bar)^2)
++     R <- S.b / S.w
++ 
++     sigma.the.hat <- sqrt(max((n - 1) * R / n - 1 / n, 0))
++     stopifnot(all.equal(sigma.the.hat,lme4Sigma <- unname(getME(lmerFit,"theta")),
++                         tolerance=2e-5))
++ } ## skip on windows (for speed)
+Loading required package: Matrix
+iteration: 1
+	f(x) = 210.400893
+iteration: 2
+	f(x) = 215.466168
+iteration: 3
+	f(x) = 208.990623
+iteration: 4
+	f(x) = 208.876000
+iteration: 5
+	f(x) = 208.798957
+iteration: 6
+	f(x) = 208.794958
+iteration: 7
+	f(x) = 208.791492
+iteration: 8
+	f(x) = 208.791630
+iteration: 9
+	f(x) = 208.791469
+iteration: 10
+	f(x) = 208.791472
+iteration: 11
+	f(x) = 208.791469
+iteration: 12
+	f(x) = 208.791469
+iteration: 13
+	f(x) = 208.791469
+> 
+> proc.time()
+   user  system elapsed 
+  0.835   0.050   0.879 

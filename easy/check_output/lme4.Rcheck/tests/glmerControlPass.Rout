@@ -1,0 +1,42 @@
+
+R version 4.4.3 (2025-02-28) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> if (.Platform$OS.type != "windows") {
++     ## test redirection from lmer to glmer (correct options passed,
++     ##   specifically glmerControl -> tolPwrss
++ 
++     library("lme4")
++     library("testthat")
++     ## data("trees513", package = "multcomp")
++     load(system.file("testdata","trees513.RData",package="lme4"))
++ 
++ 
++     expect_is(mmod1 <- glmer(damage ~ species - 1 + (1 | lattice / plot),
++                              data = trees513B, family = binomial()),"glmerMod")
++     if(FALSE) { ## Now (2019-05) defunct; was deprecated since 2013-06:
++         expect_warning(mmod2 <- lmer(damage ~ species - 1 + (1 | lattice / plot),
++                                      data = trees513B, family = binomial()),
++                        "calling lmer with .* is deprecated")
++         mmod2@call <- mmod1@call ## hack calls to equality
++         expect_equal(mmod1,mmod2)
++     }
++ } ## skip on windows (for speed)
+Loading required package: Matrix
+> 
+> proc.time()
+   user  system elapsed 
+  2.180   0.069   2.242 

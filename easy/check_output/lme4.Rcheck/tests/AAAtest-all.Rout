@@ -1,0 +1,48 @@
+
+R version 4.4.3 (2025-02-28) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> if (base::require("testthat", quietly = TRUE)) {
++     pkg   <- "lme4"
++     require(pkg, character.only=TRUE, quietly=TRUE)
++     if(getRversion() < "3.5.0") { withAutoprint <- identity ; prt <- print } else { prt <- identity }
++     if(Sys.getenv("USER") %in% c("maechler", "bbolker")) withAutoprint({
++         ## for developers' sake:
++         lP <- .libPaths() # ---- .libPaths() : ----
++         prt(lP)
++         ## ---- Entries in .libPaths()[1] : ----
++         prt(list.files(lP[1], include.dirs=TRUE))
++         prt(sessionInfo())
++         prt(packageDescription("Matrix"))
++         ## 'lme4' from packageDescription "file" :
++         prt(attr(packageDescription("lme4"), "file"))
++     })
++     test_check(pkg)
++     ##======== ^^^
++     print(warnings()) # TODO? catch most of these by expect_warning(..)
++ } else {
++     cat( "package 'testthat' not available, cannot run unit tests\n" )
++ }
+[ FAIL 0 | WARN 0 | SKIP 1 | PASS 636 ]
+
+══ Skipped tests (1) ═══════════════════════════════════════════════════════════
+• On CRAN (1): 'test-eval.R:2:1'
+
+[ FAIL 0 | WARN 0 | SKIP 1 | PASS 636 ]
+> 
+> proc.time()
+   user  system elapsed 
+ 16.765   0.149  16.917 

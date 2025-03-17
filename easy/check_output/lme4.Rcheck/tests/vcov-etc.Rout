@@ -1,0 +1,127 @@
+
+R version 4.4.3 (2025-02-28) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> stopifnot(require(lme4))
+Loading required package: lme4
+Loading required package: Matrix
+> 
+> (testLevel <- lme4:::testLevel())
+[1] 1
+> source(system.file("testdata", "lme-tst-funs.R", package="lme4", mustWork=TRUE))# -> unn()
+> 
+> 
+> ## "MEMSS" is just 'Suggest' -- must still work, when it's missing:
+> if (suppressWarnings(!require(MEMSS, quietly=TRUE)) ||
++     (data(ergoStool, package="MEMSS") != "ergoStool")) {
++ 
++     cat("'ergoStool' data from package 'MEMSS' is not available --> skipping test\n")
++ } else {
++ 
++ fm1   <-  lmer (effort ~ Type + (1|Subject), data = ergoStool)
++ ##sp no longer supported since ~ 2012-3:
++ ##sp fm1.s  <- lmer (effort ~ Type + (1|Subject), data = ergoStool, sparseX=TRUE)
++ ## was segfaulting with sparseX (a while upto 2010-04-06)
++ 
++ fe1   <- fixef(fm1)
++ ##sp fe1.s <- fixef(fm1.s)
++ 
++ print(s1.d <- summary(fm1))
++ ##sp print(s1.s <- summary(fm1.s))
++ Tse1.d <- c(0.57601226, rep(0.51868384, 3))
++ stopifnot(exprs = {
++     ##sp all.equal(fe1, fe1.s, tolerance= 1e-12)
++     all.equal(Tse1.d, unname(se1.d <- coef(s1.d)[,"Std. Error"]),
++               tolerance = 1e-6) # std.err.: no too much accuracy
++     is(V.d <- vcov(fm1), "symmetricMatrix")
++     ##sp all.equal(se1.d, coef(s1.s)[,"Std. Error"])#, tol = 1e-10
++     ##sp all.equal(  V.d, vcov(fm1.s))#, tol = 1e-9
++     all.equal(Matrix::diag(V.d), unn(se1.d)^2, tolerance= 1e-12)
++ })
++ 
++ }## if( ergoStool is available from pkg MEMSS )
+
+Attaching package: 'MEMSS'
+
+The following objects are masked from 'package:datasets':
+
+    CO2, Orange, Theoph
+
+Linear mixed model fit by REML ['lmerMod']
+Formula: effort ~ Type + (1 | Subject)
+   Data: ergoStool
+
+REML criterion at convergence: 121.1
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-1.80200 -0.64317  0.05783  0.70100  1.63142 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Subject  (Intercept) 1.775    1.332   
+ Residual             1.211    1.100   
+Number of obs: 36, groups:  Subject, 9
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept)   8.5556     0.5760  14.853
+TypeT2        3.8889     0.5187   7.498
+TypeT3        2.2222     0.5187   4.284
+TypeT4        0.6667     0.5187   1.285
+
+Correlation of Fixed Effects:
+       (Intr) TypeT2 TypeT3
+TypeT2 -0.450              
+TypeT3 -0.450  0.500       
+TypeT4 -0.450  0.500  0.500
+> 
+> ### -------------------------- a "large" example -------------------------
+> str(InstEval)
+'data.frame':	73421 obs. of  7 variables:
+ $ s      : Factor w/ 2972 levels "1","2","3","4",..: 1 1 1 1 2 2 3 3 3 3 ...
+ $ d      : Factor w/ 1128 levels "1","6","7","8",..: 525 560 832 1068 62 406 3 6 19 75 ...
+ $ studage: Ord.factor w/ 4 levels "2"<"4"<"6"<"8": 1 1 1 1 1 1 1 1 1 1 ...
+ $ lectage: Ord.factor w/ 6 levels "1"<"2"<"3"<"4"<..: 2 1 2 2 1 1 1 1 1 1 ...
+ $ service: Factor w/ 2 levels "0","1": 1 2 1 2 1 1 2 1 1 1 ...
+ $ dept   : Factor w/ 14 levels "15","5","10",..: 14 5 14 12 2 2 13 3 3 3 ...
+ $ y      : int  5 2 5 3 2 4 4 5 5 4 ...
+> 
+> if (FALSE) { # sparse X is not currently implemented, so forget about this:
++ 
++ system.time(## works with 'sparseX'; d has 1128 levels
++ fm7 <- lmer(y ~ d + service + studage + lectage + (1|s),
++              data = InstEval, sparseX=TRUE, verbose=1L, REML=FALSE)
++ )
++ system.time(sfm7 <- summary(fm7))
++ fm7 # takes a while as it computes summary() again !
++ 
++ range(t.fm7 <- coef(sfm7)[,"t value"])## -10.94173  10.61535 for REML, -11.03438  10.70103 for ML
++ 
++ m.t.7 <- mean(abs(t.fm7), trim = .01)
++ #stopifnot(all.equal(m.t.7, 1.55326395545110, tolerance = 1.e-9)) ##REML value
++ stopifnot(all.equal(m.t.7, 1.56642013605506, tolerance = 1.e-6)) ## ML
++ 
++ hist.t <- cut(t.fm7, floor(min(t.fm7)) : ceiling(max(t.fm7)))
++ cbind(table(hist.t))
++ 
++ }# fixed effect 'd' -- with 'sparseX' only --------------------------------
+> 
+> if(testLevel <= 1) { cat('Time elapsed: ', proc.time(),'\n'); q("no") }
+Time elapsed:  0.848 0.068 0.914 0.003 0.002 
+> proc.time()
+   user  system elapsed 
+  0.851   0.070   0.914 

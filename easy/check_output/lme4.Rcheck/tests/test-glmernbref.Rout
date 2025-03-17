@@ -1,0 +1,30 @@
+
+R version 4.4.3 (2025-02-28) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ## DON'T load lme4; test is to see if glmer.nb works when
+> ## lme4 is not loaded
+> 
+> set.seed(101)
+> dd <- data.frame(x=runif(200), f= rep(1:20, each=10))
+> b <- rnorm(20)
+> dd <- transform(dd, y = rnbinom(200, mu  = exp(1 + 2*x + b[f]), size = 2))
+> g <- lme4::glmer.nb(y~x + (1|f), data = dd)
+> stopifnot(inherits(g, "glmerMod"))
+> 
+> proc.time()
+   user  system elapsed 
+  1.340   0.075   1.409 

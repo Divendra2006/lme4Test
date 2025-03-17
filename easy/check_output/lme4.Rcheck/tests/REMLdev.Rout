@@ -1,0 +1,135 @@
+
+R version 4.4.3 (2025-02-28) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library(lme4)
+Loading required package: Matrix
+> ## show important current settings {for reference, etc} -- [early, and also on Windows !]:
+> 
+> source(system.file("test-tools-1.R", package = "Matrix"), keep.source = FALSE)
+Loading required package: tools
+> ## N.B. is.all.equal[34]() and assert.EQ() use 'tol', not 'tolerance'
+> 
+> str( lmerControl())
+List of 8
+ $ optimizer      : chr "nloptwrap"
+ $ restart_edge   : logi TRUE
+ $ boundary.tol   : num 1e-05
+ $ calc.derivs    : logi TRUE
+ $ use.last.params: logi FALSE
+ $ checkControl   :List of 8
+  ..$ check.nobs.vs.rankZ: chr "ignore"
+  ..$ check.nobs.vs.nlev : chr "stop"
+  ..$ check.nlev.gtreq.5 : chr "ignore"
+  ..$ check.nlev.gtr.1   : chr "stop"
+  ..$ check.nobs.vs.nRE  : chr "stop"
+  ..$ check.rankX        : chr "message+drop.cols"
+  ..$ check.scaleX       : chr "warning"
+  ..$ check.formula.LHS  : chr "stop"
+ $ checkConv      :List of 3
+  ..$ check.conv.grad    :List of 3
+  .. ..$ action: chr "warning"
+  .. ..$ tol   : num 0.002
+  .. ..$ relTol: NULL
+  ..$ check.conv.singular:List of 2
+  .. ..$ action: chr "message"
+  .. ..$ tol   : num 1e-04
+  ..$ check.conv.hess    :List of 2
+  .. ..$ action: chr "warning"
+  .. ..$ tol   : num 1e-06
+ $ optCtrl        : list()
+ - attr(*, "class")= chr [1:2] "lmerControl" "merControl"
+> str(glmerControl())
+List of 11
+ $ optimizer      : chr [1:2] "bobyqa" "Nelder_Mead"
+ $ restart_edge   : logi FALSE
+ $ boundary.tol   : num 1e-05
+ $ calc.derivs    : logi TRUE
+ $ use.last.params: logi FALSE
+ $ checkControl   :List of 9
+  ..$ check.nobs.vs.rankZ     : chr "ignore"
+  ..$ check.nobs.vs.nlev      : chr "stop"
+  ..$ check.nlev.gtreq.5      : chr "ignore"
+  ..$ check.nlev.gtr.1        : chr "stop"
+  ..$ check.nobs.vs.nRE       : chr "stop"
+  ..$ check.rankX             : chr "message+drop.cols"
+  ..$ check.scaleX            : chr "warning"
+  ..$ check.formula.LHS       : chr "stop"
+  ..$ check.response.not.const: chr "stop"
+ $ checkConv      :List of 3
+  ..$ check.conv.grad    :List of 3
+  .. ..$ action: chr "warning"
+  .. ..$ tol   : num 0.002
+  .. ..$ relTol: NULL
+  ..$ check.conv.singular:List of 2
+  .. ..$ action: chr "message"
+  .. ..$ tol   : num 1e-04
+  ..$ check.conv.hess    :List of 2
+  .. ..$ action: chr "warning"
+  .. ..$ tol   : num 1e-06
+ $ optCtrl        : list()
+ $ tolPwrss       : num 1e-07
+ $ compDev        : logi TRUE
+ $ nAGQ0initStep  : logi TRUE
+ - attr(*, "class")= chr [1:2] "glmerControl" "merControl"
+> str(nlmerControl())
+List of 3
+ $ optimizer: chr [1:2] "Nelder_Mead" "Nelder_Mead"
+ $ tolPwrss : num 1e-10
+ $ optCtrl  : list()
+ - attr(*, "class")= chr [1:2] "nlmerControl" "merControl"
+> ls.str(environment(nloptwrap))
+defaultControl : List of 4
+ $ algorithm: chr "NLOPT_LN_BOBYQA"
+ $ xtol_abs : num 1e-08
+ $ ftol_abs : num 1e-08
+ $ maxeval  : num 1e+05
+> 
+> 
+> ## see Details under ?deviance.merMod:
+> 
+> fm1 <- lmer(Reaction ~ Days + (Days|Subject), sleepstudy)
+> fm1ML <- refitML(fm1)
+> REMLcrit(fm1)   ## 1743.628
+[1] 1743.628
+> deviance(fm1ML) ## 1751.939
+[1] 1751.939
+> deviance(fm1,REML=FALSE)  ## FIXME: not working yet (NA)
+[1] 1751.986
+> deviance(fm1,REML=TRUE)
+[1] 1751.986
+> 
+> ## from lme4.0
+> oldvals <- c(REML=1743.6282722424, ML=1751.98581103058)
+> ## leave out ML values for REML fits for now ...
+> stopifnot(
++           is.all.equal3(REMLcrit(fm1), deviance(fm1,REML=TRUE), deviance(fm1ML,REML=TRUE),oldvals["REML"]),
++           all.equal(deviance(fm1ML),deviance(fm1ML,REML=FALSE),oldvals["ML"]),
++           all.equal(REMLcrit(fm1)/-2,c(logLik(fm1)),c(logLik(fm1ML,REML=TRUE)),c(logLik(fm1,REML=TRUE))),
++           all.equal(deviance(fm1ML)/-2,c(logLik(fm1ML,REML=FALSE)),
++                     c(logLik(fm1ML,REML=FALSE))))
+> 
+> ## should be:
+> ## stopifnot(
+> ##           all.equal(deviance(fm1),deviance(fm1,REML=TRUE),deviance(fm1ML,REML=TRUE),oldvals["REML"]),
+> ##           all.equal(deviance(fm1ML),deviance(fm1,REML=FALSE),deviance(fm1ML,REML=FALSE),oldvals["ML"]),
+> ##           all.equal(deviance(fm1)/2,c(logLik(fm1)),c(logLik(fm1ML,REML=TRUE)),c(logLik(fm1,REML=TRUE))),
+> ##           all.equal(deviance(fm1ML)/2,c(logLik(fm1,REML=FALSE)),c(logLik(fm1ML,REML=FALSE)),
+> ##                     c(logLik(fm1ML,REML=FALSE))))
+> 
+> proc.time()
+   user  system elapsed 
+  0.848   0.070   0.911 

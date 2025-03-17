@@ -1,0 +1,85 @@
+
+R version 4.4.3 (2025-02-28) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> if (lme4:::testLevel() > 1 || .Platform$OS.type != "windows") withAutoprint({
++ 
++     ## testing whether lme4 and nlme play nicely.  Only known issue
++     ## is lmList-masking ...
++     library("lme4")
++     library("nlme")
++     fm1_lmer <- lmer(Reaction ~ Days   +       (Days|Subject), sleepstudy)
++     fm1_lme  <- lme (Reaction ~ Days, random = ~Days|Subject,  sleepstudy)
++     ## variance-covariance matrices: annoyingly different structures
++     vc_lmer <- VarCorr(fm1_lmer)
++     vc_lme  <- VarCorr(fm1_lme, rdig = 8)
++     suppressWarnings(storage.mode(vc_lme) <- "numeric")# 2 NAs
++     vc_lmerx <- c(diag(vc_lmer[[1]]), attr(vc_lmer[[1]],"correlation")[1,2])
++     vc_lmex  <- c( vc_lme[1:2,1],     vc_lme[2,3])
++     stopifnot(
++         all.equal(vc_lmex, vc_lmerx, tolerance= 4e-4) # had 3e-5, now see 0.000296
++       , ## fixed effects (much easier) :
++         all.equal(fixef(fm1_lmer), fixef(fm1_lme)) # 3.6e-15
++        ,
++         all.equal(unname(unlist(unclass(ranef(fm1_lmer)))),
++                   unname(unlist(unclass(ranef(fm1_lme)))),
++                   tolerance = 2e-4) # had 2e-5, now see 8.41e-5
++     )
++ 
++     fm1L_lme  <- nlme::lmList(distance ~ age | Subject, Orthodont)
++     fm1L_lmer <- lme4::lmList(distance ~ age | Subject, Orthodont)
++     stopifnot(all.equal(fixef(fm1L_lmer),
++                         fixef(fm1L_lme)))
++     sm1L_e  <- summary(fm1L_lme)
++     sm1L_er <- summary(fm1L_lmer)
++     stopifnot(
++         all.equal(coef(sm1L_e),
++                   coef(sm1L_er), tol=1e-12)# even tol=0 works on some Lnx 64b
++     )
++ 
++     ## FIXME: test opposite order
++ })
+> library("lme4")
+Loading required package: Matrix
+> library("nlme")
+
+Attaching package: 'nlme'
+
+The following object is masked from 'package:lme4':
+
+    lmList
+
+> fm1_lmer <- lmer(Reaction ~ Days + (Days | Subject), sleepstudy)
+> fm1_lme <- lme(Reaction ~ Days, random = ~Days | Subject, sleepstudy)
+> vc_lmer <- VarCorr(fm1_lmer)
+> vc_lme <- VarCorr(fm1_lme, rdig = 8)
+> suppressWarnings(storage.mode(vc_lme) <- "numeric")
+> vc_lmerx <- c(diag(vc_lmer[[1]]), attr(vc_lmer[[1]], "correlation")[1, 
++     2])
+> vc_lmex <- c(vc_lme[1:2, 1], vc_lme[2, 3])
+> stopifnot(all.equal(vc_lmex, vc_lmerx, tolerance = 4e-04), all.equal(fixef(fm1_lmer), 
++     fixef(fm1_lme)), all.equal(unname(unlist(unclass(ranef(fm1_lmer)))), unname(unlist(unclass(ranef(fm1_lme)))), 
++     tolerance = 2e-04))
+> fm1L_lme <- nlme::lmList(distance ~ age | Subject, Orthodont)
+> fm1L_lmer <- lme4::lmList(distance ~ age | Subject, Orthodont)
+> stopifnot(all.equal(fixef(fm1L_lmer), fixef(fm1L_lme)))
+> sm1L_e <- summary(fm1L_lme)
+> sm1L_er <- summary(fm1L_lmer)
+> stopifnot(all.equal(coef(sm1L_e), coef(sm1L_er), tol = 1e-12))
+> 
+> proc.time()
+   user  system elapsed 
+  0.908   0.061   0.965 

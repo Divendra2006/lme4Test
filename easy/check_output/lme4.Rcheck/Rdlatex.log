@@ -1,0 +1,2566 @@
+Hmm ... looks like a package
+Converting parsed Rd's to LaTeX ........
+Creating pdf output from LaTeX ...
+Warning in texi2dvi(file = file, pdf = TRUE, clean = clean, quiet = quiet,  :
+  texi2dvi script/program not available, using emulation
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./Rd2.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2023/05/17 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo))
+(/usr/share/R/share/texmf/tex/latex/Rd.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/mathrsfs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe)
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex)))))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))))
+(/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty)
+Writing index file Rd2.idx
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+No file Rd2.aux.
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd) [1{/var/lib/texmf/f
+onts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvip
+s/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr
+/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
+No file Rd2.toc.
+[2] [3]
+Overfull \hbox (31.42886pt too wide) in paragraph at lines 203--207
+\T1/ptm/m/n/10 would choose this to be the num-ber of avail-able CPUs. Use []\T
+1/zi4/m/n/10 options(allFit.ncpus=X)
+
+Overfull \hbox (23.04874pt too wide) in paragraph at lines 210--213
+[]\T1/ptm/m/n/10 (logical) Wrap model fits in []\T1/zi4/m/n/10 tryCatch []\T1/p
+tm/m/n/10 clause to skip over er-rors? ([]\T1/zi4/m/n/10 catch.errs=FALSE
+
+Overfull \hbox (15.76793pt too wide) in paragraph at lines 225--226
+\T1/ptm/m/it/10 silently \T1/ptm/m/n/10 ig-nored (in par-tic-u-lar, the []\T1/z
+i4/m/n/10 maxfun []\T1/ptm/m/n/10 spec-i-fi-ca-tion is only re-spected by []\T1
+/zi4/m/n/10 bobyqa[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 Nelder_Mead[]\T1/ptm/m/n/
+10 ,
+[4] (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/ts1zi4.fd) [5{/usr/sha
+re/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
+Overfull \hbox (0.66751pt too wide) in paragraph at lines 303--305
+[]\T1/ptm/m/n/10 simulated her-bivory or "clip-ping" (api-cal meris-tem dam-age
+): []\T1/zi4/m/n/10 unclipped []\T1/ptm/m/n/10 (base-line) or []\T1/zi4/m/n/10 
+clipped 
+[6]
+Overfull \hbox (28.94879pt too wide) in paragraph at lines 381--384
+[]\T1/ptm/m/n/10 character string spec-i-fy-ing the type of boot-strap, []\T1/z
+i4/m/n/10 "parametric" []\T1/ptm/m/n/10 or []\T1/zi4/m/n/10 "semiparametric"[]\
+T1/ptm/m/n/10 ;
+[7] [8]
+Underfull \vbox (badness 3803) has occurred while \output is active [9]
+Overfull \hbox (15.3086pt too wide) in paragraph at lines 596--599
+[]\T1/ptm/m/n/10 The []\T1/zi4/m/n/10 replicate []\T1/ptm/m/n/10 fac-tor is nes
+ted within the []\T1/zi4/m/n/10 recipe []\T1/ptm/m/n/10 fac-tor, and []\T1/zi4/
+m/n/10 temperature []\T1/ptm/m/n/10 is nested within []\T1/zi4/m/n/10 replicate
+[]\T1/ptm/m/n/10 . 
+[10]
+Overfull \hbox (14.50648pt too wide) in paragraph at lines 666--668
+[]\T1/ptm/m/n/10 Serological sta-tus was de-ter-mined us-ing a com-pet-i-tive e
+nzyme-linked immuno-sorbent as-say (cELISA). 
+[11] [12]
+Overfull \hbox (21.00677pt too wide) in paragraph at lines 774--778
+\T1/ptm/m/n/10 ram-e-ters as well as the random-effect pa-ram-e-ters on the sta
+n-dard de-vi-a-tion/correlation
+
+Overfull \hbox (0.9579pt too wide) in paragraph at lines 783--787
+[]\T1/ptm/m/n/10 (logical) use old-style names for variance-covariance pa-ram-e
+-ters, e.g. []\T1/zi4/m/n/10 ".sig01"[]\T1/ptm/m/n/10 ,
+
+Overfull \hbox (12.08884pt too wide) in paragraph at lines 783--787
+\T1/ptm/m/n/10 rather than newer (more in-for-ma-tive) names such as []\T1/zi4/
+m/n/10 "sd_(Intercept)|Subject"[]\T1/ptm/m/n/10 ?
+[13] [14]
+Overfull \hbox (5.56734pt too wide) in paragraph at lines 876--878
+[]\T1/ptm/m/n/10 double-check the Hes-sian cal-cu-la-tion with the more ex-pen-
+sive Richard-son ex-trap-o-la-tion method
+[15] [16]
+Underfull \vbox (badness 3803) has occurred while \output is active [17]
+[18] [19] [20] [21] [22] [23] [24] [25] [26] [27]
+Overfull \hbox (4.92795pt too wide) in paragraph at lines 1700--1703
+[]\T1/ptm/m/n/10 a fit-ted mixed-effects model of class []\T1/zi4/m/n/10 "[][]m
+erMod[][][]"[]\T1/ptm/m/n/10 , i.e., typ-i-cally the re-sult of [][][]\T1/zi4/m
+/n/10 lmer[][][]()[]\T1/ptm/m/n/10 ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 1704--1707
+
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 1782--1785
+
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 1804--1805
+
+[30] [31]
+Overfull \hbox (27.77827pt too wide) in paragraph at lines 1919--1921
+[]\T1/ptm/m/n/10 Originally based on pack-age [][]\T1/ptm/b/n/10 SparseG-rid[][
+]\T1/ptm/m/n/10 's hid-den []\T1/zi4/m/n/10 GQN()[]\T1/ptm/m/n/10 , then on [][
+]\T1/ptm/b/n/10 fast-GHQuad[][]\T1/ptm/m/n/10 's []\T1/zi4/m/n/10 gaussHermiteD
+ata(.)[]\T1/ptm/m/n/10 . 
+
+Overfull \hbox (29.22874pt too wide) in paragraph at lines 1948--1948
+ []\T1/zi4/m/n/9 cbind(p = ps, "E[X^p]" = with(r5,  sapply(ps, function(p) sum(
+w * z^p)))) # p=10 is wrong for 5-rule[] 
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd) [32] [33]
+Overfull \hbox (49.81862pt too wide) in paragraph at lines 2049--2054
+\T1/ptm/m/n/10 fault ac-tion ([]\T1/zi4/m/n/10 na.omit[]\T1/ptm/m/n/10 , in-her
+-ited from the `fac-tory fresh' value of []\T1/zi4/m/n/10 getOption("na.action"
+)[]\T1/ptm/m/n/10 )
+[34] [35]
+Overfull \hbox (3.98962pt too wide) in paragraph at lines 2188--2190
+[]\T1/ptm/m/n/10 arguments as for []\T1/zi4/m/n/10 glmer(.) []\T1/ptm/m/n/10 su
+ch as []\T1/zi4/m/n/10 formula[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 data[]\T1/ptm
+/m/n/10 , []\T1/zi4/m/n/10 control[]\T1/ptm/m/n/10 , etc, but \T1/ptm/m/it/10 n
+ot []\T1/zi4/m/n/10 family[]\T1/ptm/m/n/10 ! 
+
+Overfull \hbox (24.14874pt too wide) in paragraph at lines 2212--2215
+[]\T1/ptm/m/n/10 An ob-ject of class []\T1/zi4/m/n/10 glmerMod[]\T1/ptm/m/n/10 
+, for which many meth-ods are avail-able (e.g. []\T1/zi4/m/n/10 methods(class="
+glmerMod")[]\T1/ptm/m/n/10 ),
+[36]
+Overfull \hbox (18.9817pt too wide) in paragraph at lines 2222--2224
+[]\T1/ptm/m/n/10 The neg-a-tive bi-no-mial $\OML/cmm/m/it/10 ^^R$ \T1/ptm/m/n/1
+0 can be ex-tracted from a fit []\T1/zi4/m/n/10 g <- glmer.nb() []\T1/ptm/m/n/1
+0 by [][][]\T1/zi4/m/n/10 getME[][][](g, "glmer.nb.theta")[]\T1/ptm/m/n/10 . 
+[37] [38] [39] [40] [41] [42]
+Overfull \hbox (5.6403pt too wide) in paragraph at lines 2624--2627
+[]\T1/zi4/m/n/10 cooks.distance[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 dfbeta[]\T1/
+ptm/m/n/10 , or []\T1/zi4/m/n/10 dfbetas[]\T1/ptm/m/n/10 , an ob-ject re-turned
+ by []\T1/zi4/m/n/10 influence.merMod 
+
+Overfull \hbox (18.82883pt too wide) in paragraph at lines 2637--2640
+[]\T1/ptm/m/n/10 if []\T1/zi4/m/n/10 "fixed.effects" []\T1/ptm/m/n/10 (the de-f
+ault), re-turn in-flu-ence on the fixed ef-fects; if []\T1/zi4/m/n/10 "var.cov"
+[]\T1/ptm/m/n/10 ,
+[43] (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd)
+Overfull \hbox (35.2378pt too wide) in paragraph at lines 2642--2645
+[]\T1/ptm/m/n/10 number of com-pu-ta-tional cores to use if run in par-al-lel; 
+di-rectly passed to [][][]\T1/zi4/m/n/10 makeCluster[][][]()
+[44] [45] [46] [47] [48]
+Overfull \hbox (12.28697pt too wide) in paragraph at lines 2990--2993
+[]\T1/ptm/m/n/10 Andrew Gel-man and Jen-nifer Hill (2006). \T1/ptm/m/it/10 Data
+ Anal-y-sis Us-ing Re-gres-sion and Mul-ti-level/Hierarchical
+[49] [50]
+Overfull \hbox (49.81862pt too wide) in paragraph at lines 3102--3107
+\T1/ptm/m/n/10 fault ac-tion ([]\T1/zi4/m/n/10 na.omit[]\T1/ptm/m/n/10 , in-her
+-ited from the 'fac-tory fresh' value of []\T1/zi4/m/n/10 getOption("na.action"
+)[]\T1/ptm/m/n/10 )
+[51] [52]
+Overfull \hbox (24.57794pt too wide) in paragraph at lines 3232--3235
+[]\T1/ptm/m/n/10 model- or data-checking spec-i-fi-ca-tions, in short ``check-i
+ng op-tions'', such as []\T1/zi4/m/n/10 check.nobs.vs.rankZ[]\T1/ptm/m/n/10 ,
+
+Overfull \hbox (11.41006pt too wide) in paragraph at lines 3267--3267
+ []    \T1/zi4/m/n/10 check.conv.singular = .makeCC(action = "message", tol = f
+ormals(isSingular)$tol),[] 
+[53]
+Overfull \hbox (11.41006pt too wide) in paragraph at lines 3294--3294
+ []    \T1/zi4/m/n/10 check.conv.singular = .makeCC(action = "message", tol = f
+ormals(isSingular)$tol),[] 
+[54]
+Overfull \hbox (27.0789pt too wide) in paragraph at lines 3338--3346
+\T1/ptm/m/n/10 gu-ment (you may need to load the \T1/ptm/b/n/10 op-timx \T1/ptm
+/m/n/10 pack-age man-u-ally us-ing [][][]\T1/zi4/m/n/10 library[][][](optimx)[]
+\T1/ptm/m/n/10 ). 
+[55]
+Overfull \hbox (3.7484pt too wide) in paragraph at lines 3423--3429
+\T1/ptm/m/n/10 or cor-re-la-tions be-tween ran-dom ef-fects equal to +/- 1.0); 
+as for []\T1/zi4/m/n/10 check.conv.grad
+
+Overfull \hbox (3.02013pt too wide) in paragraph at lines 3452--3461
+[][][]\T1/zi4/m/n/10 Nelder_Mead[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 b
+obyqa[][][][]\T1/ptm/m/n/10 ). In par-tic-u-lar, both []\T1/zi4/m/n/10 Nelder_M
+ead []\T1/ptm/m/n/10 and []\T1/zi4/m/n/10 bobyqa []\T1/ptm/m/n/10 use []\T1/zi4
+/m/n/10 maxfun
+[56]
+Overfull \hbox (0.5591pt too wide) in paragraph at lines 3525--3528
+[][][]\T1/ptm/m/n/10 convergence[][][] and [][][]\T1/zi4/m/n/10 allFit[][][]() 
+[]\T1/ptm/m/n/10 which fits for a cou-ple of op-ti-miz-ers; [][][]\T1/zi4/m/n/1
+0 nloptwrap[][][] []\T1/ptm/m/n/10 for the []\T1/zi4/m/n/10 lmerControl()
+[57]
+Underfull \vbox (badness 3803) has occurred while \output is active [58]
+Overfull \hbox (49.81862pt too wide) in paragraph at lines 3625--3630
+\T1/ptm/m/n/10 fault ac-tion ([]\T1/zi4/m/n/10 na.omit[]\T1/ptm/m/n/10 , in-her
+-ited from the `fac-tory fresh' value of []\T1/zi4/m/n/10 getOption("na.action"
+)[]\T1/ptm/m/n/10 )
+[59] [60] [61]
+Underfull \hbox (badness 10000) in paragraph at lines 3815--3815
+[]\T1/ptm/m/it/10 Reference Classes for Re-sponse Mod-ules,
+[62] [63]
+Overfull \hbox (5.96762pt too wide) in paragraph at lines 3984--3987
+[]\T1/ptm/m/n/10 Logical. If []\T1/zi4/m/n/10 TRUE[]\T1/ptm/m/n/10 , re-turn th
+e re-stricted log-likelihood rather than the log-likelihood.
+[64]
+Overfull \hbox (41.97914pt too wide) in paragraph at lines 4053--4056
+[]\T1/ptm/m/n/10 returns the de-viance func-tion, the same as [][][]\T1/zi4/m/n
+/10 lmer[][][](*, devFunOnly=TRUE)[]\T1/ptm/m/n/10 , and [][][]\T1/zi4/m/n/10 m
+kLmerDevfun[][][]()
+[65] [66]
+Overfull \hbox (5.37856pt too wide) in paragraph at lines 4176--4185
+[]\T1/ptm/m/n/10 Other meth-ods for []\T1/zi4/m/n/10 merMod []\T1/ptm/m/n/10 ob
+-jects doc-u-mented else-where in-clude: [][][]\T1/zi4/m/n/10 fortify.merMod[][
+][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 drop1.merMod[][][][]\T1/ptm/m/n/10 ,
+
+
+Overfull \hbox (9.88098pt too wide) in paragraph at lines 4176--4185
+[][][]\T1/zi4/m/n/10 isLMM.merMod[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 
+isGLMM.merMod[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 isNLMM.merMod[][][][
+]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 isREML.merMod[][][][]\T1/ptm/m/n/10 , []
+[][]\T1/zi4/m/n/10 plot.merMod[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 pre
+dict.merMod[][][][]\T1/ptm/m/n/10 ,
+
+Overfull \hbox (29.88098pt too wide) in paragraph at lines 4176--4185
+[][][]\T1/zi4/m/n/10 profile.merMod[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/1
+0 ranef.merMod[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 refit.merMod[][][][
+]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 refitML.merMod[][][][]\T1/ptm/m/n/10 , [
+][][]\T1/zi4/m/n/10 residuals.merMod[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/
+10 sigma.merMod[][][][]\T1/ptm/m/n/10 ,
+[67] [68] [69] [70] [71] [72] [73]
+Overfull \hbox (49.81862pt too wide) in paragraph at lines 4606--4611
+\T1/ptm/m/n/10 fault ac-tion ([]\T1/zi4/m/n/10 na.omit[]\T1/ptm/m/n/10 , in-her
+-ited from the 'fac-tory fresh' value of []\T1/zi4/m/n/10 getOption("na.action"
+)[]\T1/ptm/m/n/10 )
+[74]
+Overfull \hbox (3.41803pt too wide) in paragraph at lines 4637--4639
+[]\T1/ptm/m/n/10 A model frame con-tain-ing the vari-ables needed to cre-ate an
+ [][][]\T1/zi4/m/n/10 lmerResp[][][] []\T1/ptm/m/n/10 or [][][]\T1/zi4/m/n/10 g
+lmResp[][][]
+
+Overfull \hbox (3.4384pt too wide) in paragraph at lines 4695--4699
+\T1/ptm/m/n/10 passed to in-ter-nal func-tion []\T1/zi4/m/n/10 optwrap[]\T1/ptm
+/m/n/10 , which has rel-e-vant pa-ram-e-ters []\T1/zi4/m/n/10 calc.derivs
+[75] [76] [77]
+Overfull \hbox (14.6474pt too wide) in paragraph at lines 4880--4882
+[]\T1/ptm/m/n/10 numeric scalar - rel-a-tive tol-er-ance on change in func-tion
+ val-ues (default:1e-
+[78] [79]
+pdfTeX warning (ext4): destination with the same identifier (name{Rfn.NelderMea
+d}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.4954 ...elderMead}{NelderMead-class}{NelderMead}
+                                                   [80] [81]
+Overfull \hbox (3.61707pt too wide) in paragraph at lines 5097--5099
+[]\T1/ptm/m/n/10 either a nu-meric vec-tor con-tain-ing ini-tial es-ti-mates fo
+r the non-lin-ear model
+[82] [83]
+Overfull \hbox (49.81862pt too wide) in paragraph at lines 5219--5224
+\T1/ptm/m/n/10 fault ac-tion ([]\T1/zi4/m/n/10 na.omit[]\T1/ptm/m/n/10 , in-her
+-ited from the `fac-tory fresh' value of [][][]\T1/zi4/m/n/10 getOption[][][]("
+na.action")[]\T1/ptm/m/n/10 )
+[84]
+Overfull \hbox (12.24937pt too wide) in paragraph at lines 5317--5320
+[][][]\T1/zi4/m/n/10 list[][][] []\T1/ptm/m/n/10 of con-trol pa-ram-e-ters, cor
+-re-spond-ing to []\T1/zi4/m/n/10 optCtrl = *[]\T1/ptm/m/n/10 , e.g., in [][][]
+\T1/zi4/m/n/10 lmerControl[][][]()[]\T1/ptm/m/n/10 .
+[85]
+Overfull \hbox (2.99669pt too wide) in paragraph at lines 5335--5344
+[]\T1/ptm/m/n/10 One im-por-tant dif-fer-ence be-tween the [][]\T1/ptm/b/n/10 n
+loptr[][]\T1/ptm/m/n/10 -provided im-ple-men-ta-tion of BOBYQA and the [][]\T1/
+ptm/b/n/10 minqa[][]\T1/ptm/m/n/10 -
+
+Overfull \hbox (7.3396pt too wide) in paragraph at lines 5350--5352
+[]\T1/zi4/m/n/10 environment(nloptwrap)$defaultControl []\T1/ptm/m/n/10 con-tai
+ns the de-faults, no-tably []\T1/zi4/m/n/10 algorithm
+[86] [87] [88] [89] [90] [91] [92]
+Overfull \hbox (8.46814pt too wide) in paragraph at lines 5785--5788
+[]\T1/ptm/m/n/10 a mixed-effects pro-file, i.e., of class []\T1/zi4/m/n/10 "thp
+r"[]\T1/ptm/m/n/10 , typ-i-cally re-sult-ing from [][][]\T1/zi4/m/n/10 profile[
+][][](fm)
+
+Overfull \hbox (3.20149pt too wide) in paragraph at lines 5790--5792
+[]\T1/ptm/m/n/10 a num-ber in $\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/
+n/10 1)$ \T1/ptm/m/n/10 to spec-ify up-per (and lower) bound-aries as []\T1/zi4
+/m/n/10 +/- qnorm(upper)[]\T1/ptm/m/n/10 . 
+[93] [94] [95]
+Overfull \hbox (7.61816pt too wide) in paragraph at lines 5973--5977
+[]\T1/ptm/m/n/10 random ef-fects (theta) pa-ram-e-ters; these are or-dered as i
+n []\T1/zi4/m/n/10 getME(.,"theta")[]\T1/ptm/m/n/10 ,
+
+Overfull \hbox (0.53732pt too wide) in paragraph at lines 6007--6009
+[]\T1/ptm/m/n/10 tolerance for fit-ted de-viances less than base-line (sup-pos-
+edly min-i-mum) de-viance. 
+[96]
+Overfull \hbox (50.90875pt too wide) in paragraph at lines 6021--6026
+\T1/ptm/m/n/10 er-wise, names are more mean-ing-ful (but longer) of the form []
+\T1/zi4/m/n/10 (sd|cor)_(effects)|(group)[]\T1/ptm/m/n/10 .
+[97]
+Overfull \hbox (2.24715pt too wide) in paragraph at lines 6143--6143
+ []   \T1/zi4/m/n/9 system.time(tpr2 <- profile(fm01ML, which=1:2)) # , optimiz
+er="Nelder_Mead" gives warning[] 
+[98]
+Overfull \hbox (0.83856pt too wide) in paragraph at lines 6194--6198
+[]\T1/zi4/m/n/10 formatVC() []\T1/ptm/m/n/10 ``for-mat()''s the [][][]\T1/zi4/m
+/n/10 VarCorr[][][] []\T1/ptm/m/n/10 ma-trix of the ran-dom ef-fects -- for [][
+][]\T1/zi4/m/n/10 print[][][]()[]\T1/ptm/m/n/10 ing and [][][]\T1/zi4/m/n/10 sh
+ow[][][]()[]\T1/ptm/m/n/10 ing;
+[99
+pdfTeX warning (ext4): destination with the same identifier (name{Rfn..prt.meth
+Tit}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.6230 \item[\code{devianceFUN}]
+                                 the function to be used for computing the d...
+] [100]
+Underfull \vbox (badness 3803) has occurred while \output is active [101]
+Overfull \hbox (13.15036pt too wide) in paragraph at lines 6364--6377
+\T1/zi4/m/n/10 stat . ethz . ch / pipermail / r-[]sig-[]mixed-[]models / 2009q4
+ / 003115 . html$[][]\T1/ptm/m/n/10 ), []\T1/zi4/m/n/10 mcmcsamp []\T1/ptm/m/n/
+10 has been with-
+
+Overfull \hbox (6.39766pt too wide) in paragraph at lines 6401--6404
+[]\T1/ptm/m/n/10 for fixed ef-fects, F tests via Kenward-Roger ap-prox-i-ma-tio
+n us-ing []\T1/zi4/m/n/10 KRmodcomp []\T1/ptm/m/n/10 from the []\T1/zi4/m/n/10 
+pbkrtest
+[102]
+Overfull \hbox (1.26839pt too wide) in paragraph at lines 6428--6431
+[]\T1/ptm/m/n/10 When all else fails, don't for-get to keep p-values in per-spe
+c-tive: [][]$\T1/zi4/m/n/10 https : / / phdcomics . com / comics /
+[103] [104]
+Overfull \hbox (25.58878pt too wide) in paragraph at lines 6632--6637
+\T1/ptm/m/n/10 be a data frame with a sin-gle nu-meric col-umn, e.g. as pro-duc
+ed by []\T1/zi4/m/n/10 simulate(object)[]\T1/ptm/m/n/10 . 
+[105] [106] [107] [108] [109]
+Overfull \hbox (3.91922pt too wide) in paragraph at lines 6904--6912
+[][][]\T1/zi4/m/n/10 residuals.lm[][][] []\T1/ptm/m/n/10 and [][][]\T1/zi4/m/n/
+10 residuals.glm[][][] []\T1/ptm/m/n/10 re-spec-tively. In par-tic-u-lar, the d
+e-fault []\T1/zi4/m/n/10 type []\T1/ptm/m/n/10 is []\T1/zi4/m/n/10 "response"[]
+\T1/ptm/m/n/10 ,
+
+Overfull \hbox (16.36906pt too wide) in paragraph at lines 6904--6912
+\T1/ptm/m/n/10 i.e. (observed-fitted) for []\T1/zi4/m/n/10 lmerMod []\T1/ptm/m/
+n/10 ob-jects vs. []\T1/zi4/m/n/10 "deviance" []\T1/ptm/m/n/10 for []\T1/zi4/m/
+n/10 glmerMod []\T1/ptm/m/n/10 ob-jects. []\T1/zi4/m/n/10 type="partial"
+
+Overfull \hbox (18.76877pt too wide) in paragraph at lines 6912--6922
+[]\T1/ptm/m/n/10 Note that the mean-ing of []\T1/zi4/m/n/10 "pearson" []\T1/ptm
+/m/n/10 resid-u-als dif-fers be-tween [][][]\T1/zi4/m/n/10 residuals.lm[][][] [
+]\T1/ptm/m/n/10 and [][][]\T1/zi4/m/n/10 residuals.lme[][][][]\T1/ptm/m/n/10 .
+[110] [111] [112] [113]
+Overfull \hbox (34.76772pt too wide) in paragraph at lines 7132--7138
+\T1/ptm/m/n/10 For neg-a-tive bi-no-mial fits, the overdis-per-sion pa-ram-e-te
+r is spec-i-fied via the fam-ily, e.g. []\T1/zi4/m/n/10 simulate(...,
+[114] [115] [116]
+Overfull \hbox (0.75983pt too wide) in paragraph at lines 7340--7345
+[]\T1/zi4/m/n/10 Model is nearly unidentifiable ... Rescale variables? []\T1/pt
+m/m/n/10 The Hes-sian (in-verse cur-va-ture
+
+Overfull \hbox (1.76021pt too wide) in paragraph at lines 7345--7354
+[]\T1/zi4/m/n/10 Contrasts can be applied only to factors with 2 or more levels
+ []\T1/ptm/m/n/10 One or more of the cat-
+[117]
+Overfull \hbox (1.25012pt too wide) in paragraph at lines 7390--7393
+[][][]\T1/zi4/m/n/10 merMod[][][][]\T1/ptm/m/n/10 . For []\T1/zi4/m/n/10 as.dat
+a.frame[]\T1/ptm/m/n/10 , a []\T1/zi4/m/n/10 VarCorr.merMod []\T1/ptm/m/n/10 ob
+-ject re-turned from []\T1/zi4/m/n/10 VarCorr[]\T1/ptm/m/n/10 . 
+
+Overfull \hbox (26.80685pt too wide) in paragraph at lines 7396--7400
+[]\T1/ptm/m/n/10 arrange data frame with vari-ances/standard de-vi-a-tions firs
+t and co-vari-ances/correlations
+
+Overfull \hbox (0.47768pt too wide) in paragraph at lines 7415--7421
+\T1/ptm/m/n/10 pre-ci-sion for print-ing) and []\T1/zi4/m/n/10 comp[]\T1/ptm/m/
+n/10 : the lat-ter is a char-ac-ter vec-tor with any com-bi-na-tion of []\T1/zi
+4/m/n/10 "Variance"
+[118] [119] [120]
+Overfull \hbox (10.29692pt too wide) in paragraph at lines 7594--7597
+[]\T1/ptm/m/n/10 (logical) in-di-cates whether the cor-re-la-tion ma-trix as we
+ll as the variance-covariance
+[121] [122]
+Overfull \hbox (149.28088pt too wide) in paragraph at lines 7701--7705
+\T1/zi4/m/n/10 archive . org / web / 20221128003829 / https : / / old . bear . 
+berkeley . edu / page / materials-[]explanatory-[]item-[]response-[]models$[][]
+\T1/ptm/m/n/10 ,
+No file Rd2.ind.
+[123] (./Rd2.aux)
+
+Package rerunfilecheck Warning: File `Rd2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)
+pdfTeX warning (dest): name{Rfn.na.fail} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.residuals.lme} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.residuals.glm} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.residuals.lm} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.simulate} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.qqmath} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.dotplot} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.df.residual} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.BIC} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.AIC} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.call} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.numeric} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.cat} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.as.data.frame} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.data.frame} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.log} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.na.pass} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.terms} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.splom} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.densityplot} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.xyplot} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.abs} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.getOption} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.deriv} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.selfStart} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.SSlogis} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.SSbiexp} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.environment} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.anova} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.update.formula} has been referenced but does no
+t exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.symnum} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.extractAIC} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.summary} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.residuals} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.qqnorm} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.print} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.predict} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.plot} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.pairs} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.logLik} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.fitted} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.confint} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.coef} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.as} has been referenced but does not exist, rep
+laced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.show} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.methods} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.stop} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.warning} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.options} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.rankMatrix} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.library} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.optim} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.nlminb} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.bobyqa} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.lm} has been referenced but does not exist, rep
+laced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.update} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.reformulate} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.as.formula} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.influence.measures} has been referenced but doe
+s not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.infIndexPlot} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.makeCluster} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.cooks.distance} has been referenced but does no
+t exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.dfbetas} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.dfbeta} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.influence} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.new} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.envRefClass.Rdash.class} has been referenced bu
+t does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.pnbinom} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.optimize} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.theta.ml} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.model.matrix.default} has been referenced but d
+oes not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.model.offset} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.offset} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.family} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.glm} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.getCall} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.name} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.vcov} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.dgCMatrix} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.model.frame} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.formula} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.factor} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.model.matrix} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.drop1} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.function} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.list} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.logical} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.scale} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.matrix} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.profile} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.character} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.boot.ci} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.PBmodcomp} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.clusterExport} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.boot} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.class} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.rnorm} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.set.seed} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.ReferenceClasses} has been referenced but does 
+not exist, replaced by a fixed one
+
+</usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/
+public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt
+0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
+times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.p
+fb>
+Output written on Rd2.pdf (123 pages, 487130 bytes).
+Transcript written on Rd2.log.
+This is makeindex, version 2.17 [TeX Live 2023] (kpathsea + Thai support).
+Scanning input file Rd2.idx....done (853 entries accepted, 8 rejected).
+Sorting entries..........done (9149 comparisons).
+Generating output file Rd2.ind....done (838 lines written, 6 warnings).
+Output written in Rd2.ind.
+Transcript written in Rd2.ilg.
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./Rd2.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2023/05/17 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo))
+(/usr/share/R/share/texmf/tex/latex/Rd.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/mathrsfs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe)
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex)))))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))))
+(/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty)
+Writing index file Rd2.idx
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(./Rd2.aux) (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (./Rd2.out) (./Rd2.out)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd) [1{/var/lib/texmf/f
+onts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvip
+s/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr
+/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}] (./Rd2.toc
+[2] [3]) [4] [5]
+Overfull \hbox (31.42886pt too wide) in paragraph at lines 203--207
+\T1/ptm/m/n/10 would choose this to be the num-ber of avail-able CPUs. Use []\T
+1/zi4/m/n/10 options(allFit.ncpus=X)
+
+Overfull \hbox (23.04874pt too wide) in paragraph at lines 210--213
+[]\T1/ptm/m/n/10 (logical) Wrap model fits in []\T1/zi4/m/n/10 tryCatch []\T1/p
+tm/m/n/10 clause to skip over er-rors? ([]\T1/zi4/m/n/10 catch.errs=FALSE
+
+Overfull \hbox (15.76793pt too wide) in paragraph at lines 225--226
+\T1/ptm/m/it/10 silently \T1/ptm/m/n/10 ig-nored (in par-tic-u-lar, the []\T1/z
+i4/m/n/10 maxfun []\T1/ptm/m/n/10 spec-i-fi-ca-tion is only re-spected by []\T1
+/zi4/m/n/10 bobyqa[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 Nelder_Mead[]\T1/ptm/m/n/
+10 ,
+[6] (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+Overfull \hbox (0.66751pt too wide) in paragraph at lines 303--305
+[]\T1/ptm/m/n/10 simulated her-bivory or "clip-ping" (api-cal meris-tem dam-age
+): []\T1/zi4/m/n/10 unclipped []\T1/ptm/m/n/10 (base-line) or []\T1/zi4/m/n/10 
+clipped 
+[7{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
+Overfull \hbox (28.94879pt too wide) in paragraph at lines 381--384
+[]\T1/ptm/m/n/10 character string spec-i-fy-ing the type of boot-strap, []\T1/z
+i4/m/n/10 "parametric" []\T1/ptm/m/n/10 or []\T1/zi4/m/n/10 "semiparametric"[]\
+T1/ptm/m/n/10 ;
+[8] [9] [10] [11]
+Overfull \hbox (15.3086pt too wide) in paragraph at lines 596--599
+[]\T1/ptm/m/n/10 The []\T1/zi4/m/n/10 replicate []\T1/ptm/m/n/10 fac-tor is nes
+ted within the []\T1/zi4/m/n/10 recipe []\T1/ptm/m/n/10 fac-tor, and []\T1/zi4/
+m/n/10 temperature []\T1/ptm/m/n/10 is nested within []\T1/zi4/m/n/10 replicate
+[]\T1/ptm/m/n/10 . 
+[12]
+Overfull \hbox (14.50648pt too wide) in paragraph at lines 666--668
+[]\T1/ptm/m/n/10 Serological sta-tus was de-ter-mined us-ing a com-pet-i-tive e
+nzyme-linked immuno-sorbent as-say (cELISA). 
+[13] [14]
+Overfull \hbox (21.00677pt too wide) in paragraph at lines 774--778
+\T1/ptm/m/n/10 ram-e-ters as well as the random-effect pa-ram-e-ters on the sta
+n-dard de-vi-a-tion/correlation
+
+Overfull \hbox (0.9579pt too wide) in paragraph at lines 783--787
+[]\T1/ptm/m/n/10 (logical) use old-style names for variance-covariance pa-ram-e
+-ters, e.g. []\T1/zi4/m/n/10 ".sig01"[]\T1/ptm/m/n/10 ,
+
+Overfull \hbox (12.08884pt too wide) in paragraph at lines 783--787
+\T1/ptm/m/n/10 rather than newer (more in-for-ma-tive) names such as []\T1/zi4/
+m/n/10 "sd_(Intercept)|Subject"[]\T1/ptm/m/n/10 ?
+[15]
+Overfull \hbox (5.56734pt too wide) in paragraph at lines 876--878
+[]\T1/ptm/m/n/10 double-check the Hes-sian cal-cu-la-tion with the more ex-pen-
+sive Richard-son ex-trap-o-la-tion method
+[16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28]
+Overfull \hbox (4.92795pt too wide) in paragraph at lines 1700--1703
+[]\T1/ptm/m/n/10 a fit-ted mixed-effects model of class []\T1/zi4/m/n/10 "[][]m
+erMod[][][]"[]\T1/ptm/m/n/10 , i.e., typ-i-cally the re-sult of [][][]\T1/zi4/m
+/n/10 lmer[][][]()[]\T1/ptm/m/n/10 ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 1704--1707
+
+[29] [30]
+Underfull \hbox (badness 10000) in paragraph at lines 1782--1785
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1804--1805
+
+[31] [32]
+Overfull \hbox (27.77827pt too wide) in paragraph at lines 1919--1921
+[]\T1/ptm/m/n/10 Originally based on pack-age [][]\T1/ptm/b/n/10 SparseG-rid[][
+]\T1/ptm/m/n/10 's hid-den []\T1/zi4/m/n/10 GQN()[]\T1/ptm/m/n/10 , then on [][
+]\T1/ptm/b/n/10 fast-GHQuad[][]\T1/ptm/m/n/10 's []\T1/zi4/m/n/10 gaussHermiteD
+ata(.)[]\T1/ptm/m/n/10 . 
+
+Overfull \hbox (29.22874pt too wide) in paragraph at lines 1948--1948
+ []\T1/zi4/m/n/9 cbind(p = ps, "E[X^p]" = with(r5,  sapply(ps, function(p) sum(
+w * z^p)))) # p=10 is wrong for 5-rule[] 
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd) [33] [34]
+Overfull \hbox (49.81862pt too wide) in paragraph at lines 2049--2054
+\T1/ptm/m/n/10 fault ac-tion ([]\T1/zi4/m/n/10 na.omit[]\T1/ptm/m/n/10 , in-her
+-ited from the `fac-tory fresh' value of []\T1/zi4/m/n/10 getOption("na.action"
+)[]\T1/ptm/m/n/10 )
+[35] [36]
+Overfull \hbox (3.98962pt too wide) in paragraph at lines 2188--2190
+[]\T1/ptm/m/n/10 arguments as for []\T1/zi4/m/n/10 glmer(.) []\T1/ptm/m/n/10 su
+ch as []\T1/zi4/m/n/10 formula[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 data[]\T1/ptm
+/m/n/10 , []\T1/zi4/m/n/10 control[]\T1/ptm/m/n/10 , etc, but \T1/ptm/m/it/10 n
+ot []\T1/zi4/m/n/10 family[]\T1/ptm/m/n/10 ! 
+
+Overfull \hbox (24.14874pt too wide) in paragraph at lines 2212--2215
+[]\T1/ptm/m/n/10 An ob-ject of class []\T1/zi4/m/n/10 glmerMod[]\T1/ptm/m/n/10 
+, for which many meth-ods are avail-able (e.g. []\T1/zi4/m/n/10 methods(class="
+glmerMod")[]\T1/ptm/m/n/10 ),
+[37]
+Overfull \hbox (18.9817pt too wide) in paragraph at lines 2222--2224
+[]\T1/ptm/m/n/10 The neg-a-tive bi-no-mial $\OML/cmm/m/it/10 ^^R$ \T1/ptm/m/n/1
+0 can be ex-tracted from a fit []\T1/zi4/m/n/10 g <- glmer.nb() []\T1/ptm/m/n/1
+0 by [][][]\T1/zi4/m/n/10 getME[][][](g, "glmer.nb.theta")[]\T1/ptm/m/n/10 . 
+[38] [39] [40] [41] [42] [43]
+Overfull \hbox (5.6403pt too wide) in paragraph at lines 2624--2627
+[]\T1/zi4/m/n/10 cooks.distance[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 dfbeta[]\T1/
+ptm/m/n/10 , or []\T1/zi4/m/n/10 dfbetas[]\T1/ptm/m/n/10 , an ob-ject re-turned
+ by []\T1/zi4/m/n/10 influence.merMod 
+
+Overfull \hbox (18.82883pt too wide) in paragraph at lines 2637--2640
+[]\T1/ptm/m/n/10 if []\T1/zi4/m/n/10 "fixed.effects" []\T1/ptm/m/n/10 (the de-f
+ault), re-turn in-flu-ence on the fixed ef-fects; if []\T1/zi4/m/n/10 "var.cov"
+[]\T1/ptm/m/n/10 ,
+[44] (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd)
+Overfull \hbox (35.2378pt too wide) in paragraph at lines 2642--2645
+[]\T1/ptm/m/n/10 number of com-pu-ta-tional cores to use if run in par-al-lel; 
+di-rectly passed to [][][]\T1/zi4/m/n/10 makeCluster[][][]()
+[45] [46] [47] [48] [49]
+Overfull \hbox (12.28697pt too wide) in paragraph at lines 2990--2993
+[]\T1/ptm/m/n/10 Andrew Gel-man and Jen-nifer Hill (2006). \T1/ptm/m/it/10 Data
+ Anal-y-sis Us-ing Re-gres-sion and Mul-ti-level/Hierarchical
+[50] [51]
+Overfull \hbox (49.81862pt too wide) in paragraph at lines 3102--3107
+\T1/ptm/m/n/10 fault ac-tion ([]\T1/zi4/m/n/10 na.omit[]\T1/ptm/m/n/10 , in-her
+-ited from the 'fac-tory fresh' value of []\T1/zi4/m/n/10 getOption("na.action"
+)[]\T1/ptm/m/n/10 )
+[52] [53]
+Overfull \hbox (24.57794pt too wide) in paragraph at lines 3232--3235
+[]\T1/ptm/m/n/10 model- or data-checking spec-i-fi-ca-tions, in short ``check-i
+ng op-tions'', such as []\T1/zi4/m/n/10 check.nobs.vs.rankZ[]\T1/ptm/m/n/10 ,
+
+Overfull \hbox (11.41006pt too wide) in paragraph at lines 3267--3267
+ []    \T1/zi4/m/n/10 check.conv.singular = .makeCC(action = "message", tol = f
+ormals(isSingular)$tol),[] 
+[54]
+Overfull \hbox (11.41006pt too wide) in paragraph at lines 3294--3294
+ []    \T1/zi4/m/n/10 check.conv.singular = .makeCC(action = "message", tol = f
+ormals(isSingular)$tol),[] 
+[55]
+Overfull \hbox (27.0789pt too wide) in paragraph at lines 3338--3346
+\T1/ptm/m/n/10 gu-ment (you may need to load the \T1/ptm/b/n/10 op-timx \T1/ptm
+/m/n/10 pack-age man-u-ally us-ing [][][]\T1/zi4/m/n/10 library[][][](optimx)[]
+\T1/ptm/m/n/10 ). 
+[56]
+Overfull \hbox (3.7484pt too wide) in paragraph at lines 3423--3429
+\T1/ptm/m/n/10 or cor-re-la-tions be-tween ran-dom ef-fects equal to +/- 1.0); 
+as for []\T1/zi4/m/n/10 check.conv.grad
+
+Overfull \hbox (3.02013pt too wide) in paragraph at lines 3452--3461
+[][][]\T1/zi4/m/n/10 Nelder_Mead[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 b
+obyqa[][][][]\T1/ptm/m/n/10 ). In par-tic-u-lar, both []\T1/zi4/m/n/10 Nelder_M
+ead []\T1/ptm/m/n/10 and []\T1/zi4/m/n/10 bobyqa []\T1/ptm/m/n/10 use []\T1/zi4
+/m/n/10 maxfun
+[57]
+Overfull \hbox (0.5591pt too wide) in paragraph at lines 3525--3528
+[][][]\T1/ptm/m/n/10 convergence[][][] and [][][]\T1/zi4/m/n/10 allFit[][][]() 
+[]\T1/ptm/m/n/10 which fits for a cou-ple of op-ti-miz-ers; [][][]\T1/zi4/m/n/1
+0 nloptwrap[][][] []\T1/ptm/m/n/10 for the []\T1/zi4/m/n/10 lmerControl()
+[58]
+Underfull \vbox (badness 3803) has occurred while \output is active [59]
+Overfull \hbox (49.81862pt too wide) in paragraph at lines 3625--3630
+\T1/ptm/m/n/10 fault ac-tion ([]\T1/zi4/m/n/10 na.omit[]\T1/ptm/m/n/10 , in-her
+-ited from the `fac-tory fresh' value of []\T1/zi4/m/n/10 getOption("na.action"
+)[]\T1/ptm/m/n/10 )
+[60] [61] [62]
+Underfull \hbox (badness 10000) in paragraph at lines 3815--3815
+[]\T1/ptm/m/it/10 Reference Classes for Re-sponse Mod-ules,
+[63] [64]
+Overfull \hbox (5.96762pt too wide) in paragraph at lines 3984--3987
+[]\T1/ptm/m/n/10 Logical. If []\T1/zi4/m/n/10 TRUE[]\T1/ptm/m/n/10 , re-turn th
+e re-stricted log-likelihood rather than the log-likelihood.
+[65]
+Overfull \hbox (41.97914pt too wide) in paragraph at lines 4053--4056
+[]\T1/ptm/m/n/10 returns the de-viance func-tion, the same as [][][]\T1/zi4/m/n
+/10 lmer[][][](*, devFunOnly=TRUE)[]\T1/ptm/m/n/10 , and [][][]\T1/zi4/m/n/10 m
+kLmerDevfun[][][]()
+[66] [67]
+Overfull \hbox (5.37856pt too wide) in paragraph at lines 4176--4185
+[]\T1/ptm/m/n/10 Other meth-ods for []\T1/zi4/m/n/10 merMod []\T1/ptm/m/n/10 ob
+-jects doc-u-mented else-where in-clude: [][][]\T1/zi4/m/n/10 fortify.merMod[][
+][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 drop1.merMod[][][][]\T1/ptm/m/n/10 ,
+
+
+Overfull \hbox (9.88098pt too wide) in paragraph at lines 4176--4185
+[][][]\T1/zi4/m/n/10 isLMM.merMod[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 
+isGLMM.merMod[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 isNLMM.merMod[][][][
+]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 isREML.merMod[][][][]\T1/ptm/m/n/10 , []
+[][]\T1/zi4/m/n/10 plot.merMod[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 pre
+dict.merMod[][][][]\T1/ptm/m/n/10 ,
+
+Overfull \hbox (29.88098pt too wide) in paragraph at lines 4176--4185
+[][][]\T1/zi4/m/n/10 profile.merMod[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/1
+0 ranef.merMod[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 refit.merMod[][][][
+]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 refitML.merMod[][][][]\T1/ptm/m/n/10 , [
+][][]\T1/zi4/m/n/10 residuals.merMod[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/
+10 sigma.merMod[][][][]\T1/ptm/m/n/10 ,
+[68] [69] [70] [71] [72] [73] [74]
+Overfull \hbox (49.81862pt too wide) in paragraph at lines 4606--4611
+\T1/ptm/m/n/10 fault ac-tion ([]\T1/zi4/m/n/10 na.omit[]\T1/ptm/m/n/10 , in-her
+-ited from the 'fac-tory fresh' value of []\T1/zi4/m/n/10 getOption("na.action"
+)[]\T1/ptm/m/n/10 )
+[75]
+Overfull \hbox (3.41803pt too wide) in paragraph at lines 4637--4639
+[]\T1/ptm/m/n/10 A model frame con-tain-ing the vari-ables needed to cre-ate an
+ [][][]\T1/zi4/m/n/10 lmerResp[][][] []\T1/ptm/m/n/10 or [][][]\T1/zi4/m/n/10 g
+lmResp[][][]
+
+Overfull \hbox (3.4384pt too wide) in paragraph at lines 4695--4699
+\T1/ptm/m/n/10 passed to in-ter-nal func-tion []\T1/zi4/m/n/10 optwrap[]\T1/ptm
+/m/n/10 , which has rel-e-vant pa-ram-e-ters []\T1/zi4/m/n/10 calc.derivs
+[76] [77] [78]
+Overfull \hbox (14.6474pt too wide) in paragraph at lines 4880--4882
+[]\T1/ptm/m/n/10 numeric scalar - rel-a-tive tol-er-ance on change in func-tion
+ val-ues (default:1e-
+[79] [80]
+pdfTeX warning (ext4): destination with the same identifier (name{Rfn.NelderMea
+d}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.4954 ...elderMead}{NelderMead-class}{NelderMead}
+                                                   [81] [82]
+Overfull \hbox (3.61707pt too wide) in paragraph at lines 5097--5099
+[]\T1/ptm/m/n/10 either a nu-meric vec-tor con-tain-ing ini-tial es-ti-mates fo
+r the non-lin-ear model
+[83] [84]
+Overfull \hbox (49.81862pt too wide) in paragraph at lines 5219--5224
+\T1/ptm/m/n/10 fault ac-tion ([]\T1/zi4/m/n/10 na.omit[]\T1/ptm/m/n/10 , in-her
+-ited from the `fac-tory fresh' value of [][][]\T1/zi4/m/n/10 getOption[][][]("
+na.action")[]\T1/ptm/m/n/10 )
+[85]
+Overfull \hbox (12.24937pt too wide) in paragraph at lines 5317--5320
+[][][]\T1/zi4/m/n/10 list[][][] []\T1/ptm/m/n/10 of con-trol pa-ram-e-ters, cor
+-re-spond-ing to []\T1/zi4/m/n/10 optCtrl = *[]\T1/ptm/m/n/10 , e.g., in [][][]
+\T1/zi4/m/n/10 lmerControl[][][]()[]\T1/ptm/m/n/10 .
+[86]
+Overfull \hbox (2.99669pt too wide) in paragraph at lines 5335--5344
+[]\T1/ptm/m/n/10 One im-por-tant dif-fer-ence be-tween the [][]\T1/ptm/b/n/10 n
+loptr[][]\T1/ptm/m/n/10 -provided im-ple-men-ta-tion of BOBYQA and the [][]\T1/
+ptm/b/n/10 minqa[][]\T1/ptm/m/n/10 -
+
+Overfull \hbox (7.3396pt too wide) in paragraph at lines 5350--5352
+[]\T1/zi4/m/n/10 environment(nloptwrap)$defaultControl []\T1/ptm/m/n/10 con-tai
+ns the de-faults, no-tably []\T1/zi4/m/n/10 algorithm
+[87] [88] [89] [90] [91] [92] [93]
+Overfull \hbox (8.46814pt too wide) in paragraph at lines 5785--5788
+[]\T1/ptm/m/n/10 a mixed-effects pro-file, i.e., of class []\T1/zi4/m/n/10 "thp
+r"[]\T1/ptm/m/n/10 , typ-i-cally re-sult-ing from [][][]\T1/zi4/m/n/10 profile[
+][][](fm)
+
+Overfull \hbox (3.20149pt too wide) in paragraph at lines 5790--5792
+[]\T1/ptm/m/n/10 a num-ber in $\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/
+n/10 1)$ \T1/ptm/m/n/10 to spec-ify up-per (and lower) bound-aries as []\T1/zi4
+/m/n/10 +/- qnorm(upper)[]\T1/ptm/m/n/10 . 
+[94] [95] [96]
+Overfull \hbox (7.61816pt too wide) in paragraph at lines 5973--5977
+[]\T1/ptm/m/n/10 random ef-fects (theta) pa-ram-e-ters; these are or-dered as i
+n []\T1/zi4/m/n/10 getME(.,"theta")[]\T1/ptm/m/n/10 ,
+
+Overfull \hbox (0.53732pt too wide) in paragraph at lines 6007--6009
+[]\T1/ptm/m/n/10 tolerance for fit-ted de-viances less than base-line (sup-pos-
+edly min-i-mum) de-viance. 
+[97]
+Overfull \hbox (50.90875pt too wide) in paragraph at lines 6021--6026
+\T1/ptm/m/n/10 er-wise, names are more mean-ing-ful (but longer) of the form []
+\T1/zi4/m/n/10 (sd|cor)_(effects)|(group)[]\T1/ptm/m/n/10 .
+[98]
+Overfull \hbox (2.24715pt too wide) in paragraph at lines 6143--6143
+ []   \T1/zi4/m/n/9 system.time(tpr2 <- profile(fm01ML, which=1:2)) # , optimiz
+er="Nelder_Mead" gives warning[] 
+[99]
+Overfull \hbox (0.83856pt too wide) in paragraph at lines 6194--6198
+[]\T1/zi4/m/n/10 formatVC() []\T1/ptm/m/n/10 ``for-mat()''s the [][][]\T1/zi4/m
+/n/10 VarCorr[][][] []\T1/ptm/m/n/10 ma-trix of the ran-dom ef-fects -- for [][
+][]\T1/zi4/m/n/10 print[][][]()[]\T1/ptm/m/n/10 ing and [][][]\T1/zi4/m/n/10 sh
+ow[][][]()[]\T1/ptm/m/n/10 ing;
+[100
+pdfTeX warning (ext4): destination with the same identifier (name{Rfn..prt.meth
+Tit}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.6230 \item[\code{devianceFUN}]
+                                 the function to be used for computing the d...
+] [101]
+Underfull \vbox (badness 3803) has occurred while \output is active [102]
+Overfull \hbox (13.15036pt too wide) in paragraph at lines 6364--6377
+\T1/zi4/m/n/10 stat . ethz . ch / pipermail / r-[]sig-[]mixed-[]models / 2009q4
+ / 003115 . html$[][]\T1/ptm/m/n/10 ), []\T1/zi4/m/n/10 mcmcsamp []\T1/ptm/m/n/
+10 has been with-
+
+Overfull \hbox (6.39766pt too wide) in paragraph at lines 6401--6404
+[]\T1/ptm/m/n/10 for fixed ef-fects, F tests via Kenward-Roger ap-prox-i-ma-tio
+n us-ing []\T1/zi4/m/n/10 KRmodcomp []\T1/ptm/m/n/10 from the []\T1/zi4/m/n/10 
+pbkrtest
+[103]
+Overfull \hbox (1.26839pt too wide) in paragraph at lines 6428--6431
+[]\T1/ptm/m/n/10 When all else fails, don't for-get to keep p-values in per-spe
+c-tive: [][]$\T1/zi4/m/n/10 https : / / phdcomics . com / comics /
+[104] [105]
+Overfull \hbox (25.58878pt too wide) in paragraph at lines 6632--6637
+\T1/ptm/m/n/10 be a data frame with a sin-gle nu-meric col-umn, e.g. as pro-duc
+ed by []\T1/zi4/m/n/10 simulate(object)[]\T1/ptm/m/n/10 . 
+[106] [107] [108] [109] [110]
+Overfull \hbox (3.91922pt too wide) in paragraph at lines 6904--6912
+[][][]\T1/zi4/m/n/10 residuals.lm[][][] []\T1/ptm/m/n/10 and [][][]\T1/zi4/m/n/
+10 residuals.glm[][][] []\T1/ptm/m/n/10 re-spec-tively. In par-tic-u-lar, the d
+e-fault []\T1/zi4/m/n/10 type []\T1/ptm/m/n/10 is []\T1/zi4/m/n/10 "response"[]
+\T1/ptm/m/n/10 ,
+
+Overfull \hbox (16.36906pt too wide) in paragraph at lines 6904--6912
+\T1/ptm/m/n/10 i.e. (observed-fitted) for []\T1/zi4/m/n/10 lmerMod []\T1/ptm/m/
+n/10 ob-jects vs. []\T1/zi4/m/n/10 "deviance" []\T1/ptm/m/n/10 for []\T1/zi4/m/
+n/10 glmerMod []\T1/ptm/m/n/10 ob-jects. []\T1/zi4/m/n/10 type="partial"
+
+Overfull \hbox (18.76877pt too wide) in paragraph at lines 6912--6922
+[]\T1/ptm/m/n/10 Note that the mean-ing of []\T1/zi4/m/n/10 "pearson" []\T1/ptm
+/m/n/10 resid-u-als dif-fers be-tween [][][]\T1/zi4/m/n/10 residuals.lm[][][] [
+]\T1/ptm/m/n/10 and [][][]\T1/zi4/m/n/10 residuals.lme[][][][]\T1/ptm/m/n/10 .
+[111] [112] [113] [114]
+Overfull \hbox (34.76772pt too wide) in paragraph at lines 7132--7138
+\T1/ptm/m/n/10 For neg-a-tive bi-no-mial fits, the overdis-per-sion pa-ram-e-te
+r is spec-i-fied via the fam-ily, e.g. []\T1/zi4/m/n/10 simulate(...,
+[115] [116] [117]
+Overfull \hbox (0.75983pt too wide) in paragraph at lines 7340--7345
+[]\T1/zi4/m/n/10 Model is nearly unidentifiable ... Rescale variables? []\T1/pt
+m/m/n/10 The Hes-sian (in-verse cur-va-ture
+
+Overfull \hbox (1.76021pt too wide) in paragraph at lines 7345--7354
+[]\T1/zi4/m/n/10 Contrasts can be applied only to factors with 2 or more levels
+ []\T1/ptm/m/n/10 One or more of the cat-
+[118]
+Overfull \hbox (1.25012pt too wide) in paragraph at lines 7390--7393
+[][][]\T1/zi4/m/n/10 merMod[][][][]\T1/ptm/m/n/10 . For []\T1/zi4/m/n/10 as.dat
+a.frame[]\T1/ptm/m/n/10 , a []\T1/zi4/m/n/10 VarCorr.merMod []\T1/ptm/m/n/10 ob
+-ject re-turned from []\T1/zi4/m/n/10 VarCorr[]\T1/ptm/m/n/10 . 
+
+Overfull \hbox (26.80685pt too wide) in paragraph at lines 7396--7400
+[]\T1/ptm/m/n/10 arrange data frame with vari-ances/standard de-vi-a-tions firs
+t and co-vari-ances/correlations
+
+Overfull \hbox (0.47768pt too wide) in paragraph at lines 7415--7421
+\T1/ptm/m/n/10 pre-ci-sion for print-ing) and []\T1/zi4/m/n/10 comp[]\T1/ptm/m/
+n/10 : the lat-ter is a char-ac-ter vec-tor with any com-bi-na-tion of []\T1/zi
+4/m/n/10 "Variance"
+[119] [120] [121]
+Overfull \hbox (10.29692pt too wide) in paragraph at lines 7594--7597
+[]\T1/ptm/m/n/10 (logical) in-di-cates whether the cor-re-la-tion ma-trix as we
+ll as the variance-covariance
+[122] [123]
+Overfull \hbox (149.28088pt too wide) in paragraph at lines 7701--7705
+\T1/zi4/m/n/10 archive . org / web / 20221128003829 / https : / / old . bear . 
+berkeley . edu / page / materials-[]explanatory-[]item-[]response-[]models$[][]
+\T1/ptm/m/n/10 ,
+(./Rd2.ind [124]
+
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 75.
+
+[125] [126] [127] [128] [129]) (./Rd2.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+Package rerunfilecheck Warning: File `Rd2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)
+pdfTeX warning (dest): name{Rfn.na.fail} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.residuals.lme} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.residuals.glm} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.residuals.lm} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.simulate} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.qqmath} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.dotplot} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.df.residual} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.BIC} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.AIC} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.call} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.numeric} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.cat} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.as.data.frame} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.data.frame} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.log} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.na.pass} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.terms} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.splom} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.densityplot} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.xyplot} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.abs} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.getOption} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.deriv} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.selfStart} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.SSlogis} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.SSbiexp} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.environment} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.anova} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.update.formula} has been referenced but does no
+t exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.symnum} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.extractAIC} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.summary} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.residuals} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.qqnorm} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.print} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.predict} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.plot} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.pairs} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.logLik} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.fitted} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.confint} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.coef} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.as} has been referenced but does not exist, rep
+laced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.show} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.methods} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.stop} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.warning} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.options} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.rankMatrix} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.library} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.optim} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.nlminb} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.bobyqa} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.lm} has been referenced but does not exist, rep
+laced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.update} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.reformulate} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.as.formula} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.influence.measures} has been referenced but doe
+s not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.infIndexPlot} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.makeCluster} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.cooks.distance} has been referenced but does no
+t exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.dfbetas} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.dfbeta} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.influence} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.new} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.envRefClass.Rdash.class} has been referenced bu
+t does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.pnbinom} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.optimize} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.theta.ml} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.model.matrix.default} has been referenced but d
+oes not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.model.offset} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.offset} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.family} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.glm} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.getCall} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.name} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.vcov} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.dgCMatrix} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.model.frame} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.formula} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.factor} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.model.matrix} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.drop1} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.function} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.list} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.logical} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.scale} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.matrix} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.profile} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.character} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.boot.ci} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.PBmodcomp} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.clusterExport} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.boot} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.class} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.rnorm} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.set.seed} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.ReferenceClasses} has been referenced but does 
+not exist, replaced by a fixed one
+
+</usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/
+public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt
+0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
+times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.p
+fb>
+Output written on Rd2.pdf (129 pages, 530172 bytes).
+Transcript written on Rd2.log.
+This is makeindex, version 2.17 [TeX Live 2023] (kpathsea + Thai support).
+Scanning input file Rd2.idx....done (853 entries accepted, 8 rejected).
+Sorting entries..........done (9154 comparisons).
+Generating output file Rd2.ind....done (846 lines written, 6 warnings).
+Output written in Rd2.ind.
+Transcript written in Rd2.ilg.
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./Rd2.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2023/05/17 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo))
+(/usr/share/R/share/texmf/tex/latex/Rd.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/mathrsfs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe)
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex)))))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))))
+(/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty)
+Writing index file Rd2.idx
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(./Rd2.aux) (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (./Rd2.out) (./Rd2.out)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd) [1{/var/lib/texmf/f
+onts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvip
+s/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr
+/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}] (./Rd2.toc
+[2] [3]) [4] [5]
+Overfull \hbox (31.42886pt too wide) in paragraph at lines 203--207
+\T1/ptm/m/n/10 would choose this to be the num-ber of avail-able CPUs. Use []\T
+1/zi4/m/n/10 options(allFit.ncpus=X)
+
+Overfull \hbox (23.04874pt too wide) in paragraph at lines 210--213
+[]\T1/ptm/m/n/10 (logical) Wrap model fits in []\T1/zi4/m/n/10 tryCatch []\T1/p
+tm/m/n/10 clause to skip over er-rors? ([]\T1/zi4/m/n/10 catch.errs=FALSE
+
+Overfull \hbox (15.76793pt too wide) in paragraph at lines 225--226
+\T1/ptm/m/it/10 silently \T1/ptm/m/n/10 ig-nored (in par-tic-u-lar, the []\T1/z
+i4/m/n/10 maxfun []\T1/ptm/m/n/10 spec-i-fi-ca-tion is only re-spected by []\T1
+/zi4/m/n/10 bobyqa[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 Nelder_Mead[]\T1/ptm/m/n/
+10 ,
+[6] (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+Overfull \hbox (0.66751pt too wide) in paragraph at lines 303--305
+[]\T1/ptm/m/n/10 simulated her-bivory or "clip-ping" (api-cal meris-tem dam-age
+): []\T1/zi4/m/n/10 unclipped []\T1/ptm/m/n/10 (base-line) or []\T1/zi4/m/n/10 
+clipped 
+[7{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
+[8]
+Overfull \hbox (28.94879pt too wide) in paragraph at lines 381--384
+[]\T1/ptm/m/n/10 character string spec-i-fy-ing the type of boot-strap, []\T1/z
+i4/m/n/10 "parametric" []\T1/ptm/m/n/10 or []\T1/zi4/m/n/10 "semiparametric"[]\
+T1/ptm/m/n/10 ;
+[9] [10] [11]
+Overfull \hbox (15.3086pt too wide) in paragraph at lines 596--599
+[]\T1/ptm/m/n/10 The []\T1/zi4/m/n/10 replicate []\T1/ptm/m/n/10 fac-tor is nes
+ted within the []\T1/zi4/m/n/10 recipe []\T1/ptm/m/n/10 fac-tor, and []\T1/zi4/
+m/n/10 temperature []\T1/ptm/m/n/10 is nested within []\T1/zi4/m/n/10 replicate
+[]\T1/ptm/m/n/10 . 
+[12]
+Overfull \hbox (14.50648pt too wide) in paragraph at lines 666--668
+[]\T1/ptm/m/n/10 Serological sta-tus was de-ter-mined us-ing a com-pet-i-tive e
+nzyme-linked immuno-sorbent as-say (cELISA). 
+[13] [14]
+Overfull \hbox (21.00677pt too wide) in paragraph at lines 774--778
+\T1/ptm/m/n/10 ram-e-ters as well as the random-effect pa-ram-e-ters on the sta
+n-dard de-vi-a-tion/correlation
+
+Overfull \hbox (0.9579pt too wide) in paragraph at lines 783--787
+[]\T1/ptm/m/n/10 (logical) use old-style names for variance-covariance pa-ram-e
+-ters, e.g. []\T1/zi4/m/n/10 ".sig01"[]\T1/ptm/m/n/10 ,
+
+Overfull \hbox (12.08884pt too wide) in paragraph at lines 783--787
+\T1/ptm/m/n/10 rather than newer (more in-for-ma-tive) names such as []\T1/zi4/
+m/n/10 "sd_(Intercept)|Subject"[]\T1/ptm/m/n/10 ?
+[15] [16]
+Overfull \hbox (5.56734pt too wide) in paragraph at lines 876--878
+[]\T1/ptm/m/n/10 double-check the Hes-sian cal-cu-la-tion with the more ex-pen-
+sive Richard-son ex-trap-o-la-tion method
+[17] [18]
+Underfull \vbox (badness 3803) has occurred while \output is active [19]
+[20] [21] [22] [23] [24] [25] [26] [27] [28] [29]
+Overfull \hbox (4.92795pt too wide) in paragraph at lines 1700--1703
+[]\T1/ptm/m/n/10 a fit-ted mixed-effects model of class []\T1/zi4/m/n/10 "[][]m
+erMod[][][]"[]\T1/ptm/m/n/10 , i.e., typ-i-cally the re-sult of [][][]\T1/zi4/m
+/n/10 lmer[][][]()[]\T1/ptm/m/n/10 ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 1704--1707
+
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 1782--1785
+
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 1804--1805
+
+[32] [33]
+Overfull \hbox (27.77827pt too wide) in paragraph at lines 1919--1921
+[]\T1/ptm/m/n/10 Originally based on pack-age [][]\T1/ptm/b/n/10 SparseG-rid[][
+]\T1/ptm/m/n/10 's hid-den []\T1/zi4/m/n/10 GQN()[]\T1/ptm/m/n/10 , then on [][
+]\T1/ptm/b/n/10 fast-GHQuad[][]\T1/ptm/m/n/10 's []\T1/zi4/m/n/10 gaussHermiteD
+ata(.)[]\T1/ptm/m/n/10 . 
+
+Overfull \hbox (29.22874pt too wide) in paragraph at lines 1948--1948
+ []\T1/zi4/m/n/9 cbind(p = ps, "E[X^p]" = with(r5,  sapply(ps, function(p) sum(
+w * z^p)))) # p=10 is wrong for 5-rule[] 
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd) [34] [35]
+Overfull \hbox (49.81862pt too wide) in paragraph at lines 2049--2054
+\T1/ptm/m/n/10 fault ac-tion ([]\T1/zi4/m/n/10 na.omit[]\T1/ptm/m/n/10 , in-her
+-ited from the `fac-tory fresh' value of []\T1/zi4/m/n/10 getOption("na.action"
+)[]\T1/ptm/m/n/10 )
+[36] [37]
+Overfull \hbox (3.98962pt too wide) in paragraph at lines 2188--2190
+[]\T1/ptm/m/n/10 arguments as for []\T1/zi4/m/n/10 glmer(.) []\T1/ptm/m/n/10 su
+ch as []\T1/zi4/m/n/10 formula[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 data[]\T1/ptm
+/m/n/10 , []\T1/zi4/m/n/10 control[]\T1/ptm/m/n/10 , etc, but \T1/ptm/m/it/10 n
+ot []\T1/zi4/m/n/10 family[]\T1/ptm/m/n/10 ! 
+
+Overfull \hbox (24.14874pt too wide) in paragraph at lines 2212--2215
+[]\T1/ptm/m/n/10 An ob-ject of class []\T1/zi4/m/n/10 glmerMod[]\T1/ptm/m/n/10 
+, for which many meth-ods are avail-able (e.g. []\T1/zi4/m/n/10 methods(class="
+glmerMod")[]\T1/ptm/m/n/10 ),
+[38]
+Overfull \hbox (18.9817pt too wide) in paragraph at lines 2222--2224
+[]\T1/ptm/m/n/10 The neg-a-tive bi-no-mial $\OML/cmm/m/it/10 ^^R$ \T1/ptm/m/n/1
+0 can be ex-tracted from a fit []\T1/zi4/m/n/10 g <- glmer.nb() []\T1/ptm/m/n/1
+0 by [][][]\T1/zi4/m/n/10 getME[][][](g, "glmer.nb.theta")[]\T1/ptm/m/n/10 . 
+[39] [40] [41] [42] [43] [44]
+Overfull \hbox (5.6403pt too wide) in paragraph at lines 2624--2627
+[]\T1/zi4/m/n/10 cooks.distance[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 dfbeta[]\T1/
+ptm/m/n/10 , or []\T1/zi4/m/n/10 dfbetas[]\T1/ptm/m/n/10 , an ob-ject re-turned
+ by []\T1/zi4/m/n/10 influence.merMod 
+
+Overfull \hbox (18.82883pt too wide) in paragraph at lines 2637--2640
+[]\T1/ptm/m/n/10 if []\T1/zi4/m/n/10 "fixed.effects" []\T1/ptm/m/n/10 (the de-f
+ault), re-turn in-flu-ence on the fixed ef-fects; if []\T1/zi4/m/n/10 "var.cov"
+[]\T1/ptm/m/n/10 ,
+[45] (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd)
+Overfull \hbox (35.2378pt too wide) in paragraph at lines 2642--2645
+[]\T1/ptm/m/n/10 number of com-pu-ta-tional cores to use if run in par-al-lel; 
+di-rectly passed to [][][]\T1/zi4/m/n/10 makeCluster[][][]()
+[46] [47] [48] [49] [50]
+Overfull \hbox (12.28697pt too wide) in paragraph at lines 2990--2993
+[]\T1/ptm/m/n/10 Andrew Gel-man and Jen-nifer Hill (2006). \T1/ptm/m/it/10 Data
+ Anal-y-sis Us-ing Re-gres-sion and Mul-ti-level/Hierarchical
+[51] [52]
+Overfull \hbox (49.81862pt too wide) in paragraph at lines 3102--3107
+\T1/ptm/m/n/10 fault ac-tion ([]\T1/zi4/m/n/10 na.omit[]\T1/ptm/m/n/10 , in-her
+-ited from the 'fac-tory fresh' value of []\T1/zi4/m/n/10 getOption("na.action"
+)[]\T1/ptm/m/n/10 )
+[53] [54]
+Overfull \hbox (24.57794pt too wide) in paragraph at lines 3232--3235
+[]\T1/ptm/m/n/10 model- or data-checking spec-i-fi-ca-tions, in short ``check-i
+ng op-tions'', such as []\T1/zi4/m/n/10 check.nobs.vs.rankZ[]\T1/ptm/m/n/10 ,
+
+Overfull \hbox (11.41006pt too wide) in paragraph at lines 3267--3267
+ []    \T1/zi4/m/n/10 check.conv.singular = .makeCC(action = "message", tol = f
+ormals(isSingular)$tol),[] 
+[55]
+Overfull \hbox (11.41006pt too wide) in paragraph at lines 3294--3294
+ []    \T1/zi4/m/n/10 check.conv.singular = .makeCC(action = "message", tol = f
+ormals(isSingular)$tol),[] 
+[56]
+Overfull \hbox (27.0789pt too wide) in paragraph at lines 3338--3346
+\T1/ptm/m/n/10 gu-ment (you may need to load the \T1/ptm/b/n/10 op-timx \T1/ptm
+/m/n/10 pack-age man-u-ally us-ing [][][]\T1/zi4/m/n/10 library[][][](optimx)[]
+\T1/ptm/m/n/10 ). 
+[57]
+Overfull \hbox (3.7484pt too wide) in paragraph at lines 3423--3429
+\T1/ptm/m/n/10 or cor-re-la-tions be-tween ran-dom ef-fects equal to +/- 1.0); 
+as for []\T1/zi4/m/n/10 check.conv.grad
+
+Overfull \hbox (3.02013pt too wide) in paragraph at lines 3452--3461
+[][][]\T1/zi4/m/n/10 Nelder_Mead[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 b
+obyqa[][][][]\T1/ptm/m/n/10 ). In par-tic-u-lar, both []\T1/zi4/m/n/10 Nelder_M
+ead []\T1/ptm/m/n/10 and []\T1/zi4/m/n/10 bobyqa []\T1/ptm/m/n/10 use []\T1/zi4
+/m/n/10 maxfun
+[58]
+Overfull \hbox (0.5591pt too wide) in paragraph at lines 3525--3528
+[][][]\T1/ptm/m/n/10 convergence[][][] and [][][]\T1/zi4/m/n/10 allFit[][][]() 
+[]\T1/ptm/m/n/10 which fits for a cou-ple of op-ti-miz-ers; [][][]\T1/zi4/m/n/1
+0 nloptwrap[][][] []\T1/ptm/m/n/10 for the []\T1/zi4/m/n/10 lmerControl()
+[59]
+Underfull \vbox (badness 3803) has occurred while \output is active [60]
+Overfull \hbox (49.81862pt too wide) in paragraph at lines 3625--3630
+\T1/ptm/m/n/10 fault ac-tion ([]\T1/zi4/m/n/10 na.omit[]\T1/ptm/m/n/10 , in-her
+-ited from the `fac-tory fresh' value of []\T1/zi4/m/n/10 getOption("na.action"
+)[]\T1/ptm/m/n/10 )
+[61] [62] [63]
+Underfull \hbox (badness 10000) in paragraph at lines 3815--3815
+[]\T1/ptm/m/it/10 Reference Classes for Re-sponse Mod-ules,
+[64] [65]
+Overfull \hbox (5.96762pt too wide) in paragraph at lines 3984--3987
+[]\T1/ptm/m/n/10 Logical. If []\T1/zi4/m/n/10 TRUE[]\T1/ptm/m/n/10 , re-turn th
+e re-stricted log-likelihood rather than the log-likelihood.
+[66]
+Overfull \hbox (41.97914pt too wide) in paragraph at lines 4053--4056
+[]\T1/ptm/m/n/10 returns the de-viance func-tion, the same as [][][]\T1/zi4/m/n
+/10 lmer[][][](*, devFunOnly=TRUE)[]\T1/ptm/m/n/10 , and [][][]\T1/zi4/m/n/10 m
+kLmerDevfun[][][]()
+[67] [68]
+Overfull \hbox (5.37856pt too wide) in paragraph at lines 4176--4185
+[]\T1/ptm/m/n/10 Other meth-ods for []\T1/zi4/m/n/10 merMod []\T1/ptm/m/n/10 ob
+-jects doc-u-mented else-where in-clude: [][][]\T1/zi4/m/n/10 fortify.merMod[][
+][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 drop1.merMod[][][][]\T1/ptm/m/n/10 ,
+
+
+Overfull \hbox (9.88098pt too wide) in paragraph at lines 4176--4185
+[][][]\T1/zi4/m/n/10 isLMM.merMod[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 
+isGLMM.merMod[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 isNLMM.merMod[][][][
+]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 isREML.merMod[][][][]\T1/ptm/m/n/10 , []
+[][]\T1/zi4/m/n/10 plot.merMod[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 pre
+dict.merMod[][][][]\T1/ptm/m/n/10 ,
+
+Overfull \hbox (29.88098pt too wide) in paragraph at lines 4176--4185
+[][][]\T1/zi4/m/n/10 profile.merMod[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/1
+0 ranef.merMod[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 refit.merMod[][][][
+]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 refitML.merMod[][][][]\T1/ptm/m/n/10 , [
+][][]\T1/zi4/m/n/10 residuals.merMod[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/
+10 sigma.merMod[][][][]\T1/ptm/m/n/10 ,
+[69] [70] [71] [72] [73] [74] [75]
+Overfull \hbox (49.81862pt too wide) in paragraph at lines 4606--4611
+\T1/ptm/m/n/10 fault ac-tion ([]\T1/zi4/m/n/10 na.omit[]\T1/ptm/m/n/10 , in-her
+-ited from the 'fac-tory fresh' value of []\T1/zi4/m/n/10 getOption("na.action"
+)[]\T1/ptm/m/n/10 )
+[76]
+Overfull \hbox (3.41803pt too wide) in paragraph at lines 4637--4639
+[]\T1/ptm/m/n/10 A model frame con-tain-ing the vari-ables needed to cre-ate an
+ [][][]\T1/zi4/m/n/10 lmerResp[][][] []\T1/ptm/m/n/10 or [][][]\T1/zi4/m/n/10 g
+lmResp[][][]
+
+Overfull \hbox (3.4384pt too wide) in paragraph at lines 4695--4699
+\T1/ptm/m/n/10 passed to in-ter-nal func-tion []\T1/zi4/m/n/10 optwrap[]\T1/ptm
+/m/n/10 , which has rel-e-vant pa-ram-e-ters []\T1/zi4/m/n/10 calc.derivs
+[77] [78] [79]
+Overfull \hbox (14.6474pt too wide) in paragraph at lines 4880--4882
+[]\T1/ptm/m/n/10 numeric scalar - rel-a-tive tol-er-ance on change in func-tion
+ val-ues (default:1e-
+[80] [81]
+pdfTeX warning (ext4): destination with the same identifier (name{Rfn.NelderMea
+d}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.4954 ...elderMead}{NelderMead-class}{NelderMead}
+                                                   [82] [83]
+Overfull \hbox (3.61707pt too wide) in paragraph at lines 5097--5099
+[]\T1/ptm/m/n/10 either a nu-meric vec-tor con-tain-ing ini-tial es-ti-mates fo
+r the non-lin-ear model
+[84] [85]
+Overfull \hbox (49.81862pt too wide) in paragraph at lines 5219--5224
+\T1/ptm/m/n/10 fault ac-tion ([]\T1/zi4/m/n/10 na.omit[]\T1/ptm/m/n/10 , in-her
+-ited from the `fac-tory fresh' value of [][][]\T1/zi4/m/n/10 getOption[][][]("
+na.action")[]\T1/ptm/m/n/10 )
+[86]
+Overfull \hbox (12.24937pt too wide) in paragraph at lines 5317--5320
+[][][]\T1/zi4/m/n/10 list[][][] []\T1/ptm/m/n/10 of con-trol pa-ram-e-ters, cor
+-re-spond-ing to []\T1/zi4/m/n/10 optCtrl = *[]\T1/ptm/m/n/10 , e.g., in [][][]
+\T1/zi4/m/n/10 lmerControl[][][]()[]\T1/ptm/m/n/10 .
+[87]
+Overfull \hbox (2.99669pt too wide) in paragraph at lines 5335--5344
+[]\T1/ptm/m/n/10 One im-por-tant dif-fer-ence be-tween the [][]\T1/ptm/b/n/10 n
+loptr[][]\T1/ptm/m/n/10 -provided im-ple-men-ta-tion of BOBYQA and the [][]\T1/
+ptm/b/n/10 minqa[][]\T1/ptm/m/n/10 -
+
+Overfull \hbox (7.3396pt too wide) in paragraph at lines 5350--5352
+[]\T1/zi4/m/n/10 environment(nloptwrap)$defaultControl []\T1/ptm/m/n/10 con-tai
+ns the de-faults, no-tably []\T1/zi4/m/n/10 algorithm
+[88] [89] [90] [91] [92] [93] [94]
+Overfull \hbox (8.46814pt too wide) in paragraph at lines 5785--5788
+[]\T1/ptm/m/n/10 a mixed-effects pro-file, i.e., of class []\T1/zi4/m/n/10 "thp
+r"[]\T1/ptm/m/n/10 , typ-i-cally re-sult-ing from [][][]\T1/zi4/m/n/10 profile[
+][][](fm)
+
+Overfull \hbox (3.20149pt too wide) in paragraph at lines 5790--5792
+[]\T1/ptm/m/n/10 a num-ber in $\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/
+n/10 1)$ \T1/ptm/m/n/10 to spec-ify up-per (and lower) bound-aries as []\T1/zi4
+/m/n/10 +/- qnorm(upper)[]\T1/ptm/m/n/10 . 
+[95] [96] [97]
+Overfull \hbox (7.61816pt too wide) in paragraph at lines 5973--5977
+[]\T1/ptm/m/n/10 random ef-fects (theta) pa-ram-e-ters; these are or-dered as i
+n []\T1/zi4/m/n/10 getME(.,"theta")[]\T1/ptm/m/n/10 ,
+
+Overfull \hbox (0.53732pt too wide) in paragraph at lines 6007--6009
+[]\T1/ptm/m/n/10 tolerance for fit-ted de-viances less than base-line (sup-pos-
+edly min-i-mum) de-viance. 
+[98]
+Overfull \hbox (50.90875pt too wide) in paragraph at lines 6021--6026
+\T1/ptm/m/n/10 er-wise, names are more mean-ing-ful (but longer) of the form []
+\T1/zi4/m/n/10 (sd|cor)_(effects)|(group)[]\T1/ptm/m/n/10 .
+[99]
+Overfull \hbox (2.24715pt too wide) in paragraph at lines 6143--6143
+ []   \T1/zi4/m/n/9 system.time(tpr2 <- profile(fm01ML, which=1:2)) # , optimiz
+er="Nelder_Mead" gives warning[] 
+[100]
+Overfull \hbox (0.83856pt too wide) in paragraph at lines 6194--6198
+[]\T1/zi4/m/n/10 formatVC() []\T1/ptm/m/n/10 ``for-mat()''s the [][][]\T1/zi4/m
+/n/10 VarCorr[][][] []\T1/ptm/m/n/10 ma-trix of the ran-dom ef-fects -- for [][
+][]\T1/zi4/m/n/10 print[][][]()[]\T1/ptm/m/n/10 ing and [][][]\T1/zi4/m/n/10 sh
+ow[][][]()[]\T1/ptm/m/n/10 ing;
+[101
+pdfTeX warning (ext4): destination with the same identifier (name{Rfn..prt.meth
+Tit}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.6230 \item[\code{devianceFUN}]
+                                 the function to be used for computing the d...
+] [102]
+Underfull \vbox (badness 3803) has occurred while \output is active [103]
+Overfull \hbox (13.15036pt too wide) in paragraph at lines 6364--6377
+\T1/zi4/m/n/10 stat . ethz . ch / pipermail / r-[]sig-[]mixed-[]models / 2009q4
+ / 003115 . html$[][]\T1/ptm/m/n/10 ), []\T1/zi4/m/n/10 mcmcsamp []\T1/ptm/m/n/
+10 has been with-
+
+Overfull \hbox (6.39766pt too wide) in paragraph at lines 6401--6404
+[]\T1/ptm/m/n/10 for fixed ef-fects, F tests via Kenward-Roger ap-prox-i-ma-tio
+n us-ing []\T1/zi4/m/n/10 KRmodcomp []\T1/ptm/m/n/10 from the []\T1/zi4/m/n/10 
+pbkrtest
+[104]
+Overfull \hbox (1.26839pt too wide) in paragraph at lines 6428--6431
+[]\T1/ptm/m/n/10 When all else fails, don't for-get to keep p-values in per-spe
+c-tive: [][]$\T1/zi4/m/n/10 https : / / phdcomics . com / comics /
+[105] [106]
+Overfull \hbox (25.58878pt too wide) in paragraph at lines 6632--6637
+\T1/ptm/m/n/10 be a data frame with a sin-gle nu-meric col-umn, e.g. as pro-duc
+ed by []\T1/zi4/m/n/10 simulate(object)[]\T1/ptm/m/n/10 . 
+[107] [108] [109] [110] [111]
+Overfull \hbox (3.91922pt too wide) in paragraph at lines 6904--6912
+[][][]\T1/zi4/m/n/10 residuals.lm[][][] []\T1/ptm/m/n/10 and [][][]\T1/zi4/m/n/
+10 residuals.glm[][][] []\T1/ptm/m/n/10 re-spec-tively. In par-tic-u-lar, the d
+e-fault []\T1/zi4/m/n/10 type []\T1/ptm/m/n/10 is []\T1/zi4/m/n/10 "response"[]
+\T1/ptm/m/n/10 ,
+
+Overfull \hbox (16.36906pt too wide) in paragraph at lines 6904--6912
+\T1/ptm/m/n/10 i.e. (observed-fitted) for []\T1/zi4/m/n/10 lmerMod []\T1/ptm/m/
+n/10 ob-jects vs. []\T1/zi4/m/n/10 "deviance" []\T1/ptm/m/n/10 for []\T1/zi4/m/
+n/10 glmerMod []\T1/ptm/m/n/10 ob-jects. []\T1/zi4/m/n/10 type="partial"
+
+Overfull \hbox (18.76877pt too wide) in paragraph at lines 6912--6922
+[]\T1/ptm/m/n/10 Note that the mean-ing of []\T1/zi4/m/n/10 "pearson" []\T1/ptm
+/m/n/10 resid-u-als dif-fers be-tween [][][]\T1/zi4/m/n/10 residuals.lm[][][] [
+]\T1/ptm/m/n/10 and [][][]\T1/zi4/m/n/10 residuals.lme[][][][]\T1/ptm/m/n/10 .
+[112] [113] [114] [115]
+Overfull \hbox (34.76772pt too wide) in paragraph at lines 7132--7138
+\T1/ptm/m/n/10 For neg-a-tive bi-no-mial fits, the overdis-per-sion pa-ram-e-te
+r is spec-i-fied via the fam-ily, e.g. []\T1/zi4/m/n/10 simulate(...,
+[116] [117] [118]
+Overfull \hbox (0.75983pt too wide) in paragraph at lines 7340--7345
+[]\T1/zi4/m/n/10 Model is nearly unidentifiable ... Rescale variables? []\T1/pt
+m/m/n/10 The Hes-sian (in-verse cur-va-ture
+
+Overfull \hbox (1.76021pt too wide) in paragraph at lines 7345--7354
+[]\T1/zi4/m/n/10 Contrasts can be applied only to factors with 2 or more levels
+ []\T1/ptm/m/n/10 One or more of the cat-
+[119]
+Overfull \hbox (1.25012pt too wide) in paragraph at lines 7390--7393
+[][][]\T1/zi4/m/n/10 merMod[][][][]\T1/ptm/m/n/10 . For []\T1/zi4/m/n/10 as.dat
+a.frame[]\T1/ptm/m/n/10 , a []\T1/zi4/m/n/10 VarCorr.merMod []\T1/ptm/m/n/10 ob
+-ject re-turned from []\T1/zi4/m/n/10 VarCorr[]\T1/ptm/m/n/10 . 
+
+Overfull \hbox (26.80685pt too wide) in paragraph at lines 7396--7400
+[]\T1/ptm/m/n/10 arrange data frame with vari-ances/standard de-vi-a-tions firs
+t and co-vari-ances/correlations
+
+Overfull \hbox (0.47768pt too wide) in paragraph at lines 7415--7421
+\T1/ptm/m/n/10 pre-ci-sion for print-ing) and []\T1/zi4/m/n/10 comp[]\T1/ptm/m/
+n/10 : the lat-ter is a char-ac-ter vec-tor with any com-bi-na-tion of []\T1/zi
+4/m/n/10 "Variance"
+[120] [121] [122]
+Overfull \hbox (10.29692pt too wide) in paragraph at lines 7594--7597
+[]\T1/ptm/m/n/10 (logical) in-di-cates whether the cor-re-la-tion ma-trix as we
+ll as the variance-covariance
+[123] [124]
+Overfull \hbox (149.28088pt too wide) in paragraph at lines 7701--7705
+\T1/zi4/m/n/10 archive . org / web / 20221128003829 / https : / / old . bear . 
+berkeley . edu / page / materials-[]explanatory-[]item-[]response-[]models$[][]
+\T1/ptm/m/n/10 ,
+(./Rd2.ind [125]
+
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 75.
+
+[126] [127] [128] [129] [130]) (./Rd2.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ )
+(see the transcript file for additional information)
+pdfTeX warning (dest): name{Rfn.na.fail} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.residuals.lme} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.residuals.glm} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.residuals.lm} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.simulate} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.qqmath} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.dotplot} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.df.residual} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.BIC} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.AIC} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.call} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.numeric} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.cat} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.as.data.frame} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.data.frame} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.log} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.na.pass} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.terms} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.splom} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.densityplot} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.xyplot} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.abs} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.getOption} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.deriv} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.selfStart} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.SSlogis} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.SSbiexp} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.environment} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.anova} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.update.formula} has been referenced but does no
+t exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.symnum} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.extractAIC} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.summary} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.residuals} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.qqnorm} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.print} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.predict} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.plot} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.pairs} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.logLik} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.fitted} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.confint} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.coef} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.as} has been referenced but does not exist, rep
+laced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.show} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.methods} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.stop} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.warning} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.options} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.rankMatrix} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.library} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.optim} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.nlminb} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.bobyqa} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.lm} has been referenced but does not exist, rep
+laced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.update} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.reformulate} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.as.formula} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.influence.measures} has been referenced but doe
+s not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.infIndexPlot} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.makeCluster} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.cooks.distance} has been referenced but does no
+t exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.dfbetas} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.dfbeta} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.influence} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.new} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.envRefClass.Rdash.class} has been referenced bu
+t does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.pnbinom} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.optimize} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.theta.ml} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.model.matrix.default} has been referenced but d
+oes not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.model.offset} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.offset} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.family} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.glm} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.getCall} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.name} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.vcov} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.dgCMatrix} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.model.frame} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.formula} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.factor} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.model.matrix} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.drop1} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.function} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.list} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.logical} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.scale} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.matrix} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.profile} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.character} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.boot.ci} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.PBmodcomp} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.clusterExport} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.boot} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.class} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.rnorm} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.set.seed} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.ReferenceClasses} has been referenced but does 
+not exist, replaced by a fixed one
+
+</usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/
+public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt
+0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
+times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.p
+fb>
+Output written on Rd2.pdf (130 pages, 530337 bytes).
+Transcript written on Rd2.log.
+Saving output to ‘lme4-manual.pdf’ ...
+Done
+You may want to clean up by 'rm -Rf /tmp/RtmpOnB5Hv/Rd2pdf2038f41ccf221'

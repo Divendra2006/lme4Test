@@ -1,0 +1,91 @@
+
+R version 4.4.3 (2025-02-28) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ## original code was designed to detect segfaults/hangs from error handling
+> 
+> library(lme4)
+Loading required package: Matrix
+> set.seed(101)
+> d <- expand.grid(block = LETTERS[1:26],
++                  rep = 1:100)
+> d$x <- runif(nrow(d))
+> reff_f <- rnorm(length(levels(d$block)),sd=1)
+> ## need intercept large enough to avoid negative values
+> d$eta0 <- 4+3*d$x  ## version without random effects
+> d$eta <- d$eta0+reff_f[d$block]
+> ## inverse link
+> d$mu <- 1/d$eta
+> d$y <- rgamma(nrow(d), scale=d$mu/2, shape=2)
+> 
+> if (.Platform$OS.type != "windows") {
++ gm0     <- glmer(y ~      1|block,  d, Gamma)
++ gm0.A25 <- glmer(y ~      1|block,  d, Gamma, nAGQ=25L)
++ gm1     <- glmer(y ~ x + (1|block), d, Gamma)
++ gm1.A25 <- glmer(y ~ x + (1|block), d, Gamma, nAGQ=25L)
++ 
++ ## strange things happening for logLik  ==> AIC, etc for nAGQ ???
++ anova(gm0, gm1)
++ anova(gm0, gm0.A25)
++ anova(gm1, gm1.A25)
++ 
++ summary(gm1) # "fine"
++ summary(gm1.A25) # Inf logLik etc ?
++ 
++ }
+Generalized linear mixed model fit by maximum likelihood (Adaptive
+  Gauss-Hermite Quadrature, nAGQ = 25) [glmerMod]
+ Family: Gamma  ( inverse )
+Formula: y ~ x + (1 | block)
+   Data: d
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+      Inf       Inf      -Inf       Inf      2596 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-1.4253 -0.7327 -0.2273  0.4677  5.8018 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ block    (Intercept) 0.5301   0.7281  
+ Residual             0.4804   0.6931  
+Number of obs: 2600, groups:  block, 26
+
+Fixed effects:
+            Estimate Std. Error t value Pr(>|z|)    
+(Intercept)   4.0725     0.1895   21.49   <2e-16 ***
+x             3.0806     0.2491   12.37   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+  (Intr)
+x -0.531
+optimizer (Nelder_Mead) convergence code: 0 (OK)
+Gradient contains NAs
+
+Warning messages:
+1: In vcov(object, use.hessian = use.hessian) :
+  variance-covariance matrix computed from finite-difference Hessian is
+not positive definite or contains NA values: falling back to var-cov estimated from RX
+2: In vcov.merMod(object, correlation = correlation, sigm = sig) :
+  variance-covariance matrix computed from finite-difference Hessian is
+not positive definite or contains NA values: falling back to var-cov estimated from RX
+> 
+> proc.time()
+   user  system elapsed 
+  1.445   0.070   1.510 
