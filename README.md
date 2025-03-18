@@ -12,9 +12,9 @@ The `lme4` package is a widely used R package for fitting and analyzing linear, 
 1. Installing the dependencies of `lme4`.
 2. Building the `lme4` source tarball.
 3. Running `R CMD check` on the tarball.
-4. Saving the check output.
+4. Saving the check output`(lme4_easyTest_report)`.
 
-This repository contains the shell script, check output, and other relevant files for the task.
+This repository contains the shell script, check output, DESCRIPTION, lme4_easyTest_report.Rmd and lme4_easyTest_report.html file for the task.
 
 ---
 
